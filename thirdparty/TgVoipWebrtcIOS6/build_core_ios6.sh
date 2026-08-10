@@ -35,7 +35,7 @@ tgcalls/v2/Signaling.cpp
 
 if [ -n "$THEOS" ] && [ -d "$THEOS/toolchain/linux/iphone/bin" ]; then
   CLANG="$THEOS/toolchain/linux/iphone/bin/clang++"
-  AR="$THEOS/toolchain/linux/iphone/bin/ar"
+  AR="llvm-ar"
   SYSROOT=$(ls -d $THEOS/sdks/iPhoneOS*.sdk | head -n 1)
   CXXFLAGS="$CXXFLAGS -isysroot $SYSROOT -target armv7-apple-ios"
 else
