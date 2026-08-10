@@ -25,7 +25,7 @@ jobs:
       - name: Build TgVoipWebrtcIOS6Core
         run: |
           mkdir -p thirdparty/TgVoipWebrtcIOS6/lib
-          ./thirdparty/TgVoipWebrtcIOS6/build_core_ios6_universal.sh
+          ./thirdparty/TgVoipWebrtcIOS6/build_core_ios6_universal.sh > build_log.txt 2>&1 || (cat build_log.txt && exit 1)
 
       - name: Build UofsTg Package
         run: |
