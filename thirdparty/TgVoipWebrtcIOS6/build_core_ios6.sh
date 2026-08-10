@@ -14,7 +14,7 @@ if [ "$SDK" = "iphoneos" ]; then
 else
   MIN_VERSION="-mios-simulator-version-min=6.0"
 fi
-CXXFLAGS="-arch $ARCH -std=c++11 -stdlib=libc++ $MIN_VERSION -DTGCALLS_IOS6_AUDIO_ONLY=1"
+CXXFLAGS="-arch $ARCH -std=c++14 -stdlib=libc++ $MIN_VERSION -DTGCALLS_IOS6_AUDIO_ONLY=1"
 INCLUDES="-I$ROOT/include -I$SRC -I$SRC/tgcalls -I$ROOT/../../Telegraph/thirdparty/opus/include/opus -I$ROOT/../../submodules/libtgvoip -include $ROOT/compat_force_include.h"
 
 SOURCES="
