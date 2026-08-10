@@ -1,88 +1,40 @@
-# Twelve
+# UofsTg
 
-[Русская версия](README_RU.md)
+UofsTg is an unofficial Telegram client for iOS 6. It is a fork of [Twelve](https://github.com/theanazerka/twelve-project), which in turn is based on the official Telegram for iOS source code. 
 
-Twelve is an unofficial Telegram client for iOS 6, based on the official Telegram for iOS source code. The project is internally named **Twelvium**, while the application itself is called **Twelve**.
+UofsTg brings a heavily refactored user interface that completely removes any modern "flat" design elements and forces an ultimate skeuomorphic iOS 6 style throughout the entire application.
 
-The goal of the project is to keep Telegram usable on legacy Apple devices and provide an optional interface inspired by the original iOS 6 version of Telegram.
+## ⚠️ Compatibility Warning
 
-> This project is not affiliated with or endorsed by Telegram Messenger.
+UofsTg is a work in progress. Some modern Telegram features may be unavailable or unstable because the client is based on a legacy codebase and runs on an operating system released in 2012.
 
-## Features
+## Compiling UofsTg
 
-- Support for iOS 6.0 and later
-- iPhone and iPad layouts
-- Optional classic iOS 6 appearance
-- Telegram chats, groups and channels
-- Media, stickers and voice messages
-- Compatibility fixes for the current Telegram infrastructure
-- Interface and assets adapted for legacy devices
+To compile the project, you need an environment with the [Theos](https://github.com/theos/theos) toolchain and an iOS 6.0 SDK. 
 
-## Project status
-
-Twelve is a work in progress. Some modern Telegram features may be unavailable or unstable because the client is based on a legacy codebase and runs on an operating system released in 2012.
-
-Bug reports and tested fixes are welcome.
-
-## Building
-
-### Requirements
-
-- macOS with a compatible version of Xcode
-- iOS 6.1 SDK or another toolchain capable of targeting iOS 6
-- Your own Telegram API ID and API hash
-- An Apple signing identity for installation on a physical device
-
-### Steps
-
-1. Clone the repository, including its submodules:
-
+### Local Compilation (macOS/Linux)
+1. Clone this repository with submodules:
    ```bash
-   git clone --recursive https://github.com/theanazerka/twelve-project.git
-   cd twelve-project
+   git clone --recursive https://github.com/Uofi113/uofstg.git
+   cd uofstg
    ```
-
-2. Create a local configuration file:
-
+2. Build the `.deb` package:
    ```bash
-   cp config.h.example config.h
+   cd theos/Twelvium
+   make package
    ```
+3. The compiled `.deb` will be in `theos/Twelvium/packages`.
 
-3. Add your own Telegram API credentials to `config.h`.
+### Automated GitHub Actions Build
+This repository is configured to automatically build UofsTg using GitHub Actions upon pushing to the `master` or `main` branch. Check the **Actions** tab on your GitHub repository to download the resulting `.deb` artifact.
 
-4. Open `Telegram.xcworkspace` in Xcode.
+## Installation
 
-5. Select the `Telegraph` scheme and configure your bundle identifier and signing settings.
-
-6. Build for an iOS device or simulator.
-
-Do not publish `config.h`, signing certificates, provisioning profiles or other private credentials.
-
-## IPA packaging
-
-After Xcode produces `Telegram.app`, an unsigned IPA can be packaged with:
-
-```bash
-mkdir -p Payload
-cp -R /path/to/Telegram.app Payload/
-zip -r Twelve.ipa Payload
-```
-
-Signing and installation are handled separately.
-
-## Credits
-
-- Telegram — original Telegram for iOS source code
-- Everyone who tests Twelve and reports bugs
+You can install the `.deb` package on a jailbroken iOS 6 device using **iFile**, **Filza**, or via SSH.
 
 ## License
 
-Twelve is distributed under the [GNU General Public License v2.0 or later](LICENSE), consistently with the original Telegram for iOS code.
+UofsTg is distributed under the [GNU General Public License v2.0 or later](LICENSE), consistently with the original Telegram for iOS code.
 
-Copyright © 2026 [theanazerka](https://github.com/theanazerka) for the original Twelve/Twelvium modifications and project assets.
-
-Forks and redistributed copies must preserve the copyright notices, the GPL license and the attribution contained in [NOTICE](NOTICE):
-
+Copyright © 2026 Uofist (@uofist) for UofsTg specific modifications.
 > Based on Twelve by theanazerka — https://github.com/theanazerka/twelve-project
-
-Third-party components remain subject to their respective licenses.
