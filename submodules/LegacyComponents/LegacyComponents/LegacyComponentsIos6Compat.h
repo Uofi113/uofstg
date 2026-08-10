@@ -7,7 +7,7 @@
 // SDK 6 compatibility classes must not reuse names that became system classes
 // on iOS 7-10. The aliases keep the legacy fallback implementations private
 // while preserving the existing source API for the old compiler.
-#if __IPHONE_OS_VERSION_MAX_ALLOWED < 70000
+#if 0 // #if __IPHONE_OS_VERSION_MAX_ALLOWED < 70000
 #define UIPercentDrivenInteractiveTransition TGIOS6PercentDrivenInteractiveTransition
 #define NSURLSessionConfiguration TGIOS6URLSessionConfiguration
 #define NSURLSession TGIOS6URLSession
@@ -722,21 +722,21 @@ typedef NSInteger UISemanticContentAttribute;
 #define UIInterfaceOrientationUnknown ((UIInterfaceOrientation)0)
 #endif
 
-#ifndef UIUserInterfaceSizeClassUnspecified
+#if 0 // #ifndef UIUserInterfaceSizeClassUnspecified
 typedef NSInteger UIUserInterfaceSizeClass;
 #define UIUserInterfaceSizeClassUnspecified 0
 #define UIUserInterfaceSizeClassCompact 1
 #define UIUserInterfaceSizeClassRegular 2
 #endif
 
-#ifndef UIKeyInputUpArrow
+#if 0 // #ifndef UIKeyInputUpArrow
 #define UIKeyInputUpArrow @"\uF700"
 #define UIKeyInputDownArrow @"\uF701"
 #define UIKeyInputLeftArrow @"\uF702"
 #define UIKeyInputRightArrow @"\uF703"
 #endif
 
-#ifndef UIKeyInputUpArrow
+#if 0 // #ifndef UIKeyInputUpArrow
 #define UIKeyInputUpArrow @"\uF700"
 #define UIKeyInputDownArrow @"\uF701"
 #define UIKeyInputLeftArrow @"\uF702"
@@ -744,11 +744,11 @@ typedef NSInteger UIUserInterfaceSizeClass;
 #define UIKeyInputEscape @"\033"
 #endif
 
-#ifndef UIKeyInputEscape
+#if 0 // #ifndef UIKeyInputEscape
 #define UIKeyInputEscape @"\033"
 #endif
 
-#ifndef UIKeyModifierAlphaShift
+#if 0 // #ifndef UIKeyModifierAlphaShift
 typedef NSUInteger UIKeyModifierFlags;
 @interface UIKeyCommand : NSObject
 @property (nonatomic, readonly) NSString *input;
@@ -763,7 +763,7 @@ typedef NSUInteger UIKeyModifierFlags;
 #define UIKeyModifierNumericPad (1 << 21)
 #endif
 
-#if __IPHONE_OS_VERSION_MAX_ALLOWED < 70000
+#if 0 // #if __IPHONE_OS_VERSION_MAX_ALLOWED < 70000
 @protocol CAAnimationDelegate;
 @class NSTextContainer;
 @interface NSTextAttachment : NSObject
@@ -809,7 +809,7 @@ typedef NSUInteger UIKeyModifierFlags;
 @end
 #endif
 
-#ifndef __IPHONE_9_0
+#if 0 // #ifndef __IPHONE_9_0
 @protocol UIViewControllerPreviewingDelegate <NSObject>
 @end
 typedef NSInteger UIDocumentPickerMode;
@@ -843,7 +843,7 @@ typedef NSInteger UIPreviewActionStyle;
 @end
 #endif
 
-#ifndef UIForceTouchCapabilityAvailable
+#if 0 // #ifndef UIForceTouchCapabilityAvailable
 typedef NSInteger UIForceTouchCapability;
 #define UIForceTouchCapabilityUnknown 0
 #define UIForceTouchCapabilityUnavailable 1
@@ -899,7 +899,7 @@ typedef NSInteger UIForceTouchCapability;
 
 #ifndef TG_LEGACY_ACCESSIBILITY_INVERT_COLORS_DECLS
 #define TG_LEGACY_ACCESSIBILITY_INVERT_COLORS_DECLS
-#ifndef UIViewKeyframeAnimationOptionCalculationModeLinear
+#if 0 // #ifndef UIViewKeyframeAnimationOptionCalculationModeLinear
 typedef NSUInteger UIViewKeyframeAnimationOptions;
 #define UIViewKeyframeAnimationOptionCalculationModeLinear 0
 #endif
@@ -929,7 +929,7 @@ typedef NSUInteger UIViewKeyframeAnimationOptions;
 #define TG_LEGACY_NSData_BASE64_DECLS
 typedef NSUInteger NSDataBase64DecodingOptions;
 typedef NSUInteger NSDataBase64EncodingOptions;
-#ifndef NSDataBase64DecodingIgnoreUnknownCharacters
+#if 0 // #ifndef NSDataBase64DecodingIgnoreUnknownCharacters
 #define NSDataBase64DecodingIgnoreUnknownCharacters 1
 #endif
 @interface NSData (LegacyComponentsBase64Declarations)
@@ -942,7 +942,7 @@ typedef NSUInteger NSDataBase64EncodingOptions;
 #ifndef TG_LEGACY_GALLERY_CONTROLLER_DECLS
 #define TG_LEGACY_GALLERY_CONTROLLER_DECLS
 typedef NSUInteger UIRectEdge;
-#ifndef UIRectEdgeNone
+#if 0 // #ifndef UIRectEdgeNone
 #define UIRectEdgeNone 0
 #define UIRectEdgeTop (1 << 0)
 #define UIRectEdgeLeft (1 << 1)
@@ -961,7 +961,7 @@ typedef NSUInteger UIRectEdge;
 @interface UIAlertController : UIViewController
 @end
 typedef NSInteger UIAlertActionStyle;
-#ifndef UIAlertActionStyleDefault
+#if 0 // #ifndef UIAlertActionStyleDefault
 #define UIAlertActionStyleDefault 0
 #define UIAlertActionStyleCancel 1
 #define UIAlertActionStyleDestructive 2
@@ -984,10 +984,10 @@ typedef NSInteger UIAlertActionStyle;
 #define TG_LEGACY_COLLECTION_TRANSITION_DECLS
 typedef void (^UICollectionViewLayoutInteractiveTransitionCompletion)(BOOL completed, BOOL finish);
 typedef NSInteger UIScrollViewContentInsetAdjustmentBehavior;
-#ifndef UIScrollViewContentInsetAdjustmentNever
+#if 0 // #ifndef UIScrollViewContentInsetAdjustmentNever
 #define UIScrollViewContentInsetAdjustmentNever 2
 #endif
-#ifndef UISemanticContentAttributeForceLeftToRight
+#if 0 // #ifndef UISemanticContentAttributeForceLeftToRight
 #define UISemanticContentAttributeForceLeftToRight 3
 #define UISemanticContentAttributeForceRightToLeft 4
 #endif
@@ -1023,7 +1023,7 @@ typedef NSInteger UIScrollViewContentInsetAdjustmentBehavior;
 
 #ifndef TG_LEGACY_NSSTRING_DRAWING_DECLS
 #define TG_LEGACY_NSSTRING_DRAWING_DECLS
-#ifndef NSStringDrawingUsesLineFragmentOrigin
+#if 0 // #ifndef NSStringDrawingUsesLineFragmentOrigin
 #define NSStringDrawingUsesLineFragmentOrigin (1 << 0)
 #define NSStringDrawingUsesFontLeading (1 << 1)
 #define NSStringDrawingUsesDeviceMetrics (1 << 3)
@@ -1048,7 +1048,7 @@ typedef NSInteger UIScrollViewContentInsetAdjustmentBehavior;
 #ifndef TG_LEGACY_APP_DELEGATE_IOS8_DECLS
 #define TG_LEGACY_APP_DELEGATE_IOS8_DECLS
 typedef NSUInteger UIBackgroundFetchResult;
-#ifndef UIBackgroundFetchResultNewData
+#if 0 // #ifndef UIBackgroundFetchResultNewData
 #define UIBackgroundFetchResultNewData 0
 #define UIBackgroundFetchResultNoData 1
 #define UIBackgroundFetchResultFailed 2
@@ -1067,7 +1067,7 @@ typedef NSUInteger UIBackgroundFetchResult;
 @interface NSFileManager (TGLegacySecurityApplicationGroupDeclarations)
 - (NSURL *)containerURLForSecurityApplicationGroupIdentifier:(NSString *)groupIdentifier;
 @end
-#ifndef UIApplicationOpenURLOptionsSourceApplicationKey
+#if 0 // #ifndef UIApplicationOpenURLOptionsSourceApplicationKey
 #define UIApplicationOpenURLOptionsSourceApplicationKey UIApplicationLaunchOptionsSourceApplicationKey
 #endif
 #endif
