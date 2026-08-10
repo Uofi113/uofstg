@@ -27,6 +27,11 @@ jobs:
           rm -rf ~/theos/sdks
           git clone https://github.com/theos/sdks.git ~/theos/sdks
 
+      - name: Build TgVoipWebrtcIOS6Core
+        run: |
+          mkdir -p thirdparty/TgVoipWebrtcIOS6/lib
+          ./thirdparty/TgVoipWebrtcIOS6/build_core_ios6_universal.sh
+
       - name: Build UofsTg Package
         run: |
           cp config.h.example config.h
