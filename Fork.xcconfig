@@ -1,0 +1,4 @@
+TELEGRAM_APP_NAME = UofsTg
+TELEGRAPH_BUNDLE_ID=com.example.Twelvium
+
+#include "Common.xcconfig"

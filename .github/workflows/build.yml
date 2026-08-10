@@ -1,0 +1,38 @@
+name: Build iOS 6 .deb Package
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          submodules: recursive
+
+      - name: Setup Theos
+        run: |
+          bash -c "$(curl -fsSL https://raw.githubusercontent.com/theos/theos/master/bin/install-theos)"
+          echo "THEOS=~/theos" >> $GITHUB_ENV
+
+      - name: Download iOS SDKs
+        run: |
+          git clone https://github.com/theos/sdks.git ~/theos/sdks
+
+      - name: Build UofsTg Package
+        run: |
+          cd theos/Twelvium
+          make package
+
+      - name: Upload .deb Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: UofsTg-deb-package
+          path: theos/Twelvium/packages/*.deb
