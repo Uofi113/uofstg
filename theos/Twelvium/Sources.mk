@@ -1260,49 +1260,49 @@ UOFSTG_SOURCES := \
   ../../Telegraph/TGWorkerTask.m \
   ../../Telegraph/TGYoutubeContentPropertiesActor.m \
   ../../Telegraph/TGYoutubeDataContentProperty.m \
-  ../../Telegraph/TLBotInlineMessage$botInlineMessageMediaAuto.mm \
-  ../../Telegraph/TLBotInlineMessage$botInlineMessageMediaContact.mm \
-  ../../Telegraph/TLBotInlineMessage$botInlineMessageMediaGeo.mm \
-  ../../Telegraph/TLBotInlineMessage$botInlineMessageMediaVenue.mm \
-  ../../Telegraph/TLBotInlineMessage$botInlineMessageText.mm \
-  ../../Telegraph/TLBotInlineResult$botInlineMediaResult.mm \
-  ../../Telegraph/TLBotInlineResult$botInlineResult.mm \
-  ../../Telegraph/TLChat$channel.mm \
-  ../../Telegraph/TLChat$channelForbidden.mm \
-  ../../Telegraph/TLChat$chat.mm \
-  ../../Telegraph/TLChatFull$channelFull.mm \
-  ../../Telegraph/TLChatInvite$chatInvite.mm \
-  ../../Telegraph/TLChatParticipants$chatParticipantsForbidden.mm \
-  ../../Telegraph/TLConfig$config.mm \
-  ../../Telegraph/TLDcOption$modernDcOption.mm \
-  ../../Telegraph/TLDialog$dialog.mm \
-  ../../Telegraph/TLDialog$dialogFeed.mm \
-  ../../Telegraph/TLDocumentAttribute$documentAttributeAudio.m \
+  ../../Telegraph/TLBotInlineMessage$$botInlineMessageMediaAuto.mm \
+  ../../Telegraph/TLBotInlineMessage$$botInlineMessageMediaContact.mm \
+  ../../Telegraph/TLBotInlineMessage$$botInlineMessageMediaGeo.mm \
+  ../../Telegraph/TLBotInlineMessage$$botInlineMessageMediaVenue.mm \
+  ../../Telegraph/TLBotInlineMessage$$botInlineMessageText.mm \
+  ../../Telegraph/TLBotInlineResult$$botInlineMediaResult.mm \
+  ../../Telegraph/TLBotInlineResult$$botInlineResult.mm \
+  ../../Telegraph/TLChat$$channel.mm \
+  ../../Telegraph/TLChat$$channelForbidden.mm \
+  ../../Telegraph/TLChat$$chat.mm \
+  ../../Telegraph/TLChatFull$$channelFull.mm \
+  ../../Telegraph/TLChatInvite$$chatInvite.mm \
+  ../../Telegraph/TLChatParticipants$$chatParticipantsForbidden.mm \
+  ../../Telegraph/TLConfig$$config.mm \
+  ../../Telegraph/TLDcOption$$modernDcOption.mm \
+  ../../Telegraph/TLDialog$$dialog.mm \
+  ../../Telegraph/TLDialog$$dialogFeed.mm \
+  ../../Telegraph/TLDocumentAttribute$$documentAttributeAudio.m \
   ../../Telegraph/TLDocumentAttributeSticker.mm \
-  ../../Telegraph/TLDraftMessage$draftMessage.mm \
-  ../../Telegraph/TLGame$game.mm \
+  ../../Telegraph/TLDraftMessage$$draftMessage.mm \
+  ../../Telegraph/TLGame$$game.mm \
   ../../Telegraph/TLInputMediaUploadedDocument.mm \
   ../../Telegraph/TLInputMediaUploadedPhoto.mm \
-  ../../Telegraph/TLInputPeerNotifySettings$inputPeerNotifySettings.mm \
-  ../../Telegraph/TLInputSecureValue$inputSecureValue.mm \
-  ../../Telegraph/TLInputSingleMedia$inputSingleMedia.mm \
-  ../../Telegraph/TLInvoice$invoice.mm \
+  ../../Telegraph/TLInputPeerNotifySettings$$inputPeerNotifySettings.mm \
+  ../../Telegraph/TLInputSecureValue$$inputSecureValue.mm \
+  ../../Telegraph/TLInputSingleMedia$$inputSingleMedia.mm \
+  ../../Telegraph/TLInvoice$$invoice.mm \
   ../../Telegraph/TLLangPackStringPluralized.m \
-  ../../Telegraph/TLMessage$modernMessage.mm \
-  ../../Telegraph/TLMessage$modernMessageService.mm \
-  ../../Telegraph/TLMessageAction$messageActionPhoneCall.mm \
-  ../../Telegraph/TLMessageFwdHeader$messageFwdHeader.mm \
-  ../../Telegraph/TLMessageMedia$messageMediaDocument.mm \
-  ../../Telegraph/TLMessageMedia$messageMediaInvoice.mm \
-  ../../Telegraph/TLMessageMedia$messageMediaPhoto.mm \
-  ../../Telegraph/TLMessages_BotResults$botResults.mm \
-  ../../Telegraph/TLPageBlock$pageBlockEmbed.mm \
-  ../../Telegraph/TLPaymentRequestedInfo$paymentRequestedInfo.mm \
-  ../../Telegraph/TLPayments_PaymentCeceipt$payments_paymentReceipt.mm \
+  ../../Telegraph/TLMessage$$modernMessage.mm \
+  ../../Telegraph/TLMessage$$modernMessageService.mm \
+  ../../Telegraph/TLMessageAction$$messageActionPhoneCall.mm \
+  ../../Telegraph/TLMessageFwdHeader$$messageFwdHeader.mm \
+  ../../Telegraph/TLMessageMedia$$messageMediaDocument.mm \
+  ../../Telegraph/TLMessageMedia$$messageMediaInvoice.mm \
+  ../../Telegraph/TLMessageMedia$$messageMediaPhoto.mm \
+  ../../Telegraph/TLMessages_BotResults$$botResults.mm \
+  ../../Telegraph/TLPageBlock$$pageBlockEmbed.mm \
+  ../../Telegraph/TLPaymentRequestedInfo$$paymentRequestedInfo.mm \
+  ../../Telegraph/TLPayments_PaymentCeceipt$$payments_paymentReceipt.mm \
   ../../Telegraph/TLPayments_sendPaymentForm.mm \
-  ../../Telegraph/TLPeerNotifySettings$peerNotifySettings.mm \
-  ../../Telegraph/TLPhoneCall$phoneCallDiscarded.mm \
-  ../../Telegraph/TLPhoneCall$phoneCallWaiting.mm \
+  ../../Telegraph/TLPeerNotifySettings$$peerNotifySettings.mm \
+  ../../Telegraph/TLPhoneCall$$phoneCallDiscarded.mm \
+  ../../Telegraph/TLPhoneCall$$phoneCallWaiting.mm \
   ../../Telegraph/TLRPCaccount_acceptAuthorization.mm \
   ../../Telegraph/TLRPCaccount_deleteSecureValue.mm \
   ../../Telegraph/TLRPCaccount_getAllSecureValues.mm \
@@ -1343,39 +1343,39 @@ UOFSTG_SOURCES := \
   ../../Telegraph/TLRPCmessages_searchStickerSets.mm \
   ../../Telegraph/TLRPCmessages_sendInlineBotResult.mm \
   ../../Telegraph/TLRPCmessages_sendMultiMedia.mm \
-  ../../Telegraph/TLSecureValue$secureValue.mm \
-  ../../Telegraph/TLStickerSet$stickerSet.mm \
-  ../../Telegraph/TLUpdate$updateChannelTooLong.m \
-  ../../Telegraph/TLUpdate$updatePinnedDialogs.mm \
-  ../../Telegraph/TLUpdate$updateReadFeed.mm \
-  ../../Telegraph/TLUpdate$updateServiceNotification.mm \
-  ../../Telegraph/TLUpdates$modernUpdateShortChatMessage.mm \
-  ../../Telegraph/TLUpdates$modernUpdateShortMessage.mm \
-  ../../Telegraph/TLUpdates$updateShortSentMessage.mm \
+  ../../Telegraph/TLSecureValue$$secureValue.mm \
+  ../../Telegraph/TLStickerSet$$stickerSet.mm \
+  ../../Telegraph/TLUpdate$$updateChannelTooLong.m \
+  ../../Telegraph/TLUpdate$$updatePinnedDialogs.mm \
+  ../../Telegraph/TLUpdate$$updateReadFeed.mm \
+  ../../Telegraph/TLUpdate$$updateServiceNotification.mm \
+  ../../Telegraph/TLUpdates$$modernUpdateShortChatMessage.mm \
+  ../../Telegraph/TLUpdates$$modernUpdateShortMessage.mm \
+  ../../Telegraph/TLUpdates$$updateShortSentMessage.mm \
   ../../Telegraph/TLUpdates+TG.m \
   ../../Telegraph/TLUpdates_ChannelDifference_manual.mm \
-  ../../Telegraph/TLUser$modernUser.mm \
-  ../../Telegraph/TLUserFull$userFull.mm \
-  ../../Telegraph/TLWebPage$webPageExternal.mm \
+  ../../Telegraph/TLUser$$modernUser.mm \
+  ../../Telegraph/TLUserFull$$userFull.mm \
+  ../../Telegraph/TLWebPage$$webPageExternal.mm \
   ../../Telegraph/TLWebPage_manual.mm \
-  ../../Telegraph/TLaccount_AuthorizationForm$account_authorizationForm.mm \
-  ../../Telegraph/TLaccount_Password$account_password.mm \
-  ../../Telegraph/TLaccount_PasswordSettings$account_passwordSettings.mm \
-  ../../Telegraph/TLaccount_updateProfile$updateProfile.m \
-  ../../Telegraph/TLauth_Authorization$auth_authorization.mm \
-  ../../Telegraph/TLauth_SentCode$auth_sentCode.mm \
+  ../../Telegraph/TLaccount_AuthorizationForm$$account_authorizationForm.mm \
+  ../../Telegraph/TLaccount_Password$$account_password.mm \
+  ../../Telegraph/TLaccount_PasswordSettings$$account_passwordSettings.mm \
+  ../../Telegraph/TLaccount_updateProfile$$updateProfile.m \
+  ../../Telegraph/TLauth_Authorization$$auth_authorization.mm \
+  ../../Telegraph/TLauth_SentCode$$auth_sentCode.mm \
   ../../Telegraph/TLchannelDifferenceTooLong.mm \
-  ../../Telegraph/TLchannels_FeedSources$channels_feedSources.mm \
-  ../../Telegraph/TLhelp_AppUpdate$help_appUpdate.mm \
-  ../../Telegraph/TLhelp_DeepLinkInfo$help_deepLinkInfo.mm \
+  ../../Telegraph/TLchannels_FeedSources$$channels_feedSources.mm \
+  ../../Telegraph/TLhelp_AppUpdate$$help_appUpdate.mm \
+  ../../Telegraph/TLhelp_DeepLinkInfo$$help_deepLinkInfo.mm \
   ../../Telegraph/TLhelp_ProxyData.mm \
-  ../../Telegraph/TLhelp_TermsOfService$help_termsOfService.mm \
-  ../../Telegraph/TLmessages_BotCallbackAnswer$botCallbackAnswer.mm \
-  ../../Telegraph/TLmessages_FeedMessages$messages_feedMessages.mm \
-  ../../Telegraph/TLmessages_Messages$modernChannelMessages.mm \
-  ../../Telegraph/TLpayments_PaymentForm$payments_paymentForm.mm \
-  ../../Telegraph/TLpayments_SavedInfo$payments_savedInfo.mm \
-  ../../Telegraph/TLpayments_ValidatedRequestedInfo$payments_validatedRequestedInfo.mm \
+  ../../Telegraph/TLhelp_TermsOfService$$help_termsOfService.mm \
+  ../../Telegraph/TLmessages_BotCallbackAnswer$$botCallbackAnswer.mm \
+  ../../Telegraph/TLmessages_FeedMessages$$messages_feedMessages.mm \
+  ../../Telegraph/TLmessages_Messages$$modernChannelMessages.mm \
+  ../../Telegraph/TLpayments_PaymentForm$$payments_paymentForm.mm \
+  ../../Telegraph/TLpayments_SavedInfo$$payments_savedInfo.mm \
+  ../../Telegraph/TLpayments_ValidatedRequestedInfo$$payments_validatedRequestedInfo.mm \
   ../../Telegraph/TransformImageView.m \
   ../../Telegraph/UIViewController+Proxy.m \
   ../../Telegraph/emoji_suggestions.cpp \
@@ -2065,14 +2065,14 @@ UOFSTG_SOURCES := \
   ../../legacy/TL/TLMetaObject.mm \
   ../../legacy/TL/TLMetaRpc.mm \
   ../../legacy/TL/TLMetaType.mm \
-  ../../legacy/TL/TLMsgsAck$msgs_ack_manual.m \
+  ../../legacy/TL/TLMsgsAck$$msgs_ack_manual.m \
   ../../legacy/TL/TLObject.mm \
   ../../legacy/TL/TLRPCmessages_sendMedia_manual.mm \
   ../../legacy/TL/TLRPCmessages_sendMessage_manual.mm \
-  ../../legacy/TL/TLResPQ$resPQ_manual.m \
+  ../../legacy/TL/TLResPQ$$resPQ_manual.m \
   ../../legacy/TL/TLRpcResult.mm \
   ../../legacy/TL/TLSerializationContext.m \
-  ../../legacy/TL/TLUpdate$updateChangePts.m \
+  ../../legacy/TL/TLUpdate$$updateChangePts.m \
   ../../legacy/TL/TLaccount_PasswordInputSettings_manual.mm \
   ../../legacy/TelegraphKit/TGAcceptEncryptionFutureAction.m \
   ../../legacy/TelegraphKit/TGActionTableView.m \
