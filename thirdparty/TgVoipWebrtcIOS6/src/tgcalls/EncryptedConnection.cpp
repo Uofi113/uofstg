@@ -54,11 +54,10 @@ uint32_t CounterFromSeq(uint32_t seq) {
     return seq & ~kSingleMessagePacketSeqBit & ~kMessageRequiresAckSeqBit;
 }
 
-absl::nullopt_t LogError(
+void LogError(
         const char *message,
         const std::string &additional = std::string()) {
     RTC_LOG(LS_ERROR) << "ERROR! " << message << additional;
-    return absl::nullopt;
 }
 
 bool ConstTimeIsDifferent(const void *a, const void *b, size_t size) {
@@ -231,7 +230,8 @@ absl::optional<EncryptedConnection::EncryptedPacket> EncryptedConnection::prepar
         messageRequiresAck ? 1 : 0);
     if (!enoughSpaceInPacket(serialized, 0)) {
         syslog(LOG_NOTICE, "IOS6WEBRTC cxx.enc.prepareInternal.tooLarge size=%lu", (unsigned long)serialized.size());
-        return LogError("Too large packet: ", std::to_string(serialized.size()));
+        LogError("Too large packet: ", std::to_string(serialized.size()));
+        return absl::nullopt;
     }
     const auto notYetAckedCopy = messageRequiresAck
         ? serialized
@@ -317,9 +317,11 @@ absl::optional<uint32_t> EncryptedConnection::computeNextSeq(
         bool messageRequiresAck,
         bool singleMessagePacket) {
     if (messageRequiresAck && _myNotYetAckedMessages.size() >= kNotAckedMessagesLimit) {
-        return LogError("Too many not ACKed messages.");
+        LogError("Too many not ACKed messages.");
+        return absl::nullopt;
     } else if (_counter == kMaxAllowedCounter) {
-        return LogError("Outgoing packet limit reached.");
+        LogError("Outgoing packet limit reached.");
+        return absl::nullopt;
     }
 
     return (++_counter)
@@ -468,7 +470,8 @@ bool EncryptedConnection::registerIncomingCounter(uint32_t incomingCounter) {
 auto EncryptedConnection::handleIncomingPacket(const char *bytes, size_t size)
 -> absl::optional<DecryptedPacket> {
     if (size < 21 || size > kMaxIncomingPacketSize) {
-        return LogError("Bad incoming packet size: ", std::to_string(size));
+        LogError("Bad incoming packet size: ", std::to_string(size));
+        return absl::nullopt;
     }
 
     const auto x = (_key.isOutgoing ? 8 : 0) + (_type == Type::Signaling ? 128 : 0);
@@ -489,21 +492,24 @@ auto EncryptedConnection::handleIncomingPacket(const char *bytes, size_t size)
         MemorySpan{ key + 88 + x, 32 },
         MemorySpan{ decryptionBuffer.data(), decryptionBuffer.size() });
     if (ConstTimeIsDifferent(msgKeyLarge.data() + 8, msgKey, 16)) {
-        return LogError("Bad incoming data hash.");
+        LogError("Bad incoming data hash.");
+        return absl::nullopt;
     }
 
     const auto incomingSeq = ReadSeq(decryptionBuffer.data());
     const auto incomingCounter = CounterFromSeq(incomingSeq);
     if (!registerIncomingCounter(incomingCounter)) {
         // We've received that packet already.
-        return LogError("Already handled packet received.", std::to_string(incomingCounter));
+        LogError("Already handled packet received.", std::to_string(incomingCounter));
+        return absl::nullopt;
     }
     return processPacket(decryptionBuffer, incomingSeq);
 }
 
 absl::optional<EncryptedConnection::DecryptedRawPacket> EncryptedConnection::handleIncomingRawPacket(const char *bytes, size_t size) {
     if (size < 21 || size > kMaxIncomingPacketSize) {
-        return LogError("Bad incoming packet size: ", std::to_string(size));
+        LogError("Bad incoming packet size: ", std::to_string(size));
+        return absl::nullopt;
     }
 
     const auto x = (_key.isOutgoing ? 8 : 0) + (_type == Type::Signaling ? 128 : 0);
@@ -524,14 +530,16 @@ absl::optional<EncryptedConnection::DecryptedRawPacket> EncryptedConnection::han
         MemorySpan{ key + 88 + x, 32 },
         MemorySpan{ decryptionBuffer.data(), decryptionBuffer.size() });
     if (ConstTimeIsDifferent(msgKeyLarge.data() + 8, msgKey, 16)) {
-        return LogError("Bad incoming data hash.");
+        LogError("Bad incoming data hash.");
+        return absl::nullopt;
     }
 
     const auto incomingSeq = ReadSeq(decryptionBuffer.data());
     const auto incomingCounter = CounterFromSeq(incomingSeq);
     if (!registerIncomingCounter(incomingCounter)) {
         // We've received that packet already.
-        return LogError("Already handled packet received.", std::to_string(incomingCounter));
+        LogError("Already handled packet received.", std::to_string(incomingCounter));
+        return absl::nullopt;
     }
     return processRawPacket(decryptionBuffer, incomingSeq);
 }
@@ -557,19 +565,22 @@ auto EncryptedConnection::processPacket(
         const auto type = uint8_t(*reader.Data());
         const auto singleMessagePacket = ((currentSeq & kSingleMessagePacketSeqBit) != 0);
         if (singleMessagePacket && additionalMessage) {
-            return LogError("Single message packet bit in not first message.");
+            LogError("Single message packet bit in not first message.");
+        return absl::nullopt;
         }
 
         if (type == kEmptyId) {
             if (additionalMessage) {
-                return LogError("Empty message should be only the first one in the packet.");
+                LogError("Empty message should be only the first one in the packet.");
+        return absl::nullopt;
             }
             RTC_LOG(LS_INFO) << logHeader()
                 << "Got RECV:empty" << "#" << currentCounter;
             reader.Consume(1);
         } else if (type == kAckId) {
             if (!additionalMessage) {
-                return LogError("Ack message must not be the first one in the packet.");
+                LogError("Ack message must not be the first one in the packet.");
+        return absl::nullopt;
             }
             ackMyMessage(currentSeq);
             reader.Consume(1);
@@ -591,14 +602,17 @@ auto EncryptedConnection::processPacket(
                 appendReceivedMessage(result, std::move(*message), currentSeq);
             }
         } else {
-            return LogError("Could not parse message from packet, type: ", std::to_string(type));
+            LogError("Could not parse message from packet, type: ", std::to_string(type));
+        return absl::nullopt;
         }
         if (!reader.Length()) {
             break;
         } else if (singleMessagePacket) {
-            return LogError("Single message didn't fill the entire packet.");
+            LogError("Single message didn't fill the entire packet.");
+        return absl::nullopt;
         } else if (reader.Length() < 5) {
-            return LogError("Bad remaining data size: ", std::to_string(reader.Length()));
+            LogError("Bad remaining data size: ", std::to_string(reader.Length()));
+        return absl::nullopt;
         }
         const auto success = reader.ReadUInt32(&currentSeq);
         assert(success);
@@ -643,19 +657,22 @@ auto EncryptedConnection::processRawPacket(
         const auto type = uint8_t(*reader.Data());
         const auto singleMessagePacket = ((currentSeq & kSingleMessagePacketSeqBit) != 0);
         if (singleMessagePacket && additionalMessage) {
-            return LogError("Single message packet bit in not first message.");
+            LogError("Single message packet bit in not first message.");
+        return absl::nullopt;
         }
 
         if (type == kEmptyId) {
             if (additionalMessage) {
-                return LogError("Empty message should be only the first one in the packet.");
+                LogError("Empty message should be only the first one in the packet.");
+        return absl::nullopt;
             }
             RTC_LOG(LS_INFO) << logHeader()
                 << "Got RECV:empty" << "#" << currentCounter;
             reader.Consume(1);
         } else if (type == kAckId) {
             if (!additionalMessage) {
-                return LogError("Ack message must not be the first one in the packet.");
+                LogError("Ack message must not be the first one in the packet.");
+        return absl::nullopt;
             }
             ackMyMessage(currentSeq);
             reader.Consume(1);
@@ -680,17 +697,21 @@ auto EncryptedConnection::processRawPacket(
                     appendReceivedRawMessage(result, std::move(*message), currentSeq);
                 }
             } else {
-                return LogError("Could not parse message from packet, type: ", std::to_string(type));
+                LogError("Could not parse message from packet, type: ", std::to_string(type));
+                return absl::nullopt;
             }
         } else {
-            return LogError("Could not parse message from packet, type: ", std::to_string(type));
+            LogError("Could not parse message from packet, type: ", std::to_string(type));
+            return absl::nullopt;
         }
         if (!reader.Length()) {
             break;
         } else if (singleMessagePacket) {
-            return LogError("Single message didn't fill the entire packet.");
+            LogError("Single message didn't fill the entire packet.");
+        return absl::nullopt;
         } else if (reader.Length() < 5) {
-            return LogError("Bad remaining data size: ", std::to_string(reader.Length()));
+            LogError("Bad remaining data size: ", std::to_string(reader.Length()));
+        return absl::nullopt;
         }
         const auto success = reader.ReadUInt32(&currentSeq);
         assert(success);
