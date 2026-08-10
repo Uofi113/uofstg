@@ -28,11 +28,17 @@ jobs:
 
       - name: Build UofsTg Package
         run: |
+          cp config.h.example config.h
           cd theos/Twelvium
           make package
+          mkdir -p Payload
+          cp -r .theos/obj/debug/UofsTg.app Payload/ || cp -r .theos/obj/UofsTg.app Payload/
+          zip -r UofsTg.ipa Payload
 
-      - name: Upload .deb Artifact
+      - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: UofsTg-deb-package
-          path: theos/Twelvium/packages/*.deb
+          name: UofsTg-packages
+          path: |
+            theos/Twelvium/packages/*.deb
+            theos/Twelvium/UofsTg.ipa

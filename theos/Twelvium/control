@@ -1,5 +1,5 @@
-Package: com.example.twelvium
-Name: Twelve
+Package: com.example.uofstg
+Name: UofsTg
 Version: 0.91
 Architecture: iphoneos-arm
 Description: Clean Telegram-compatible client for iOS 6
