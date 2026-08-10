@@ -216,7 +216,7 @@ UIColor *TGSeparatorColor();
 #endif
 #endif
 
-#ifndef TG_LEGACY_UIIMPACT_FEEDBACK_DECLS
+#if 0 // #ifndef TG_LEGACY_UIIMPACT_FEEDBACK_DECLS
 #define TG_LEGACY_UIIMPACT_FEEDBACK_DECLS
 typedef NSInteger UIImpactFeedbackStyle;
 #ifndef UIImpactFeedbackStyleLight
@@ -271,7 +271,7 @@ typedef NSUInteger PKAddressField;
 #define PKAddressFieldName 8
 #endif
 
-#ifndef TG_LEGACY_UIIMPACT_FEEDBACK_DECLS
+#if 0 // #ifndef TG_LEGACY_UIIMPACT_FEEDBACK_DECLS
 #define TG_LEGACY_UIIMPACT_FEEDBACK_DECLS
 typedef NSInteger UIImpactFeedbackStyle;
 #ifndef UIImpactFeedbackStyleLight
@@ -295,7 +295,7 @@ typedef NSInteger UIScrollViewKeyboardDismissMode;
 @end
 #endif
 
-#ifndef TG_LEGACY_KEYBOARD_DISMISS_MODE_DECLS
+#if 0 // #ifndef TG_LEGACY_KEYBOARD_DISMISS_MODE_DECLS
 #define TG_LEGACY_KEYBOARD_DISMISS_MODE_DECLS
 typedef NSInteger UIScrollViewKeyboardDismissMode;
 #ifndef UIScrollViewKeyboardDismissModeNone
@@ -380,7 +380,7 @@ typedef NSInteger PKPaymentAuthorizationStatus;
 #define PKPaymentAuthorizationStatusSuccess 0
 #define PKPaymentAuthorizationStatusFailure 1
 #endif
-#ifndef TG_LEGACY_PASSKIT_APPLE_PAY_DECLS
+#if 0 // #ifndef TG_LEGACY_PASSKIT_APPLE_PAY_DECLS
 #define TG_LEGACY_PASSKIT_APPLE_PAY_DECLS
 static NSString *const PKPaymentNetworkAmex = @"AmEx";
 static NSString *const PKPaymentNetworkMasterCard = @"MasterCard";
@@ -472,7 +472,7 @@ typedef NSInteger PKPaymentAuthorizationStatus;
 #define PKPaymentAuthorizationStatusSuccess 0
 #define PKPaymentAuthorizationStatusFailure 1
 #endif
-#ifndef TG_LEGACY_PASSKIT_APPLE_PAY_DECLS
+#if 0 // #ifndef TG_LEGACY_PASSKIT_APPLE_PAY_DECLS
 #define TG_LEGACY_PASSKIT_APPLE_PAY_DECLS
 static NSString *const PKPaymentNetworkAmex = @"AmEx";
 static NSString *const PKPaymentNetworkMasterCard = @"MasterCard";
@@ -517,7 +517,7 @@ static NSString *const PKPaymentNetworkDiscover = @"Discover";
 - (void)paymentAuthorizationViewControllerDidFinish:(PKPaymentAuthorizationViewController *)controller;
 @end
 #endif
-#ifndef TG_LEGACY_URLSESSION_DECLS
+#if 0 // #ifndef TG_LEGACY_URLSESSION_DECLS
 #define TG_LEGACY_URLSESSION_DECLS
 typedef void (^NSURLSessionDataTaskCompletionHandler)(NSData *data, NSURLResponse *response, NSError *error);
 @interface NSURLSessionTask : NSObject
@@ -540,7 +540,7 @@ typedef void (^NSURLSessionDataTaskCompletionHandler)(NSData *data, NSURLRespons
 @end
 #endif
 
-#ifndef TG_LEGACY_SSREADINGLIST_DECLS
+#if 0 // #ifndef TG_LEGACY_SSREADINGLIST_DECLS
 #define TG_LEGACY_SSREADINGLIST_DECLS
 @interface SSReadingList : NSObject
 + (instancetype)defaultReadingList;
@@ -548,7 +548,7 @@ typedef void (^NSURLSessionDataTaskCompletionHandler)(NSData *data, NSURLRespons
 @end
 #endif
 
-#ifndef TG_LEGACY_OPTIONAL_SYSTEM_SELECTOR_DECLS
+#if 0 // #ifndef TG_LEGACY_OPTIONAL_SYSTEM_SELECTOR_DECLS
 #define TG_LEGACY_OPTIONAL_SYSTEM_SELECTOR_DECLS
 @interface NSObject (TGLegacyOptionalSystemSelectorDeclarations)
 - (id)defaultReadingList;
@@ -615,7 +615,7 @@ typedef NSInteger PKPaymentAuthorizationStatus;
 #define PKPaymentAuthorizationStatusSuccess 0
 #define PKPaymentAuthorizationStatusFailure 1
 #endif
-#ifndef TG_LEGACY_PASSKIT_APPLE_PAY_DECLS
+#if 0 // #ifndef TG_LEGACY_PASSKIT_APPLE_PAY_DECLS
 #define TG_LEGACY_PASSKIT_APPLE_PAY_DECLS
 static NSString *const PKPaymentNetworkAmex = @"AmEx";
 static NSString *const PKPaymentNetworkMasterCard = @"MasterCard";
@@ -660,7 +660,7 @@ static NSString *const PKPaymentNetworkDiscover = @"Discover";
 - (void)paymentAuthorizationViewControllerDidFinish:(PKPaymentAuthorizationViewController *)controller;
 @end
 #endif
-#ifndef TG_LEGACY_URLSESSION_DECLS
+#if 0 // #ifndef TG_LEGACY_URLSESSION_DECLS
 #define TG_LEGACY_URLSESSION_DECLS
 typedef void (^NSURLSessionDataTaskCompletionHandler)(NSData *data, NSURLResponse *response, NSError *error);
 @interface NSURLSessionTask : NSObject
@@ -680,7 +680,7 @@ typedef void (^NSURLSessionDataTaskCompletionHandler)(NSData *data, NSURLRespons
 @end
 #endif
 
-#ifndef TG_LEGACY_TRANSITION_COORDINATOR_DECLS
+#if 0 // #ifndef TG_LEGACY_TRANSITION_COORDINATOR_DECLS
 #define TG_LEGACY_TRANSITION_COORDINATOR_DECLS
 @protocol UIViewControllerTransitionCoordinatorContext <NSObject>
 @end
@@ -693,7 +693,7 @@ typedef void (^NSURLSessionDataTaskCompletionHandler)(NSData *data, NSURLRespons
 @end
 #endif
 
-#ifndef TG_LEGACY_SEMANTIC_CONTENT_DECLS
+#if 0 // #ifndef TG_LEGACY_SEMANTIC_CONTENT_DECLS
 #define TG_LEGACY_SEMANTIC_CONTENT_DECLS
 typedef NSInteger UISemanticContentAttribute;
 #ifndef UISemanticContentAttributeUnspecified
@@ -870,7 +870,7 @@ typedef NSInteger UIForceTouchCapability;
 #endif
 
 
-#ifndef TG_LEGACY_AVAUDIOSESSION_INPUT_DECLS
+#if 0 // #ifndef TG_LEGACY_AVAUDIOSESSION_INPUT_DECLS
 #define TG_LEGACY_AVAUDIOSESSION_INPUT_DECLS
 @interface AVAudioSession (LegacyComponentsInputsDeclarations)
 @property (nonatomic, readonly) NSArray *availableInputs;
