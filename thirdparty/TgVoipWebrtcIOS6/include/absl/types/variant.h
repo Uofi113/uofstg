@@ -96,17 +96,21 @@ public:
 	variant() : _active(-1) {
 	}
 
-	template <class T>
+	template <class T, typename std::enable_if<!std::is_same<typename std::decay<T>::type, variant>::value, int>::type = 0>
 	variant(const T &value) : _active(-1) {
 		setValue(value);
 	}
 
-	template <class T>
+	template <class T, typename std::enable_if<!std::is_same<typename std::decay<T>::type, variant>::value, int>::type = 0>
 	variant(T &&value) : _active(-1) {
 		setValue(std::forward<T>(value));
 	}
 
 	variant(const variant &other) : _active(other._active) {
+		tgios6_variant::copier<0, Ts...>::copy(other._active, &other._storage, &_storage);
+	}
+
+	variant(variant &&other) : _active(other._active) {
 		tgios6_variant::copier<0, Ts...>::copy(other._active, &other._storage, &_storage);
 	}
 
@@ -123,7 +127,16 @@ public:
 		return *this;
 	}
 
-	template <class T>
+	variant &operator=(variant &&other) {
+		if (this != &other) {
+			reset();
+			_active = other._active;
+			tgios6_variant::copier<0, Ts...>::copy(other._active, &other._storage, &_storage);
+		}
+		return *this;
+	}
+
+	template <class T, typename std::enable_if<!std::is_same<typename std::decay<T>::type, variant>::value, int>::type = 0>
 	variant &operator=(T &&value) {
 		setValue(std::forward<T>(value));
 		return *this;
