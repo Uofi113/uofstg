@@ -14,4 +14,5 @@ cp "$ARMV7_OUT/libTgVoipWebrtcIOS6Core.a" "$FAT_OUT"
 # Legacy Xcode turns the framework build-file reference into -lTgVoipWebrtcIOS6Core.
 # Its existing search path already includes libtgvoip/external, so expose the
 # freshly-built archive there as well.
-ln -sf "$FAT_OUT" "$ROOT/../../submodules/libtgvoip/external/libTgVoipWebrtcIOS6Core.a"
+mkdir -p "$ROOT/../../submodules/libtgvoip/external"
+ln -s -f "$ROOT/lib/libTgVoipWebrtcIOS6Core.a" "$ROOT/../../submodules/libtgvoip/external/libTgVoipWebrtcIOS6Core.a"
