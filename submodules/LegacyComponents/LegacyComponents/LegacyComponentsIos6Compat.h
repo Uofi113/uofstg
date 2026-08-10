@@ -216,6 +216,7 @@ UIColor *TGSeparatorColor();
 #endif
 #endif
 
+#if 0 // DISABLE ALL REMAINING LEGACY DECLARATIONS
 #if 0 // #ifndef TG_LEGACY_UIIMPACT_FEEDBACK_DECLS
 #define TG_LEGACY_UIIMPACT_FEEDBACK_DECLS
 typedef NSInteger UIImpactFeedbackStyle;
@@ -1159,5 +1160,6 @@ typedef NSInteger AVCaptureSessionInterruptionReason;
 #define AVCaptureSessionInterruptionReasonKey @"AVCaptureSessionInterruptionReasonKey"
 #endif
 
+#endif // DISABLE ALL REMAINING LEGACY DECLARATIONS
 #endif
 #endif
