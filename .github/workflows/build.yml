@@ -18,7 +18,9 @@ jobs:
           submodules: recursive
 
       - name: Setup Theos
-        uses: theos/actions/setup-theos@v1
+        run: |
+          bash -c "$(curl -fsSL https://raw.githubusercontent.com/theos/theos/master/bin/install-theos)"
+          echo "THEOS=~/theos" >> $GITHUB_ENV
 
       - name: Build TgVoipWebrtcIOS6Core
         run: |
