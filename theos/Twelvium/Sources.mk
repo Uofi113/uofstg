@@ -320,9 +320,7 @@ UOFSTG_SOURCES := \
   ../../Telegraph/TGDatabaseUpdateMessage.m \
   ../../Telegraph/TGDatacenterContext.mm \
   ../../Telegraph/TGDatacenterWatchdogActor.m \
-  ../../Telegraph/TGDayPresentationPallete.m \
   ../../Telegraph/TGDebugController.m \
-  ../../Telegraph/TGDefaultPresentationPallete.m \
   ../../Telegraph/TGDeleteAccountActor.m \
   ../../Telegraph/TGDeleteAccountController.m \
   ../../Telegraph/TGDeleteProfilePhotoActor.m \
@@ -725,8 +723,6 @@ UOFSTG_SOURCES := \
   ../../Telegraph/TGNetworkTypeManager.m \
   ../../Telegraph/TGNetworkUsageController.m \
   ../../Telegraph/TGNetworkWorker.m \
-  ../../Telegraph/TGNightBluePresentationPallete.m \
-  ../../Telegraph/TGNightPresentationPallete.m \
   ../../Telegraph/TGNotificationAudioPreviewView.m \
   ../../Telegraph/TGNotificationBackgroundView.m \
   ../../Telegraph/TGNotificationContactPreviewView.m \
@@ -868,7 +864,6 @@ UOFSTG_SOURCES := \
   ../../Telegraph/TGPresentation.m \
   ../../Telegraph/TGPresentationAssets.m \
   ../../Telegraph/TGPresentationImages.m \
-  ../../Telegraph/TGPresentationPallete.m \
   ../../Telegraph/TGPreviewAboutItemView.m \
   ../../Telegraph/TGPreviewAudioItemView.m \
   ../../Telegraph/TGPreviewConversationItemView.m \
