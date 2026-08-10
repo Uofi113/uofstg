@@ -3,7 +3,7 @@ set -e
 
 ROOT="$(cd "$(dirname "$0")" && pwd)"
 SRC="$ROOT/src"
-OUT="${1:-/private/tmp/tgcalls_ios6_core_build}"
+OUT="${1:-/tmp/tgcalls_ios6_core_build}"
 
 mkdir -p "$OUT"
 
