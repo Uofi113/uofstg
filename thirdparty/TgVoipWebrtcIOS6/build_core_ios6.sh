@@ -37,7 +37,7 @@ if [ -n "$THEOS" ] && [ -d "$THEOS/toolchain/linux/iphone/bin" ]; then
   CLANG="$THEOS/toolchain/linux/iphone/bin/clang++"
   AR="$THEOS/toolchain/linux/iphone/bin/ar"
   SYSROOT=$(ls -d $THEOS/sdks/iPhoneOS*.sdk | head -n 1)
-  CXXFLAGS="$CXXFLAGS -isysroot $SYSROOT"
+  CXXFLAGS="$CXXFLAGS -isysroot $SYSROOT -target armv7-apple-ios"
 else
   CLANG="xcrun --sdk $SDK clang++"
   AR="xcrun libtool -static -o"
