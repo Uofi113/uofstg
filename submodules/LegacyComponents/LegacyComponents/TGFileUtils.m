@@ -2,14 +2,17 @@
 
 #import <MobileCoreServices/MobileCoreServices.h>
 
+extern CFStringRef UTTypeCreatePreferredIdentifierForTag(CFStringRef inTagClass, CFStringRef inTag, CFStringRef inConformingToUTI);
+extern CFStringRef UTTypeCopyPreferredTagWithClass(CFStringRef inUTI, CFStringRef inTagClass);
+
 NSString *TGMimeTypeForFileExtension(NSString *fileExtension)
 {
-    return TGMimeTypeForFileUTI((__bridge_transfer NSString *)UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, (__bridge CFStringRef)fileExtension, NULL));
+    return TGMimeTypeForFileUTI((__bridge_transfer NSString *)UTTypeCreatePreferredIdentifierForTag((__bridge CFStringRef)@"public.filename-extension", (__bridge CFStringRef)fileExtension, NULL));
 }
 
 NSString *TGMimeTypeForFileUTI(NSString *fileUTI)
 {
-    NSString *mimeType = (__bridge_transfer NSString *)UTTypeCopyPreferredTagWithClass((__bridge CFStringRef)fileUTI, kUTTagClassMIMEType);
+    NSString *mimeType = (__bridge_transfer NSString *)UTTypeCopyPreferredTagWithClass((__bridge CFStringRef)fileUTI, (__bridge CFStringRef)@"public.mime-type");
     if (mimeType == nil)
         mimeType = @"application/octet-stream";
     return mimeType;

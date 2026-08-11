@@ -21,6 +21,7 @@
 
 @end
 
+extern CFStringRef UTTypeCopyPreferredTagWithClass(CFStringRef inUTI, CFStringRef inTagClass);
 
 @interface TGLegacyCameraController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 {
@@ -242,7 +243,7 @@
                             
                             [os close];
                             
-                            NSString *mimeType = (__bridge_transfer NSString*)UTTypeCopyPreferredTagWithClass((__bridge CFStringRef)[representation UTI], kUTTagClassMIMEType);
+                             NSString *mimeType = (__bridge_transfer NSString*)UTTypeCopyPreferredTagWithClass((__bridge CFStringRef)[representation UTI], (__bridge CFStringRef)@"public.mime-type");
                             
                             TGDispatchOnMainThread(^
                             {
@@ -319,7 +320,7 @@
                              
                              [os close];
                              
-                             NSString *mimeType = (__bridge_transfer NSString*)UTTypeCopyPreferredTagWithClass((__bridge CFStringRef)[representation UTI], kUTTagClassMIMEType);
+                              NSString *mimeType = (__bridge_transfer NSString*)UTTypeCopyPreferredTagWithClass((__bridge CFStringRef)[representation UTI], (__bridge CFStringRef)@"public.mime-type");
                              
                              TGDispatchOnMainThread(^
                                                     {
