@@ -7,7 +7,11 @@
 //
 
 #import "RMRootViewController.h"
+#import "RMGeometry.h"
 
+#ifndef IPAD
+#define IPAD ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad)
+#endif
 @interface RMRootViewController ()
 
 @end
