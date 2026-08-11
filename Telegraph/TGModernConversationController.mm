@@ -9896,7 +9896,7 @@ typedef enum {
     
     TGLegacyCameraController *legacyCameraController = [[TGLegacyCameraController alloc] initWithContext:[TGLegacyComponentsContext shared]];
     legacyCameraController.sourceType = UIImagePickerControllerSourceTypeCamera;
-    legacyCameraController.mediaTypes = [[NSArray alloc] initWithObjects:(__bridge NSString *)kUTTypeImage, (__bridge NSString *)kUTTypeMovie, nil];
+    legacyCameraController.mediaTypes = [[NSArray alloc] initWithObjects:@"public.image", @"public.movie", nil];
     
     legacyCameraController.storeCapturedAssets = [_companion controllerShouldStoreCapturedAssets];
     
@@ -12541,7 +12541,7 @@ static UIView *_findBackArrow(UIView *view)
                             if (image != nil)
                             {
                                 if (text.length > 0)
-                                    [UIPasteboard generalPasteboard].items = @[ @{(NSString *)kUTTypePNG: image}, @{(NSString *)kUTTypeUTF8PlainText: text} ];
+                                    [UIPasteboard generalPasteboard].items = @[ @{@"public.png": image}, @{@"public.utf8-plain-text": text} ];
                                 else
                                     [[UIPasteboard generalPasteboard] setImage:image];
                             }
