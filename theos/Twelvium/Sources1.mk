@@ -593,4 +593,31 @@ libuofs1_FILES = ../../Share/TGProgressAlert.m \
 ../../Telegraph/TGMessageReplyButtonsModel.m \
 ../../Telegraph/TGMessageSearchSignals.m \
 ../../Telegraph/TGMessageUniqueIdContentProperty.m \
-../../Telegraph/TGMessageViewModel.m
+../../Telegraph/TGMessageViewModel.m \
+../../Telegraph/TGMessageViewedContentProperty.m \
+../../Telegraph/TGMessageViewsView.m \
+../../Telegraph/TGMessageViewsViewModel.m \
+../../Telegraph/TGMessagesSearchActor.m \
+../../Telegraph/TGMigratedChannelConversationHeaderView.m \
+../../Telegraph/TGModenConcersationReplyAssociatedPanel.m \
+../../Telegraph/TGModernButtonView.m \
+../../Telegraph/TGModernButtonViewModel.m \
+../../Telegraph/TGModernCheckButtonView.m \
+../../Telegraph/TGModernCheckButtonViewModel.m \
+../../Telegraph/TGModernClockProgressView.m \
+../../Telegraph/TGModernClockProgressViewModel.m \
+../../Telegraph/TGModernCollectionCell.m \
+../../Telegraph/TGModernColorView.m \
+../../Telegraph/TGModernColorViewModel.m \
+../../Telegraph/TGModernConversationActionInputPanel.m \
+../../Telegraph/TGModernConversationActivity.m \
+../../Telegraph/TGModernConversationActivityManager.m \
+../../Telegraph/TGModernConversationAudioPlayer.m \
+../../Telegraph/TGModernConversationAudioPlayerContext.m \
+../../Telegraph/TGModernConversationAudioPreviewInputPanel.m \
+../../Telegraph/TGModernConversationAvatarButton.m \
+../../Telegraph/TGModernConversationBarButtonItem.m \
+../../Telegraph/TGModernConversationCollectionView.mm \
+../../Telegraph/TGModernConversationCollectionViewInstantPreviewRecognizer.m \
+../../Telegraph/TGModernConversationCommandsAssociatedPanel.m \
+../../Telegraph/TGModernConversationCompanion.mm
