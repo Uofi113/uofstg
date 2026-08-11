@@ -6,8 +6,6 @@
 @class TGAppDelegate;
 extern TGAppDelegate *TGAppDelegateInstance;
 
-#import "TGMediaStoreContext.h"
-
 @interface NSObject (TGOptionalSystemSelectorDeclarations)
 - (id)defaultReadingList;
 - (BOOL)addReadingListItemWithURL:(NSURL *)url title:(NSString *)title previewText:(NSString *)previewText error:(NSError **)error;
