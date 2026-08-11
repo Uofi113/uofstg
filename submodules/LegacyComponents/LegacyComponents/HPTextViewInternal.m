@@ -303,14 +303,14 @@
         NSString *text = nil;
         
         for (NSDictionary *item in pasteBoard.items) {
-            if (item[(__bridge NSString *)kUTTypeJPEG] != nil) {
-                [images addObject:item[(__bridge NSString *)kUTTypeJPEG]];
-            } else if (item[(__bridge NSString *)kUTTypePNG] != nil) {
-                [images addObject:item[(__bridge NSString *)kUTTypePNG]];
-            } else if (item[(__bridge NSString *)kUTTypeGIF] != nil) {
-                [images addObject:item[(__bridge NSString *)kUTTypeGIF]];
-            } else if (item[(__bridge NSString *)kUTTypeURL] != nil) {
-                id url = item[(__bridge NSString *)kUTTypeURL];
+            if (item[@"public.jpeg"] != nil) {
+                [images addObject:item[@"public.jpeg"]];
+            } else if (item[@"public.png"] != nil) {
+                [images addObject:item[@"public.png"]];
+            } else if (item[@"com.compuserve.gif"] != nil) {
+                [images addObject:item[@"com.compuserve.gif"]];
+            } else if (item[@"public.url"] != nil) {
+                id url = item[@"public.url"];
                 if ([url respondsToSelector:@selector(characterAtIndex:)]) {
                     text = url;
                 } else if ([url isKindOfClass:[NSURL class]]) {

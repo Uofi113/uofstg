@@ -145,7 +145,7 @@
 
 - (bool)_isGif
 {
-    return [self.uniformTypeIdentifier isEqualToString:(NSString *)kUTTypeGIF];
+    return [self.uniformTypeIdentifier isEqualToString:@"com.compuserve.gif"];
 }
 
 - (TGMediaAssetType)type

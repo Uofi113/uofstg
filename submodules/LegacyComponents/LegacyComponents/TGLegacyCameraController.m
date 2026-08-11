@@ -178,7 +178,7 @@
     NSString *mediaType = [info objectForKey:UIImagePickerControllerMediaType];
     NSURL *referenceUrl = [info objectForKey:UIImagePickerControllerReferenceURL];
     
-    if ([mediaType isEqualToString:(__bridge NSString *)kUTTypeImage])
+    if ([mediaType isEqualToString:@"public.image"])
     {
         //if (picker.sourceType == UIImagePickerControllerSourceTypeCamera)
         //    defaultFlashMode = picker.cameraFlashMode;
@@ -283,7 +283,7 @@
             }
         }
     }
-    else if ([mediaType isEqualToString:(__bridge NSString *)kUTTypeMovie])
+    else if ([mediaType isEqualToString:@"public.movie"])
     {
         id<TGLegacyCameraControllerDelegate> delegate = _completionDelegate;
         if ([delegate conformsToProtocol:@protocol(TGImagePickerControllerDelegate)])

@@ -139,7 +139,7 @@ const CGFloat TGGifConverterMaximumSide = 720.0f;
             {
                 if (videoWriterInput.isReadyForMoreMediaData)
                 {
-                    NSDictionary *options = @{ (NSString *)kCGImageSourceTypeIdentifierHint : (id)kUTTypeGIF };
+                    NSDictionary *options = @{ (NSString *)kCGImageSourceTypeIdentifierHint : (__bridge id)CFSTR("com.compuserve.gif") };
                     CGImageRef imgRef = CGImageSourceCreateImageAtIndex(source, currentFrameNumber, (__bridge CFDictionaryRef)options);
                     if (imgRef != NULL)
                     {
