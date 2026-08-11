@@ -35,5 +35,9 @@ manifest:
 verify-layout:
 	@test -f ../../config.h || (echo "Missing ../../config.h; copy config.h.example first."; exit 1)
 	@test -f ../../thirdparty/TgVoipWebrtcIOS6/lib/libTgVoipWebrtcIOS6Core.a || (echo "Missing rebuilt TgVoipWebrtcIOS6 armv7 archive."; exit 1)
+	@if [ -f "$$THEOS/sdks/iPhoneOS16.5.sdk/usr/include/simd/math.h" ]; then \
+		sed -i 's/::__sincospif/::__sincosf/g' "$$THEOS/sdks/iPhoneOS16.5.sdk/usr/include/simd/math.h" || true; \
+		sed -i 's/::__sincospi/::__sincos/g' "$$THEOS/sdks/iPhoneOS16.5.sdk/usr/include/simd/math.h" || true; \
+	fi
 
 before-all:: verify-layout
