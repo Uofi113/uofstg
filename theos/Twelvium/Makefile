@@ -14,7 +14,7 @@ UofsTg_OBJCFLAGS = -include ../../submodules/LegacyComponents/LegacyComponents/L
 UofsTg_CFLAGS += -I../../ -I../../Telegraph -I../../Telegraph/AdHoc -I../../Telegraph/API -I../../submodules/MtProtoKit -I../../submodules/LegacyComponents -I../../Telegraph/thirdparty/ogg -I../../thirdparty/libphonenumber.framework/Headers -I../../legacy/TelegraphKit -I../../legacy/TL -I../../legacy/TL/TL -I../../thirdparty/pop -I../../thirdparty/libbpg -I../../thirdparty/SSignalKit -I../../submodules/libtgvoip -I../../thirdparty/Lottie/lottie-ios/Classes/PublicHeaders -I../../thirdparty/Stripe -I../../Telegraph/thirdparty/opus/include -I../../Telegraph/thirdparty/opus/include/opus -I../../Telegraph/thirdparty/opusfile -I../../Telegraph/thirdparty/opusenc -I../../thirdparty/TgVoipWebrtcIOS6/include -I../../thirdparty/RMIntro/platform/ios -I../../thirdparty/RMIntro/platform/common -I../../thirdparty/RMIntro/core -I../../thirdparty/RMIntro/3rdparty/linmath -I../../Watch -I../../Watch/Bridge -I../../Watch/Extension -I../../Share -I../../LegacyDatabase -I../../legacy -I../../thirdparty -I../../thirdparty/lz4 -I../../thirdparty/CoubPlayer -I../../thirdparty/VideoEncoder -I../../Widget -include ../../Telegraph/TGCompat.h
 UofsTg_FRAMEWORKS = UIKit Foundation CoreGraphics QuartzCore CoreFoundation CFNetwork SystemConfiguration Security MobileCoreServices AssetsLibrary AVFoundation AudioToolbox CoreMedia CoreVideo ImageIO MapKit AddressBook EventKit MessageUI MediaPlayer OpenGLES GLKit CoreMotion QuickLook Accelerate PassKit VideoToolbox
 UofsTg_LIBRARIES = c++ z sqlite3 icucore crypto TgVoipWebrtcIOS6Core uofs1 uofs2 uofs3 uofs4 uofs5
-UofsTg_LDFLAGS = -ObjC -L../../thirdparty/TgVoipWebrtcIOS6/lib -L../../submodules/MtProtoKit/openssl/iOS -L$(THEOS_OBJ_DIR)
+UofsTg_LDFLAGS = -ObjC -L../../thirdparty/TgVoipWebrtcIOS6/lib -L../../submodules/MtProtoKit/openssl/iOS -L$(THEOS_OBJ_DIR) -force_load $(THEOS_OBJ_DIR)/libuofs1.a -force_load $(THEOS_OBJ_DIR)/libuofs2.a -force_load $(THEOS_OBJ_DIR)/libuofs3.a -force_load $(THEOS_OBJ_DIR)/libuofs4.a -force_load $(THEOS_OBJ_DIR)/libuofs5.a
 
 LIBRARY_NAME = libuofs1 libuofs2 libuofs3 libuofs4 libuofs5
 -include Sources1.mk
@@ -22,6 +22,12 @@ LIBRARY_NAME = libuofs1 libuofs2 libuofs3 libuofs4 libuofs5
 -include Sources3.mk
 -include Sources4.mk
 -include Sources5.mk
+
+libuofs1_LINKAGE_TYPE = static
+libuofs2_LINKAGE_TYPE = static
+libuofs3_LINKAGE_TYPE = static
+libuofs4_LINKAGE_TYPE = static
+libuofs5_LINKAGE_TYPE = static
 
 libuofs1_CFLAGS = $(UofsTg_CFLAGS)
 libuofs1_CCFLAGS = $(UofsTg_CCFLAGS)
