@@ -5333,10 +5333,6 @@ static unsigned int overrideIndexAbove(__unused id self, __unused SEL _cmd)
     return false;
 }
 
-- (bool)isDisplayingPasscodeWindow
-{
-    return _passcodeWindow != nil && !_passcodeWindow.hidden;
-}
 
 - (void)onBecomeInactive
 {
@@ -5731,7 +5727,7 @@ static unsigned int overrideIndexAbove(__unused id self, __unused SEL _cmd)
         contact.familyName = user.lastName;
     }
     
-    UIApplicationShortcutIcon *icon = [UIApplicationShortcutIcon iconWithContact:contact];
+    UIApplicationShortcutIcon *icon = [UIApplicationShortcutIcon iconWithContact:(id)contact];
     UIApplicationShortcutItem *item = [[UIApplicationShortcutItem alloc] initWithType:@"conversation" localizedTitle:title localizedSubtitle:nil icon:icon userInfo:@{ @"cid": @(peerId) }];
     
     return item;
