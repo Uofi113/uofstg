@@ -1,0 +1,11 @@
+#import <Foundation/Foundation.h>
+
+@interface NSObject (TGOptionalSystemSelectorDeclarations)
+- (id)defaultReadingList;
+- (BOOL)addReadingListItemWithURL:(NSURL *)url title:(NSString *)title previewText:(NSString *)previewText error:(NSError **)error;
+- (void)setEffect:(id)effect;
+- (id)effectWithStyle:(NSInteger)style;
+- (id)summaryItemWithLabel:(NSString *)label amount:(NSDecimalNumber *)amount;
+- (NSDecimalNumber *)amount;
+- (BOOL)canMakePaymentsUsingNetworks:(NSArray *)supportedNetworks;
+@end
