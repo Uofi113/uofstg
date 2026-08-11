@@ -1,4 +1,8 @@
-libuofs2_FILES = ../../Telegraph/TGMigratedChannelConversationHeaderView.m \
+libuofs2_FILES = ../../Telegraph/TGMessageViewedContentProperty.m \
+../../Telegraph/TGMessageViewsView.m \
+../../Telegraph/TGMessageViewsViewModel.m \
+../../Telegraph/TGMessagesSearchActor.m \
+../../Telegraph/TGMigratedChannelConversationHeaderView.m \
 ../../Telegraph/TGModenConcersationReplyAssociatedPanel.m \
 ../../Telegraph/TGModernButtonView.m \
 ../../Telegraph/TGModernButtonViewModel.m \
@@ -589,12 +593,4 @@ libuofs2_FILES = ../../Telegraph/TGMigratedChannelConversationHeaderView.m \
 ../../Telegraph/TGUserNode.m \
 ../../Telegraph/TGUserSignal.m \
 ../../Telegraph/TGUsernameCollectionItemView.m \
-../../Telegraph/TGUsernameController.m \
-../../Telegraph/TGUsersSection.m \
-../../Telegraph/TGVCard.m \
-../../Telegraph/TGVCardUserInfoController.m \
-../../Telegraph/TGVTAcceleratedVideoView.m \
-../../Telegraph/TGVTPlayer.m \
-../../Telegraph/TGVTPlayerView.m \
-../../Telegraph/TGVariantCollectionItem.m \
-../../Telegraph/TGVariantCollectionItemView.m
+../../Telegraph/TGUsernameController.m

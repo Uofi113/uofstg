@@ -593,8 +593,4 @@ libuofs1_FILES = ../../Share/TGProgressAlert.m \
 ../../Telegraph/TGMessageReplyButtonsModel.m \
 ../../Telegraph/TGMessageSearchSignals.m \
 ../../Telegraph/TGMessageUniqueIdContentProperty.m \
-../../Telegraph/TGMessageViewModel.m \
-../../Telegraph/TGMessageViewedContentProperty.m \
-../../Telegraph/TGMessageViewsView.m \
-../../Telegraph/TGMessageViewsViewModel.m \
-../../Telegraph/TGMessagesSearchActor.m
+../../Telegraph/TGMessageViewModel.m

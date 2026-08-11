@@ -1,4 +1,12 @@
-libuofs3_FILES = ../../Telegraph/TGVariantMenuItem.m \
+libuofs3_FILES = ../../Telegraph/TGUsersSection.m \
+../../Telegraph/TGVCard.m \
+../../Telegraph/TGVCardUserInfoController.m \
+../../Telegraph/TGVTAcceleratedVideoView.m \
+../../Telegraph/TGVTPlayer.m \
+../../Telegraph/TGVTPlayerView.m \
+../../Telegraph/TGVariantCollectionItem.m \
+../../Telegraph/TGVariantCollectionItemView.m \
+../../Telegraph/TGVariantMenuItem.m \
 ../../Telegraph/TGVariantMenuItemCell.m \
 ../../Telegraph/TGVerifyChangePhoneActor.m \
 ../../Telegraph/TGVersionCollectionItem.m \
@@ -178,6 +186,7 @@ libuofs3_FILES = ../../Telegraph/TGVariantMenuItem.m \
 ../../Telegraph/UIViewController+Proxy.m \
 ../../Telegraph/emoji_suggestions.cpp \
 ../../Telegraph/emoji_suggestions_data.cpp \
+../../Telegraph/main.m \
 ../../Telegraph/quaternion.cpp \
 ../../Telegraph/thirdparty/diag_range.c \
 ../../Telegraph/thirdparty/ogg/ogg/bitwise.c \
@@ -584,17 +593,4 @@ libuofs3_FILES = ../../Telegraph/TGVariantMenuItem.m \
 ../../legacy/TL/TL/TLRPCgeo_saveGeoPlace.mm \
 ../../legacy/TL/TL/TLRPCget_future_salts.mm \
 ../../legacy/TL/TL/TLRPChelp_getAppChangelog.mm \
-../../legacy/TL/TL/TLRPChelp_getAppPrefs.mm \
-../../legacy/TL/TL/TLRPChelp_getAppUpdate.mm \
-../../legacy/TL/TL/TLRPChelp_getCdnConfig.mm \
-../../legacy/TL/TL/TLRPChelp_getConfig.mm \
-../../legacy/TL/TL/TLRPChelp_getInviteText.mm \
-../../legacy/TL/TL/TLRPChelp_getNearestDc.mm \
-../../legacy/TL/TL/TLRPChelp_getRecentMeUrls.mm \
-../../legacy/TL/TL/TLRPChelp_getScheme.mm \
-../../legacy/TL/TL/TLRPChelp_getSupport.mm \
-../../legacy/TL/TL/TLRPChelp_saveNetworkStats.mm \
-../../legacy/TL/TL/TLRPChelp_test.mm \
-../../legacy/TL/TL/TLRPClangpack_getDifference.mm \
-../../legacy/TL/TL/TLRPClangpack_getLangPack.mm \
-../../legacy/TL/TL/TLRPClangpack_getLanguages.mm
+../../legacy/TL/TL/TLRPChelp_getAppPrefs.mm

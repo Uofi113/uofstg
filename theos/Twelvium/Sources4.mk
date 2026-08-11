@@ -1,4 +1,17 @@
-libuofs4_FILES = ../../legacy/TL/TL/TLRPClangpack_getStrings.mm \
+libuofs4_FILES = ../../legacy/TL/TL/TLRPChelp_getAppUpdate.mm \
+../../legacy/TL/TL/TLRPChelp_getCdnConfig.mm \
+../../legacy/TL/TL/TLRPChelp_getConfig.mm \
+../../legacy/TL/TL/TLRPChelp_getInviteText.mm \
+../../legacy/TL/TL/TLRPChelp_getNearestDc.mm \
+../../legacy/TL/TL/TLRPChelp_getRecentMeUrls.mm \
+../../legacy/TL/TL/TLRPChelp_getScheme.mm \
+../../legacy/TL/TL/TLRPChelp_getSupport.mm \
+../../legacy/TL/TL/TLRPChelp_saveNetworkStats.mm \
+../../legacy/TL/TL/TLRPChelp_test.mm \
+../../legacy/TL/TL/TLRPClangpack_getDifference.mm \
+../../legacy/TL/TL/TLRPClangpack_getLangPack.mm \
+../../legacy/TL/TL/TLRPClangpack_getLanguages.mm \
+../../legacy/TL/TL/TLRPClangpack_getStrings.mm \
 ../../legacy/TL/TL/TLRPCmessages_acceptEncryption.mm \
 ../../legacy/TL/TL/TLRPCmessages_addChatUser.mm \
 ../../legacy/TL/TL/TLRPCmessages_checkChatInvite.mm \
@@ -534,7 +547,6 @@ libuofs4_FILES = ../../legacy/TL/TL/TLRPClangpack_getStrings.mm \
 ../../submodules/LegacyComponents/LegacyComponents/mdb.c \
 ../../submodules/LegacyComponents/LegacyComponents/midl.c \
 ../../submodules/LegacyComponents/LegacyComponents/NSDictionary+CBExtensions.m \
-../../submodules/LegacyComponents/LegacyComponents/NSInputStream+TL.m \
 ../../submodules/LegacyComponents/LegacyComponents/NSMutableArray+STKAudioPlayer.m \
 ../../submodules/LegacyComponents/LegacyComponents/NSObject+TGLock.m \
 ../../submodules/LegacyComponents/LegacyComponents/NSValue+JNWAdditions.m \
@@ -581,20 +593,4 @@ libuofs4_FILES = ../../legacy/TL/TL/TLRPClangpack_getStrings.mm \
 ../../submodules/LegacyComponents/LegacyComponents/PGSaturationTool.m \
 ../../submodules/LegacyComponents/LegacyComponents/PGShadowsTool.m \
 ../../submodules/LegacyComponents/LegacyComponents/PGSharpenTool.m \
-../../submodules/LegacyComponents/LegacyComponents/PGTintTool.m \
-../../submodules/LegacyComponents/LegacyComponents/PGVignetteTool.m \
-../../submodules/LegacyComponents/LegacyComponents/PGWarmthTool.m \
-../../submodules/LegacyComponents/LegacyComponents/POPAnimatableProperty.mm \
-../../submodules/LegacyComponents/LegacyComponents/POPAnimation.mm \
-../../submodules/LegacyComponents/LegacyComponents/POPAnimationEvent.mm \
-../../submodules/LegacyComponents/LegacyComponents/POPAnimationExtras.mm \
-../../submodules/LegacyComponents/LegacyComponents/POPAnimationRuntime.mm \
-../../submodules/LegacyComponents/LegacyComponents/POPAnimationTracer.mm \
-../../submodules/LegacyComponents/LegacyComponents/POPAnimator.mm \
-../../submodules/LegacyComponents/LegacyComponents/POPBasicAnimation.mm \
-../../submodules/LegacyComponents/LegacyComponents/POPCGUtils.mm \
-../../submodules/LegacyComponents/LegacyComponents/POPCustomAnimation.mm \
-../../submodules/LegacyComponents/LegacyComponents/POPDecayAnimation.mm \
-../../submodules/LegacyComponents/LegacyComponents/POPGeometry.mm \
-../../submodules/LegacyComponents/LegacyComponents/POPLayerExtras.mm \
-../../submodules/LegacyComponents/LegacyComponents/POPMath.mm
+../../submodules/LegacyComponents/LegacyComponents/PGTintTool.m
