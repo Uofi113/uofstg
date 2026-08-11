@@ -2214,7 +2214,7 @@ UOFSTG_SOURCES := \
   ../../thirdparty/Stripe/UIToolbar+Stripe_InputAccessory.m \
   ../../thirdparty/Stripe/UIView+Stripe_FirstResponder.m \
   ../../thirdparty/UIImage+WebP.m \
-  ../../thirdparty/Video\ Encoder/MP4Atom.m \
+  ../../thirdparty/VideoEncoder/MP4Atom.m \
   ../../thirdparty/lz4/lz4.c \
   ../../thirdparty/lz4/lz4frame.c \
   ../../thirdparty/lz4/lz4hc.c \
