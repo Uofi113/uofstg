@@ -7,7 +7,7 @@
 //
 
 #import "RMGLKViewController.h"
-#include "game.h"
+#include "animations.h"
 
 @interface RMGLKViewController () {
 }

@@ -9,18 +9,13 @@
 #import "RMAppDelegate.h"
 #import "RMIntroViewController.h"
 
-#import <HockeySDK/HockeySDK.h>
+
 
 
 @implementation RMAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [[BITHockeyManager sharedHockeyManager] configureWithIdentifier:@"<HockeyAppIdentifier>"];
-    [[BITHockeyManager sharedHockeyManager] startManager];
-    [[BITHockeyManager sharedHockeyManager].authenticator
-     authenticateInstallation];
-
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     _rootVC = [[RMRootViewController alloc]init];
