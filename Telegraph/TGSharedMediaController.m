@@ -3579,7 +3579,7 @@ static id mediaIdForItem(id<TGSharedMediaItem> item)
             id<TGSharedMediaItem> item = [(TGSharedMediaItemView *)cell item];
     
             __weak TGSharedMediaController *weakSelf = self;
-            NSArray> *(^previewActionItems)(void) = ^NSArray> *
+            NSArray *(^previewActionItems)(void) = ^NSArray *
             {
                 return @[ [UIPreviewAction actionWithTitle:TGLocalized(@"SharedMedia.ViewInChat") style:UIPreviewActionStyleDefault handler:^(__unused UIPreviewAction * _Nonnull action, __unused UIViewController * _Nonnull previewViewController)
                 {
