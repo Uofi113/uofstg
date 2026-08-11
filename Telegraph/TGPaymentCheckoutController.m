@@ -894,7 +894,8 @@ static bool isNativeApplePayProvider(NSString *provider) {
         NSString *phone = nil;
         
         if (_paymentForm.invoice.shippingAddressRequested) {
-            shippingAddress = [[TGPostAddress alloc] initWithStreetLine1:payment.shippingContact.postalAddress.street streetLine2:payment.shippingContact.postalAddress.subLocality city:payment.shippingContact.postalAddress.city state:payment.shippingContact.postalAddress.state countryIso2:payment.shippingContact.postalAddress.ISOCountryCode postCode:payment.shippingContact.postalAddress.postalCode];
+            id postalAddress = payment.shippingContact.postalAddress;
+            shippingAddress = [[TGPostAddress alloc] initWithStreetLine1:[postalAddress valueForKey:@"street"] streetLine2:[postalAddress valueForKey:@"subLocality"] city:[postalAddress valueForKey:@"city"] state:[postalAddress valueForKey:@"state"] countryIso2:[postalAddress valueForKey:@"ISOCountryCode"] postCode:[postalAddress valueForKey:@"postalCode"]];
         }
         
         if (_paymentForm.invoice.nameRequested) {
