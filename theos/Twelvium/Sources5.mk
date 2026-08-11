@@ -511,4 +511,30 @@ libuofs5_FILES = ../../submodules/LegacyComponents/LegacyComponents/TGDraggableC
 ../../thirdparty/Stripe/UIViewController+Stripe_NavigationItemProxy.m \
 ../../thirdparty/Stripe/UIViewController+Stripe_ParentViewController.m \
 ../../thirdparty/Stripe/UIViewController+Stripe_Promises.m \
-../../thirdparty/JPNG.m
+../../thirdparty/JPNG.m \
+../../legacy/TL/TL/TLinvokeWithLayer.mm \
+../../Share/TGShareContactController.m \
+../../Telegraph/TGDefaultPresentationPallete.m \
+../../Telegraph/TGPresentationPallete.m \
+../../submodules/libtgvoip/audio/AudioInput.cpp \
+../../submodules/libtgvoip/audio/AudioOutput.cpp \
+../../submodules/libtgvoip/audio/Resampler.cpp \
+../../submodules/libtgvoip/os/darwin/AudioInputAudioUnit.cpp \
+../../submodules/libtgvoip/os/darwin/AudioOutputAudioUnit.cpp \
+../../submodules/libtgvoip/os/darwin/AudioUnitIO.cpp \
+../../submodules/libtgvoip/os/darwin/DarwinSpecific.mm \
+../../submodules/libtgvoip/os/posix/NetworkSocketPosix.cpp \
+../../submodules/libtgvoip/BlockingQueue.cpp \
+../../submodules/libtgvoip/Buffers.cpp \
+../../submodules/libtgvoip/CongestionControl.cpp \
+../../submodules/libtgvoip/EchoCanceller.cpp \
+../../submodules/libtgvoip/JitterBuffer.cpp \
+../../submodules/libtgvoip/logging.cpp \
+../../submodules/libtgvoip/MediaStreamItf.cpp \
+../../submodules/libtgvoip/NetworkSocket.cpp \
+../../submodules/libtgvoip/OpusDecoder.cpp \
+../../submodules/libtgvoip/OpusEncoder.cpp \
+../../submodules/libtgvoip/PacketReassembler.cpp \
+../../submodules/libtgvoip/VoIPController.cpp \
+../../submodules/libtgvoip/VoIPGroupController.cpp \
+../../submodules/libtgvoip/VoIPServerConfig.cpp

@@ -564,7 +564,7 @@ typedef void (^NSURLSessionDataTaskCompletionHandler)(NSData *data, NSURLRespons
 
 #ifndef TG_LEGACY_CTFONT_FROM_UIFONT
 #define TG_LEGACY_CTFONT_FROM_UIFONT
-static inline CTFontRef TGIos6CreateCTFontFromUIFont(UIFont *font)
+static inline __attribute__((always_inline)) CTFontRef TGIos6CreateCTFontFromUIFont(UIFont *font)
 {
     return CTFontCreateWithName((__bridge CFStringRef)font.fontName, font.pointSize, NULL);
 }
