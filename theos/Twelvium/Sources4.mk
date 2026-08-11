@@ -513,7 +513,7 @@ libuofs4_FILES = ../../legacy/TL/TL/TLRPCmessages_sendBroadcast.mm \
 ../../submodules/LegacyComponents/LegacyComponents/PGShadowsTool.m \
 ../../submodules/LegacyComponents/LegacyComponents/PGSharpenTool.m \
 ../../submodules/LegacyComponents/LegacyComponents/PGTintTool.m \
-libuofs5_FILES = ../../submodules/LegacyComponents/LegacyComponents/PGVignetteTool.m \
+../../submodules/LegacyComponents/LegacyComponents/PGVignetteTool.m \
 ../../submodules/LegacyComponents/LegacyComponents/PGWarmthTool.m \
 ../../submodules/LegacyComponents/LegacyComponents/POPAnimatableProperty.mm \
 ../../submodules/LegacyComponents/LegacyComponents/POPAnimation.mm \
@@ -529,7 +529,7 @@ libuofs5_FILES = ../../submodules/LegacyComponents/LegacyComponents/PGVignetteTo
 ../../submodules/LegacyComponents/LegacyComponents/POPGeometry.mm \
 ../../submodules/LegacyComponents/LegacyComponents/POPLayerExtras.mm \
 ../../submodules/LegacyComponents/LegacyComponents/POPMath.mm \
-libuofs5_FILES = ../../submodules/LegacyComponents/LegacyComponents/POPPropertyAnimation.mm \
+../../submodules/LegacyComponents/LegacyComponents/POPPropertyAnimation.mm \
 ../../submodules/LegacyComponents/LegacyComponents/POPSpringAnimation.mm \
 ../../submodules/LegacyComponents/LegacyComponents/POPVector.mm \
 ../../submodules/LegacyComponents/LegacyComponents/PSKeyValueCoder.m \
