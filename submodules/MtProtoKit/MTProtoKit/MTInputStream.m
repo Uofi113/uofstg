@@ -5,7 +5,7 @@
 #import "MTInputStream.h"
 
 #if TARGET_OS_IPHONE
-#   import <endian.h>
+#   import <machine/endian.h>
 #endif
 
 static inline int roundUpInput(int numToRound, int multiple)
