@@ -10,7 +10,7 @@ UofsTg_INSTALL_PATH = /Applications
 UofsTg_FILES = $(UOFSTG_SOURCES)
 UofsTg_RESOURCE_DIRS = ../../Telegraph/Resources ../../Telegraph/en.lproj ../../Telegraph/ru.lproj ../../Telegraph/de.lproj ../../Telegraph/es.lproj ../../Telegraph/it.lproj ../../Telegraph/ko.lproj ../../Telegraph/nl.lproj ../../Telegraph/pt.lproj ../../Telegraph/ar.lproj
 UofsTg_BUNDLE_RESOURCES = ../../Telegraph/Telegraph-Info.plist
-UofsTg_CFLAGS = -fobjc-arc -Wno-error -Wno-deprecated-declarations -Wno-unknown-warning-option -Wno-conversion -Wno-protocol -DSQLITE_TEMP_STORE=2 -DSQLITE_HAS_CODEC=1 -DSQLCIPHER_CRYPTO_CC=1 -DSQLITE_ENABLE_FTS3 -DTGVOIP_USE_CUSTOM_CRYPTO -DTGVOIP_USE_AUDIO_SESSION -DTG_PUBLIC_BUILD=1
+UofsTg_CFLAGS = -fobjc-arc -w -Wno-error -Wno-deprecated-declarations -Wno-unknown-warning-option -Wno-conversion -Wno-protocol -DSQLITE_TEMP_STORE=2 -DSQLITE_HAS_CODEC=1 -DSQLCIPHER_CRYPTO_CC=1 -DSQLITE_ENABLE_FTS3 -DTGVOIP_USE_CUSTOM_CRYPTO -DTGVOIP_USE_AUDIO_SESSION -DTG_PUBLIC_BUILD=1
 UofsTg_CCFLAGS = -std=gnu++0x
 UofsTg_OBJCFLAGS = -include ../../submodules/LegacyComponents/LegacyComponents/LegacyComponentsIos6Compat.h
 UofsTg_CFLAGS += -I../../ -I../../Telegraph -I../../Telegraph/AdHoc -I../../Telegraph/API -I../../submodules/MtProtoKit -I../../submodules/LegacyComponents -I../../Telegraph/thirdparty/ogg -I../../thirdparty/libphonenumber.framework/Headers -I../../legacy/TelegraphKit -I../../legacy/TL -I../../legacy/TL/TL -I../../thirdparty/pop -I../../thirdparty/libbpg -I../../thirdparty/SSignalKit -I../../submodules/libtgvoip -I../../thirdparty/Lottie/lottie-ios/Classes/PublicHeaders -I../../thirdparty/Stripe -I../../Telegraph/thirdparty/opus/include -I../../thirdparty/TgVoipWebrtcIOS6/include -I../../thirdparty/RMIntro/platform/ios
