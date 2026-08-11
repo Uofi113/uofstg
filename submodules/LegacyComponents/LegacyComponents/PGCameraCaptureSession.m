@@ -7,7 +7,7 @@
 
 #import "LegacyComponentsInternal.h"
 
-#import <Endian.h>
+#import <machine/endian.h>
 
 #import <Accelerate/Accelerate.h>
 
