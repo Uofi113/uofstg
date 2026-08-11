@@ -485,10 +485,6 @@ libuofs5_FILES = ../../submodules/LegacyComponents/LegacyComponents/TGDraggableC
 ../../LegacyDatabase/TGUploadedMessageContentText.m \
 ../../LegacyDatabase/TGUploadMediaSignals.m \
 ../../LegacyDatabase/TGUserModel.m \
-../../submodules/MtProtoKit/thirdparty/AFNetworking/AFHTTPClient.m \
-../../submodules/MtProtoKit/thirdparty/AFNetworking/AFHTTPRequestOperation.m \
-../../submodules/MtProtoKit/thirdparty/AFNetworking/AFJSONUtilities.m \
-../../submodules/MtProtoKit/thirdparty/AFNetworking/AFURLConnectionOperation.m \
 ../../submodules/MtProtoKit/thirdparty/AsyncSocket/GCDAsyncSocket.m \
 ../../submodules/MtProtoKit/MTAes.m \
 ../../submodules/MtProtoKit/MTAtomic.m \
