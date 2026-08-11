@@ -36,6 +36,7 @@
 #import <LocalAuthentication/LocalAuthentication.h>
 #endif
 #import <PassKit/PassKit.h>
+#import <Contacts/Contacts.h>
 #import "Stripe.h"
 
 #import "TGCurrencyFormatter.h"
