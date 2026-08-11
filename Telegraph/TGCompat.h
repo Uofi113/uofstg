@@ -1,3 +1,4 @@
+#ifdef __OBJC__
 #import <Foundation/Foundation.h>
 
 @interface NSObject (TGOptionalSystemSelectorDeclarations)
@@ -9,3 +10,4 @@
 - (NSDecimalNumber *)amount;
 - (BOOL)canMakePaymentsUsingNetworks:(NSArray *)supportedNetworks;
 @end
+#endif
