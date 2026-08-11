@@ -13,7 +13,7 @@ libuofs1_FILES = ../../Share/TGProgressAlert.m \
 ../../Telegraph/ATQueue.m \
 ../../Telegraph/AdHoc/TGModernLetteredAvatarViewModel.m \
 ../../Telegraph/AdHoc/TGUsernameCollectionItem.m \
-../../Telegraph/AttitudeESKF.c \
+../../Telegraph/AttitudeESKF.cpp \
 ../../Telegraph/DrawingContext.m \
 ../../Telegraph/EDSunriseSet.m \
 ../../Telegraph/EMImage.m \
@@ -30,9 +30,9 @@ libuofs1_FILES = ../../Share/TGProgressAlert.m \
 ../../Telegraph/TGAccessRequiredAlertView.m \
 ../../Telegraph/TGAccountInfoCollectionItem.m \
 ../../Telegraph/TGAccountSettings.m \
-../../Telegraph/TGAccountSettingsActor.m \
+../../Telegraph/TGAccountSettingsActor.mm \
 ../../Telegraph/TGAccountSettingsController.m \
-../../Telegraph/TGAccountSettingsUpdateActor.m \
+../../Telegraph/TGAccountSettingsUpdateActor.mm \
 ../../Telegraph/TGAccountSignals.m \
 ../../Telegraph/TGAccountTTLSetting.m \
 ../../Telegraph/TGActionMediaAttachment+Telegraph.m \
@@ -48,7 +48,7 @@ libuofs1_FILES = ../../Share/TGProgressAlert.m \
 ../../Telegraph/TGAnimatedImageMessageViewModel.m \
 ../../Telegraph/TGAnimatedMediaContextResultCell.m \
 ../../Telegraph/TGAnimationThumbnailDataSource.m \
-../../Telegraph/TGAppDelegate.m \
+../../Telegraph/TGAppDelegate.mm \
 ../../Telegraph/TGAppSession.m \
 ../../Telegraph/TGAppSessionItem.m \
 ../../Telegraph/TGAppSessionItemView.m \
@@ -64,7 +64,7 @@ libuofs1_FILES = ../../Share/TGProgressAlert.m \
 ../../Telegraph/TGApplicationFeatures.m \
 ../../Telegraph/TGApplicationMainWindow.m \
 ../../Telegraph/TGApplyStateRequestBuilder.m \
-../../Telegraph/TGApplyUpdatesActor.m \
+../../Telegraph/TGApplyUpdatesActor.mm \
 ../../Telegraph/TGApplyUsernameActor.m \
 ../../Telegraph/TGArchivedStickerPacksAlert.m \
 ../../Telegraph/TGArchivedStickerPacksAlertView.m \
@@ -104,7 +104,7 @@ libuofs1_FILES = ../../Share/TGProgressAlert.m \
 ../../Telegraph/TGBingSearchActor.m \
 ../../Telegraph/TGBingSearchResultItem+TGMediaItem.m \
 ../../Telegraph/TGBingSearchResultItem.m \
-../../Telegraph/TGBlockListRequestActor.m \
+../../Telegraph/TGBlockListRequestActor.mm \
 ../../Telegraph/TGBlockedController.m \
 ../../Telegraph/TGBlockedPeersSignals.m \
 ../../Telegraph/TGBotContextExternalResult.m \
@@ -118,7 +118,7 @@ libuofs1_FILES = ../../Share/TGProgressAlert.m \
 ../../Telegraph/TGBotConversationHeaderView.m \
 ../../Telegraph/TGBotSignals.m \
 ../../Telegraph/TGBotUserInfoController.m \
-../../Telegraph/TGBridgeAudioDecoder.m \
+../../Telegraph/TGBridgeAudioDecoder.mm \
 ../../Telegraph/TGBridgeAudioEncoder.m \
 ../../Telegraph/TGBridgeAudioHandler.m \
 ../../Telegraph/TGBridgeChatListHandler.m \
@@ -169,7 +169,7 @@ libuofs1_FILES = ../../Share/TGProgressAlert.m \
 ../../Telegraph/TGCallCell.m \
 ../../Telegraph/TGCallConnectionDescription.m \
 ../../Telegraph/TGCallContext.m \
-../../Telegraph/TGCallController.m \
+../../Telegraph/TGCallController.mm \
 ../../Telegraph/TGCallDataSettingsController.m \
 ../../Telegraph/TGCallDebugView.m \
 ../../Telegraph/TGCallDiscardReason.m \
@@ -182,14 +182,14 @@ libuofs1_FILES = ../../Share/TGProgressAlert.m \
 ../../Telegraph/TGCallMessageViewModel.m \
 ../../Telegraph/TGCallRatingView.m \
 ../../Telegraph/TGCallReceptionView.m \
-../../Telegraph/TGCallSession.m \
+../../Telegraph/TGCallSession.mm \
 ../../Telegraph/TGCallSettingsController.m \
 ../../Telegraph/TGCallSignals.m \
 ../../Telegraph/TGCallState.m \
 ../../Telegraph/TGCallStatusBarView.m \
-../../Telegraph/TGCallUtils.m \
+../../Telegraph/TGCallUtils.mm \
 ../../Telegraph/TGCallView.m \
-../../Telegraph/TGCallWebrtcRuntimeIOS6.m \
+../../Telegraph/TGCallWebrtcRuntimeIOS6.mm \
 ../../Telegraph/TGCameraController+Shortcut.m \
 ../../Telegraph/TGCameraShareSignals.m \
 ../../Telegraph/TGCancelAccountResetController.m \
@@ -211,7 +211,7 @@ libuofs1_FILES = ../../Share/TGProgressAlert.m \
 ../../Telegraph/TGChannelAdminRights+Telegraph.m \
 ../../Telegraph/TGChannelBanController.m \
 ../../Telegraph/TGChannelBannedRights+Telegraph.m \
-../../Telegraph/TGChannelConversationCompanion.m \
+../../Telegraph/TGChannelConversationCompanion.mm \
 ../../Telegraph/TGChannelGroupHistoryController.m \
 ../../Telegraph/TGChannelGroupInfoController.m \
 ../../Telegraph/TGChannelInfoController.m \
@@ -233,7 +233,7 @@ libuofs1_FILES = ../../Share/TGProgressAlert.m \
 ../../Telegraph/TGChatActionsInfoView.m \
 ../../Telegraph/TGChatActionsView.m \
 ../../Telegraph/TGChatListSignals.m \
-../../Telegraph/TGChatMessageListSignal.m \
+../../Telegraph/TGChatMessageListSignal.mm \
 ../../Telegraph/TGChatMessageListView.m \
 ../../Telegraph/TGChatSearchController.m \
 ../../Telegraph/TGChatSettingsController.m \
@@ -268,18 +268,18 @@ libuofs1_FILES = ../../Share/TGProgressAlert.m \
 ../../Telegraph/TGConfirmationCodeData.m \
 ../../Telegraph/TGContactCell.m \
 ../../Telegraph/TGContactCellContents.m \
-../../Telegraph/TGContactListRequestBuilder.m \
+../../Telegraph/TGContactListRequestBuilder.mm \
 ../../Telegraph/TGContactListSearchActor.m \
 ../../Telegraph/TGContactMediaAttachment+Telegraph.m \
 ../../Telegraph/TGContactMessageViewModel.m \
-../../Telegraph/TGContactsController.m \
+../../Telegraph/TGContactsController.mm \
 ../../Telegraph/TGContactsGlobalSearchActor.m \
 ../../Telegraph/TGContentBubbleEmbeddedMediaModel.m \
 ../../Telegraph/TGContentBubbleViewModel.m \
 ../../Telegraph/TGConversation+Telegraph.m \
 ../../Telegraph/TGConversationActivityRequestBuilder.m \
 ../../Telegraph/TGConversationAddMemberRequestActor.m \
-../../Telegraph/TGConversationAddMessagesActor.m \
+../../Telegraph/TGConversationAddMessagesActor.mm \
 ../../Telegraph/TGConversationChangePhotoActor.m \
 ../../Telegraph/TGConversationChangeTitleRequestActor.m \
 ../../Telegraph/TGConversationChatInfoRequestActor.m \
@@ -304,7 +304,7 @@ libuofs1_FILES = ../../Share/TGProgressAlert.m \
 ../../Telegraph/TGCountryAndPhoneCollectionItemView.m \
 ../../Telegraph/TGCreateContactController.m \
 ../../Telegraph/TGCreateEncryptedChatController.m \
-../../Telegraph/TGCreateFeedController.m \
+../../Telegraph/TGCreateFeedController.mm \
 ../../Telegraph/TGCreateGroupController.m \
 ../../Telegraph/TGCreditCardNumberCollectionItem.m \
 ../../Telegraph/TGCreditCardNumberCollectionItemView.m \
@@ -316,7 +316,7 @@ libuofs1_FILES = ../../Share/TGProgressAlert.m \
 ../../Telegraph/TGDatabaseLegacy.m \
 ../../Telegraph/TGDatabaseReadMessagesByDate.m \
 ../../Telegraph/TGDatabaseUpdateMessage.m \
-../../Telegraph/TGDatacenterContext.m \
+../../Telegraph/TGDatacenterContext.mm \
 ../../Telegraph/TGDatacenterWatchdogActor.m \
 ../../Telegraph/TGDebugController.m \
 ../../Telegraph/TGDeleteAccountActor.m \
@@ -329,7 +329,7 @@ libuofs1_FILES = ../../Share/TGProgressAlert.m \
 ../../Telegraph/TGDialogListRecentPeers.m \
 ../../Telegraph/TGDialogListRecentPeersCell.m \
 ../../Telegraph/TGDialogListRemoteOffset.m \
-../../Telegraph/TGDialogListRequestBuilder.m \
+../../Telegraph/TGDialogListRequestBuilder.mm \
 ../../Telegraph/TGDialogListSearchActor.m \
 ../../Telegraph/TGDialogListTitleContainer.m \
 ../../Telegraph/TGDiscardEncryptedChatActor.m \
@@ -365,7 +365,7 @@ libuofs1_FILES = ../../Share/TGProgressAlert.m \
 ../../Telegraph/TGEmbedPlayerController.m \
 ../../Telegraph/TGEmbedPreviewController.m \
 ../../Telegraph/TGEmbedPreviewView.m \
-../../Telegraph/TGEmojiSuggestions.m \
+../../Telegraph/TGEmojiSuggestions.mm \
 ../../Telegraph/TGEmptyGalleryFooterAccessoryView.m \
 ../../Telegraph/TGEncryptedChatResponseActor.m \
 ../../Telegraph/TGEncryptionKeyViewController.m \
@@ -390,7 +390,7 @@ libuofs1_FILES = ../../Share/TGProgressAlert.m \
 ../../Telegraph/TGFeed.m \
 ../../Telegraph/TGFeedConversationCompanion.m \
 ../../Telegraph/TGFeedConversationInputPanel.m \
-../../Telegraph/TGFeedDialogListCompanion.m \
+../../Telegraph/TGFeedDialogListCompanion.mm \
 ../../Telegraph/TGFeedGroupingController.m \
 ../../Telegraph/TGFeedList.m \
 ../../Telegraph/TGFeedManagementSignals.m \
@@ -399,7 +399,7 @@ libuofs1_FILES = ../../Share/TGProgressAlert.m \
 ../../Telegraph/TGFileDownloadActor.m \
 ../../Telegraph/TGFileReferenceManager.m \
 ../../Telegraph/TGFileThumbnailDataSource.m \
-../../Telegraph/TGFileUploadActor.m \
+../../Telegraph/TGFileUploadActor.mm \
 ../../Telegraph/TGFlatActionCell.m \
 ../../Telegraph/TGFontSizeCollectionItem.m \
 ../../Telegraph/TGFontSizeCollectionItemView.m \
@@ -412,7 +412,7 @@ libuofs1_FILES = ../../Share/TGProgressAlert.m \
 ../../Telegraph/TGGalleryPhotoDataSource.m \
 ../../Telegraph/TGGalleryVideoPreviewDataSource.m \
 ../../Telegraph/TGGenericContextResultCell.m \
-../../Telegraph/TGGenericModernConversationCompanion.m \
+../../Telegraph/TGGenericModernConversationCompanion.mm \
 ../../Telegraph/TGGenericPeerGalleryGroupItem.m \
 ../../Telegraph/TGGenericPeerMediaGalleryActionsAccessoryView.m \
 ../../Telegraph/TGGenericPeerMediaGalleryDefaultFooterView.m \
