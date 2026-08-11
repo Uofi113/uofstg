@@ -1,7 +1,7 @@
 #import "TGCallKitAdapter.h"
 
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 100000
-#import <CallKit/Callkit.h>
+#import <CallKit/CallKit.h>
 
 #import <libkern/OSAtomic.h>
 
