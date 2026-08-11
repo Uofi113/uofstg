@@ -1230,7 +1230,7 @@ static int64_t extractMessageConversationId(T concreteMessage, int &outFromUid)
                             knownChats.insert(conversationId);
                         else
                         {
-                            TGLog(@"Unknown chat %" PRId64 "", conversationId);
+                            TGLog(@"Unknown chat %lld", conversationId);
                             failedProcessing = true;
                         }
                     }
@@ -1244,7 +1244,7 @@ static int64_t extractMessageConversationId(T concreteMessage, int &outFromUid)
                             knownUsers.insert((int)conversationId);
                         else
                         {
-                            TGLog(@"Unknown user %" PRId64 "", conversationId);
+                            TGLog(@"Unknown user %lld", conversationId);
                             failedProcessing = true;
                         }
                     }
@@ -1260,7 +1260,7 @@ static int64_t extractMessageConversationId(T concreteMessage, int &outFromUid)
                         knownUsers.insert(fromUid);
                     else
                     {
-                        TGLog(@"Unknown user %" PRId32 "", fromUid);
+                        TGLog(@"Unknown user %d", fromUid);
                         failedProcessing = true;
                     }
                 }
@@ -1280,7 +1280,7 @@ static int64_t extractMessageConversationId(T concreteMessage, int &outFromUid)
                                     knownUsers.insert(fwd_header.from_id);
                                 else
                                 {
-                                    TGLog(@"Unknown user %" PRId32 "", fwd_header.from_id);
+                                    TGLog(@"Unknown user %d", fwd_header.from_id);
                                     failedProcessing = true;
                                 }
                             }
@@ -1294,7 +1294,7 @@ static int64_t extractMessageConversationId(T concreteMessage, int &outFromUid)
                                         knownChats.insert(TGChannelIdFromPeerId(peerId));
                                     else
                                     {
-                                        TGLog(@"Unknown channel %" PRId64 "", peerId);
+                                        TGLog(@"Unknown channel %lld", peerId);
                                         failedProcessing = true;
                                     }
                                 }
@@ -1385,7 +1385,7 @@ static int64_t extractMessageConversationId(T concreteMessage, int &outFromUid)
                         knownUsers.insert(userId);
                     else
                     {
-                        TGLog(@"Unknown user %" PRId32 "", userId);
+                        TGLog(@"Unknown user %d", userId);
                         failedProcessing = true;
                     }
                 }
