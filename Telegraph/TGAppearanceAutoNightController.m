@@ -10,8 +10,7 @@
 #import "EDSunriseSet.h"
 #import "TGScreenBrightnessSignals.h"
 
-#import "TGNightBluePresentationPallete.h"
-#import "TGNightPresentationPallete.h"
+
 
 #import "TGHeaderCollectionItem.h"
 #import "TGSwitchCollectionItem.h"
