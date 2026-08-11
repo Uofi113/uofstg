@@ -6,10 +6,7 @@
 @class TGAppDelegate;
 extern TGAppDelegate *TGAppDelegateInstance;
 
-@interface TGMediaStoreContext : NSObject
-+ (TGMediaStoreContext *)instance;
-- (void)clearMemoryCache;
-@end
+#import "TGMediaStoreContext.h"
 
 @interface NSObject (TGOptionalSystemSelectorDeclarations)
 - (id)defaultReadingList;
