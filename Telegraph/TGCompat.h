@@ -3,6 +3,14 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 #include <inttypes.h>
 
+@class TGAppDelegate;
+extern TGAppDelegate *TGAppDelegateInstance;
+
+@interface TGMediaStoreContext : NSObject
++ (TGMediaStoreContext *)instance;
+- (void)clearMemoryCache;
+@end
+
 @interface NSObject (TGOptionalSystemSelectorDeclarations)
 - (id)defaultReadingList;
 - (BOOL)addReadingListItemWithURL:(NSURL *)url title:(NSString *)title previewText:(NSString *)previewText error:(NSError **)error;

@@ -8,6 +8,8 @@
 
 #import "TGModernConversationControllerDynamicTypeSignals.h"
 #import "TGScreenBrightnessSignals.h"
+#import "TGAppDelegate.h"
+#import "TGMediaStoreContext.h"
 
 @interface TGPresentationState : NSObject <NSCoding>
 
