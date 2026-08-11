@@ -52,7 +52,7 @@
     [EAGLContext setCurrentContext:self.context];
     on_surface_created();
     
-    on_surface_changed(self.view.bounds.size.width, self.view.bounds.size.height);
+    on_surface_changed(self.view.bounds.size.width, self.view.bounds.size.height, 1.0f, 0, 0, 0, 0, 0);
     //on_surface_changed(240*self.view.contentScaleFactor, 240*self.view.contentScaleFactor);
 }
 
