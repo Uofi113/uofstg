@@ -31,7 +31,7 @@
 #import "TGDatabase.h"
 
 #import "TGUser+Telegraph.h"
-#import "TLUser$modernUser.h"
+#import "TLUser_modernUser.h"
 #import "TGConversation+Telegraph.h"
 
 #import "TGLogoutRequestBuilder.h"
@@ -178,8 +178,8 @@
 
 #import "TLRPCmessages_sendInlineBotResult.h"
 
-#import "TLaccount_updateProfile$updateProfile.h"
-#import "TLInputPeerNotifySettings$inputPeerNotifySettings.h"
+#import "TLaccount_updateProfile_updateProfile.h"
+#import "TLInputPeerNotifySettings_inputPeerNotifySettings.h"
 
 #import "TGPeerInfoSignals.h"
 

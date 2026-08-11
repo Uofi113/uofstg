@@ -12,7 +12,7 @@
 
 #import "TGAppDelegate.h"
 
-#import "TLDocumentAttribute$documentAttributeAudio.h"
+#import "TLDocumentAttribute_documentAttributeAudio.h"
 
 static NSString *TGModernDocumentThumbnailUrl(TLDocument$document *document, TLPhotoSize *size)
 {

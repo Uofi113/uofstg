@@ -66,10 +66,10 @@
 #import "TGStickersSignals.h"
 #import "TGMaskStickersSignals.h"
 
-#import "TLDcOption$modernDcOption.h"
+#import "TLDcOption_modernDcOption.h"
 
-#import "TLMessage$modernMessage.h"
-#import "TLMessage$modernMessageService.h"
+#import "TLMessage_modernMessage.h"
+#import "TLMessage_modernMessageService.h"
 
 #import "TGGroupManagementSignals.h"
 #import "TGChannelStateSignals.h"
@@ -87,7 +87,7 @@
 #import "TGRecentStickersSignal.h"
 #import "TGFavoriteStickersSignal.h"
 
-#import "TLUpdate$updateChannelTooLong.h"
+#import "TLUpdate_updateChannelTooLong.h"
 
 #import "TGCallContext.h"
 
@@ -114,7 +114,7 @@ static TLupdates_State *TGIOS6ValidDifferenceState(id state, NSString *source)
 
 #import "TGLocalizationSignals.h"
 
-#import "TLPeerNotifySettings$peerNotifySettings.h"
+#import "TLPeerNotifySettings_peerNotifySettings.h"
 
 static int stateVersion = 0;
 static bool didRequestUpdates = false;

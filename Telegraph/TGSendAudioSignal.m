@@ -13,7 +13,7 @@
 
 #import "TLInputMedia.h"
 
-#import "TLDocumentAttribute$documentAttributeAudio.h"
+#import "TLDocumentAttribute_documentAttributeAudio.h"
 
 #import "TGPreparedLocalDocumentMessage.h"
 

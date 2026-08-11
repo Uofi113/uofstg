@@ -23,9 +23,9 @@
 
 #import "TLUpdates+TG.h"
 #import "TGMessage+Telegraph.h"
-#import "TLMessage$modernMessage.h"
-#import "TLMessage$modernMessageService.h"
-#import "TLUpdates$updateShortSentMessage.h"
+#import "TLMessage_modernMessage.h"
+#import "TLMessage_modernMessageService.h"
+#import "TLUpdates_updateShortSentMessage.h"
 
 NSString *const TGAccessHashKey = @"accessHash";
 NSString *const TGChannelGroupKey = @"channelGroup";

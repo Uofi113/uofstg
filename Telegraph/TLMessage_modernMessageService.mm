@@ -1,4 +1,4 @@
-#import "TLMessage$modernMessageService.h"
+#import "TLMessage_modernMessageService.h"
 
 #import "TLMetaClassStore.h"
 #import "TLMessageAction.h"

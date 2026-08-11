@@ -9,7 +9,7 @@
 
 #import "TGPassportSignals.h"
 #import "TGTwoStepConfig.h"
-#import "TLauth_SentCode$auth_sentCode.h"
+#import "TLauth_SentCode_auth_sentCode.h"
 
 #import "TGButtonCollectionItem.h"
 #import "TGUsernameCollectionItem.h"

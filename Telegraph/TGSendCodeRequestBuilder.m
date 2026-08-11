@@ -12,7 +12,7 @@
 #import "TGTimer.h"
 #import "TGTermsOfService.h"
 
-#import "TLauth_SentCode$auth_sentCode.h"
+#import "TLauth_SentCode_auth_sentCode.h"
 
 @interface TGSendCodeRequestBuilder ()
 {

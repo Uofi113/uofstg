@@ -18,12 +18,12 @@
 #import "TGMessage+Telegraph.h"
 #import "TGUpdateStateRequestBuilder.h"
 
-#import "TLChat$channel.h"
+#import "TLChat_channel.h"
 
 #import "TGChannelStateSignals.h"
 #import "TGChannelManagementSignals.h"
 
-#import "TLChat$chat.h"
+#import "TLChat_chat.h"
 
 #import "TLRPCmessages_editMessage.h"
 
@@ -32,14 +32,14 @@
 #import "TLRPCmessages_saveDraft.h"
 #import "TLRPCmessages_clearAllDrafts.h"
 
-#import "TLChatInvite$chatInvite.h"
+#import "TLChatInvite_chatInvite.h"
 
 #import "TGImageInfo+Telegraph.h"
 #import "TGUser+Telegraph.h"
 
 #import "TGDialogListRequestBuilder.h"
 
-#import "TLPeerNotifySettings$peerNotifySettings.h"
+#import "TLPeerNotifySettings_peerNotifySettings.h"
 
 static inline bool TGIOS6GroupPeerIdLooksLikeModernRawChannel(int64_t peerId)
 {

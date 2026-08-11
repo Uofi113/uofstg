@@ -11,14 +11,14 @@
 
 #import "TGTelegraph.h"
 
-#import "TLaccount_updateProfile$updateProfile.h"
+#import "TLaccount_updateProfile_updateProfile.h"
 
 #import "TLRPCaccount_sendConfirmPhoneCode.h"
 
-#import "TLauth_SentCode$auth_sentCode.h"
+#import "TLauth_SentCode_auth_sentCode.h"
 
 #import "TGTLSerialization.h"
-#import "TLDcOption$modernDcOption.h"
+#import "TLDcOption_modernDcOption.h"
 
 #import "TLRPCmessages_report.h"
 #import "TLRPChelp_getTermsOfServiceUpdate.h"

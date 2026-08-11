@@ -3,7 +3,7 @@
 #import "TGTelegramNetworking.h"
 #import "TL/TLMetaScheme.h"
 
-#import "TLUser$modernUser.h"
+#import "TLUser_modernUser.h"
 
 @implementation TGTwoStepRecoverySignals
 

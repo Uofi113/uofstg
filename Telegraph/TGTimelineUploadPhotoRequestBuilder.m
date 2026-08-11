@@ -20,7 +20,7 @@
 
 #import "TGDatabase.h"
 
-#import "TLUser$modernUser.h"
+#import "TLUser_modernUser.h"
 
 #import <Security/Security.h>
 

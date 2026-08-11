@@ -17,25 +17,25 @@
 
 #import "TGUserDataRequestBuilder.h"
 
-#import "TLmessages_Messages$modernChannelMessages.h"
+#import "TLmessages_Messages_modernChannelMessages.h"
 #import "TLUpdates_ChannelDifference_manual.h"
-#import "TLPeerNotifySettings$peerNotifySettings.h"
+#import "TLPeerNotifySettings_peerNotifySettings.h"
 
 #import "TGUpdateStateRequestBuilder.h"
 
-#import "TLChat$channel.h"
+#import "TLChat_channel.h"
 
 #import "TGChannelStateSignals.h"
 #import "TGDownloadMessagesSignal.h"
 
-#import "TLChatFull$channelFull.h"
+#import "TLChatFull_channelFull.h"
 
 #import "TGBotSignals.h"
 #import "TGStickersSignals.h"
 
 #import "TLRPCmessages_editMessage.h"
 
-#import "TLUpdate$updateChannelTooLong.h"
+#import "TLUpdate_updateChannelTooLong.h"
 
 #import "TGChannelBannedRights+Telegraph.h"
 #import "TGChannelAdminRights+Telegraph.h"

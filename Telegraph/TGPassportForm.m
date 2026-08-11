@@ -3,8 +3,8 @@
 #import "../submodules/LegacyComponents/LegacyComponents/TGStringUtils.h"
 #import "../submodules/MtProtoKit/MTProtoKit/MTProtoKit.h"
 
-#import "TLaccount_AuthorizationForm$account_authorizationForm.h"
-#import "TLSecureValue$secureValue.h"
+#import "TLaccount_AuthorizationForm_account_authorizationForm.h"
+#import "TLSecureValue_secureValue.h"
 #import "TLSecureFile.h"
 
 #import "TGTwoStepConfigSignal.h"

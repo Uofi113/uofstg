@@ -10,7 +10,7 @@
 
 #import "TGImageInfo+Telegraph.h"
 
-#import "TLUser$modernUser.h"
+#import "TLUser_modernUser.h"
 
 #import "TGNotificationPrivacyAccountSetting.h"
 

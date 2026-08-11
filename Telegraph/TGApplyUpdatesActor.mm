@@ -31,20 +31,20 @@
 #import "TGUpdate.h"
 #import "TGDatabaseUpdateMessage.h"
 
-#import "TLUpdate$updateChangePts.h"
+#import "TLUpdate_updateChangePts.h"
 
 #import "TGUpdatesWithSeq.h"
 #import "TGUpdatesWithPts.h"
 #import "TGUpdatesWithQts.h"
 #import "TGUpdatesWithDate.h"
 
-#import "TLMessage$modernMessage.h"
-#import "TLMessage$modernMessageService.h"
+#import "TLMessage_modernMessage.h"
+#import "TLMessage_modernMessageService.h"
 
-#import "TLUser$modernUser.h"
+#import "TLUser_modernUser.h"
 #import "TLUpdates+TG.h"
 
-#import "TLMessageFwdHeader$messageFwdHeader.h"
+#import "TLMessageFwdHeader_messageFwdHeader.h"
 
 #import "TGCurrencyFormatter.h"
 

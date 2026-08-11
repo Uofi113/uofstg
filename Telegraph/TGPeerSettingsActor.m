@@ -11,7 +11,7 @@
 
 #import "TGTelegramNetworking.h"
 
-#import "TLPeerNotifySettings$peerNotifySettings.h"
+#import "TLPeerNotifySettings_peerNotifySettings.h"
 
 int cachedMessageSettingsVersion = -1;
 int cachedGroupSettingsVersion = -1;

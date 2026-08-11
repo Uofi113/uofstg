@@ -1,6 +1,6 @@
 #import "TGTermsOfService.h"
 
-#import "TLhelp_TermsOfService$help_termsOfService.h"
+#import "TLhelp_TermsOfService_help_termsOfService.h"
 #import "TGMessage+Telegraph.h"
 
 @implementation TGTermsOfService

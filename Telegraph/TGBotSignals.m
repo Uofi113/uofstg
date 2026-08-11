@@ -8,7 +8,7 @@
 #import "TGTelegraph.h"
 
 #import "TL/TLMetaScheme.h"
-#import "TLChat$chat.h"
+#import "TLChat_chat.h"
 
 #import "TLUpdates+TG.h"
 #import "TGUserDataRequestBuilder.h"
@@ -21,37 +21,37 @@
 #import "TGBotContextExternalResult.h"
 #import "TGBotContextMediaResult.h"
 
-#import "TLWebPage$webPageExternal.h"
+#import "TLWebPage_webPageExternal.h"
 #import "TGWebPageMediaAttachment+Telegraph.h"
 #import "TGDocumentMediaAttachment+Telegraph.h"
 #import "TGImageMediaAttachment+Telegraph.h"
 #import "TGWebDocument+Telegraph.h"
 
-#import "TLMessages_BotResults$botResults.h"
+#import "TLMessages_BotResults_botResults.h"
 
 #import "TLWebPage_manual.h"
-#import "TLBotInlineResult$botInlineResult.h"
+#import "TLBotInlineResult_botInlineResult.h"
 
-#import "TLBotInlineMessage$botInlineMessageMediaAuto.h"
-#import "TLBotInlineMessage$botInlineMessageText.h"
-#import "TLBotInlineMessage$botInlineMessageMediaGeo.h"
-#import "TLBotInlineMessage$botInlineMessageMediaVenue.h"
-#import "TLBotInlineMessage$botInlineMessageMediaContact.h"
+#import "TLBotInlineMessage_botInlineMessageMediaAuto.h"
+#import "TLBotInlineMessage_botInlineMessageText.h"
+#import "TLBotInlineMessage_botInlineMessageMediaGeo.h"
+#import "TLBotInlineMessage_botInlineMessageMediaVenue.h"
+#import "TLBotInlineMessage_botInlineMessageMediaContact.h"
 
 #import "TGBotContextResultSendMessageAuto.h"
 #import "TGBotContextResultSendMessageText.h"
 #import "TGBotContextResultSendMessageGeo.h"
 #import "TGBotContextResultSendMessageContact.h"
 
-#import "TLUserFull$userFull.h"
+#import "TLUserFull_userFull.h"
 
-#import "TLmessages_BotCallbackAnswer$botCallbackAnswer.h"
+#import "TLmessages_BotCallbackAnswer_botCallbackAnswer.h"
 
 #import "TLRPCmessages_getInlineBotResults.h"
 
 #import "../submodules/LegacyComponents/LegacyComponents/TGLocationSignals.h"
 
-#import "TLBotInlineResult$botInlineMediaResult.h"
+#import "TLBotInlineResult_botInlineMediaResult.h"
 
 #import "TGAppDelegate.h"
 #import "TGCustomAlertView.h"
@@ -60,10 +60,10 @@
 #import "TLRPCmessages_sendMedia_manual.h"
 #import "TLRPCmessages_forwardMessages.h"
 
-#import "TLpayments_PaymentForm$payments_paymentForm.h"
-#import "TLInvoice$invoice.h"
-#import "TLpayments_SavedInfo$payments_savedInfo.h"
-#import "TLPaymentRequestedInfo$paymentRequestedInfo.h"
+#import "TLpayments_PaymentForm_payments_paymentForm.h"
+#import "TLInvoice_invoice.h"
+#import "TLpayments_SavedInfo_payments_savedInfo.h"
+#import "TLPaymentRequestedInfo_paymentRequestedInfo.h"
 #import "TLPayments_sendPaymentForm.h"
 
 static const bool TGIOS6BotVerboseButtonLogs = false;

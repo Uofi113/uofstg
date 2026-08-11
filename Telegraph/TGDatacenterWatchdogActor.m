@@ -22,7 +22,7 @@
 
 #import "TL/TLMetaScheme.h"
 
-#import "TLDcOption$modernDcOption.h"
+#import "TLDcOption_modernDcOption.h"
 
 @interface TGDatacenterWatchdogActor ()
 {

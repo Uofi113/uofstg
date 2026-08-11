@@ -13,7 +13,7 @@
 
 #import "TGConversationAddMessagesActor.h"
 
-#import "TLChat$chat.h"
+#import "TLChat_chat.h"
 
 @interface TGConversationDeleteMemberRequestActor ()
 

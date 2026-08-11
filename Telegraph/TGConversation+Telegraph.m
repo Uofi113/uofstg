@@ -9,9 +9,9 @@
 #import "TGTelegraph.h"
 #import "TGDatabase.h"
 
-#import "TLChat$channel.h"
-#import "TLChat$chat.h"
-#import "TLChat$channelForbidden.h"
+#import "TLChat_channel.h"
+#import "TLChat_chat.h"
+#import "TLChat_channelForbidden.h"
 
 #import "TGChannelAdminRights+Telegraph.h"
 #import "TGChannelBannedRights+Telegraph.h"

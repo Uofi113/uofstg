@@ -7,7 +7,7 @@
 #import "../submodules/LegacyComponents/LegacyComponents/LegacyComponents.h"
 
 #import "TGSchema.h"
-#import "TLUser$modernUser.h"
+#import "TLUser_modernUser.h"
 
 #import "TGTelegraph.h"
 
@@ -24,8 +24,8 @@
 #import "../submodules/LegacyComponents/LegacyComponents/TGRemoteImageView.h"
 #import "../submodules/LegacyComponents/LegacyComponents/TGMessageViewCountContentProperty.h"
 
-#import "TLMessage$modernMessage.h"
-#import "TLMessage$modernMessageService.h"
+#import "TLMessage_modernMessage.h"
+#import "TLMessage_modernMessageService.h"
 
 #import "TGDatabase.h"
 
@@ -35,9 +35,9 @@
 
 #import <float.h>
 
-#import "TLMessageFwdHeader$messageFwdHeader.h"
-#import "TLMessageMedia$messageMediaPhoto.h"
-#import "TLMessageMedia$messageMediaDocument.h"
+#import "TLMessageFwdHeader_messageFwdHeader.h"
+#import "TLMessageMedia_messageMediaPhoto.h"
+#import "TLMessageMedia_messageMediaDocument.h"
 
 @implementation TLMessage$modernMessage (IOS6PtsCompat)
 

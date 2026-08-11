@@ -2,11 +2,11 @@
 
 #import "TL/TLMetaScheme.h"
 
-#import "TLUpdates$modernUpdateShortChatMessage.h"
-#import "TLUpdates$modernUpdateShortMessage.h"
-#import "TLMessage$modernMessage.h"
-#import "TLUpdates$updateShortSentMessage.h"
-#import "TLUpdate$updateChangePts.h"
+#import "TLUpdates_modernUpdateShortChatMessage.h"
+#import "TLUpdates_modernUpdateShortMessage.h"
+#import "TLMessage_modernMessage.h"
+#import "TLUpdates_updateShortSentMessage.h"
+#import "TLUpdate_updateChangePts.h"
 
 @implementation TLUpdates (TG)
 

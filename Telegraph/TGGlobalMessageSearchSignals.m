@@ -25,7 +25,7 @@
 
 #import "TLRPCmessages_search.h"
 #import "TLRPCchannels_searchFeed.h"
-#import "TLChat$channel.h"
+#import "TLChat_channel.h"
 
 NSString *const TGRecentSearchDefaultsKey = @"Telegram_recentSearch_peers";
 const NSInteger TGRecentSearchLimit = 20;

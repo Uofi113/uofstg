@@ -4,7 +4,7 @@
 
 #import "TGCallDiscardReason.h"
 
-#import "TLMessageAction$messageActionPhoneCall.h"
+#import "TLMessageAction_messageActionPhoneCall.h"
 
 @implementation TGActionMediaAttachment (Telegraph)
 

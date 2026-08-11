@@ -12,13 +12,13 @@
 
 #import "TGTelegramNetworking.h"
 
-#import "TLUser$modernUser.h"
+#import "TLUser_modernUser.h"
 
 #import "TGBotSignals.h"
 
-#import "TLUserFull$userFull.h"
+#import "TLUserFull_userFull.h"
 
-#import "TLPeerNotifySettings$peerNotifySettings.h"
+#import "TLPeerNotifySettings_peerNotifySettings.h"
 
 @implementation TGExtendedUserDataRequestActor
 

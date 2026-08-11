@@ -15,8 +15,8 @@
 
 #import "TGDatabase.h"
 #import "TGTelegramNetworking.h"
-#import "TLPeerNotifySettings$peerNotifySettings.h"
-#import "TLChat$chat.h"
+#import "TLPeerNotifySettings_peerNotifySettings.h"
+#import "TLChat_chat.h"
 #import "TLInputChannel.h"
 #import "TLmessages_Dialogs.h"
 
@@ -24,7 +24,7 @@
 
 #import "TGDownloadMessagesSignal.h"
 
-#import "TLUser$modernUser.h"
+#import "TLUser_modernUser.h"
 
 #import "TGFeedPosition.h"
 

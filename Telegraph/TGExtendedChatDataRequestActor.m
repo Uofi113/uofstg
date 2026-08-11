@@ -19,7 +19,7 @@
 
 #import "TGBotSignals.h"
 
-#import "TLPeerNotifySettings$peerNotifySettings.h"
+#import "TLPeerNotifySettings_peerNotifySettings.h"
 
 static NSMutableDictionary *extendedChatDataDictionary()
 {

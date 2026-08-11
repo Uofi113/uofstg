@@ -1,6 +1,6 @@
 #import "TGUpdateAppInfo.h"
 
-#import "TLhelp_AppUpdate$help_appUpdate.h"
+#import "TLhelp_AppUpdate_help_appUpdate.h"
 #import "TGMessage+Telegraph.h"
 #import "TGDocumentMediaAttachment+Telegraph.h"
 

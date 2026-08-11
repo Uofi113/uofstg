@@ -21,8 +21,8 @@
 #import "TLRPCchannels_changeFeedBroadcast.h"
 #import "TLRPCchannels_setFeedBroadcasts.h"
 #import "TLRPCchannels_readFeed.h"
-#import "TLmessages_FeedMessages$messages_feedMessages.h"
-#import "TLchannels_FeedSources$channels_feedSources.h"
+#import "TLmessages_FeedMessages_messages_feedMessages.h"
+#import "TLchannels_FeedSources_channels_feedSources.h"
 
 @implementation TGFeedManagementSignals
 

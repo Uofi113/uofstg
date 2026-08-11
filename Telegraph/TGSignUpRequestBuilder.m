@@ -13,7 +13,7 @@
 
 #import "TGTimer.h"
 
-#import "TLUser$modernUser.h"
+#import "TLUser_modernUser.h"
 
 @interface TGSignUpRequestBuilder ()
 {

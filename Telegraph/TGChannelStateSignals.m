@@ -29,7 +29,7 @@
 
 #import "TGPreparedMessage.h"
 
-#import "TLUpdate$updateChannelTooLong.h"
+#import "TLUpdate_updateChannelTooLong.h"
 #import "TLchannelDifferenceTooLong.h"
 
 static dispatch_block_t recursiveBlock(void (^block)(dispatch_block_t recurse)) {

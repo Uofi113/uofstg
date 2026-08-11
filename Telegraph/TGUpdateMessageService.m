@@ -11,7 +11,7 @@
 #import "TGApplyUpdatesActor.h"
 #import "TGUpdateMessage.h"
 #import "TGUpdate.h"
-#import "TLUpdate$updateChangePts.h"
+#import "TLUpdate_updateChangePts.h"
 #import "TLUpdates+TG.h"
 
 #import "TGUpdatesWithPts.h"
@@ -19,9 +19,9 @@
 #import "TGUpdatesWithSeq.h"
 #import "TGUpdatesWithDate.h"
 
-#import "TLUpdates$modernUpdateShortMessage.h"
-#import "TLUpdates$modernUpdateShortChatMessage.h"
-#import "TLMessage$modernMessage.h"
+#import "TLUpdates_modernUpdateShortMessage.h"
+#import "TLUpdates_modernUpdateShortChatMessage.h"
+#import "TLMessage_modernMessage.h"
 
 @interface TGUpdateMessageService ()
 {

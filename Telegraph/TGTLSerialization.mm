@@ -22,9 +22,9 @@
 #import "../submodules/MtProtoKit/MTProtoKit/MTDatacenterAddress.h"
 #import "../submodules/MtProtoKit/MTProtoKit/MTDatacenterSaltInfo.h"
 
-#import "TLMsgsAck$msgs_ack_manual.h"
+#import "TLMsgsAck_msgs_ack_manual.h"
 
-#import "TLDcOption$modernDcOption.h"
+#import "TLDcOption_modernDcOption.h"
 
 @interface TGTLSerializationEnvironment : NSObject <TLSerializationEnvironment>
 

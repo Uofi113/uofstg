@@ -22,7 +22,7 @@
 #import "TLRPCaccount_sendVerifyEmailCode.h"
 #import "TLRPCaccount_verifyEmail.h"
 
-#import "TLInputSecureValue$inputSecureValue.h"
+#import "TLInputSecureValue_inputSecureValue.h"
 
 #import "MediaBox.h"
 #import "TelegramMediaResources.h"

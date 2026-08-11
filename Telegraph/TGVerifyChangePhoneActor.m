@@ -12,7 +12,7 @@
 #import "TGSendCodeRequestBuilder.h"
 
 #import "TLRPCaccount_sendChangePhoneCode.h"
-#import "TLauth_SentCode$auth_sentCode.h"
+#import "TLauth_SentCode_auth_sentCode.h"
 
 @implementation TGVerifyChangePhoneActor
 

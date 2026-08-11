@@ -6,7 +6,7 @@
 #import "TGTelegramNetworking.h"
 #import "TGTelegraph.h"
 
-#import "TLhelp_DeepLinkInfo$help_deepLinkInfo.h"
+#import "TLhelp_DeepLinkInfo_help_deepLinkInfo.h"
 #import "TLRPChelp_getDeepLinkInfo.h"
 #import "TLRPChelp_getPassportConfig.h"
 

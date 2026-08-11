@@ -1,9 +1,9 @@
-#import "TLMessage$modernMessageService.h"
+#import "TLMessage_modernMessageService.h"
 
 #import "TLMetaClassStore.h"
 #import "TLMessageAction.h"
 #import "TLPeer.h"
-#import "TLUser$modernUser.h"
+#import "TLUser_modernUser.h"
 
 //messageService flags:# out:flags.1?true mentioned:flags.4?true media_unread:flags.5?true silent:flags.13?true post:flags.14?true id:int from_id:flags.8?int to_id:Peer date:int action:MessageAction = Message;
 

@@ -15,7 +15,7 @@
 #import "TGDocumentMediaAttachment+Telegraph.h"
 #import "TGWebPageMediaAttachment+Telegraph.h"
 
-#import "TLWebPage$webPageExternal.h"
+#import "TLWebPage_webPageExternal.h"
 #import "TLWebPage_manual.h"
 
 #import "TGImageMediaAttachment+Telegraph.h"

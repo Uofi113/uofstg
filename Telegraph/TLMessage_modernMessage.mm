@@ -1,4 +1,4 @@
-#import "TLMessage$modernMessage.h"
+#import "TLMessage_modernMessage.h"
 
 #import "TLMetaClassStore.h"
 #import "TLPeer.h"

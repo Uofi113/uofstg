@@ -5,7 +5,7 @@
 #import "TGPreparedAssetVideoMessage.h"
 #import "TGPreparedLocalImageMessage.h"
 
-#import "TLInputSingleMedia$inputSingleMedia.h"
+#import "TLInputSingleMedia_inputSingleMedia.h"
 
 @interface TGMediaPostingContext ()
 {

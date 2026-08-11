@@ -52,9 +52,9 @@
 
 #import "../submodules/LegacyComponents/LegacyComponents/PSLMDBKeyValueStore.h"
 
-#import "TLMessage$modernMessage.h"
-#import "TLMessage$modernMessageService.h"
-#import "TLUpdates$updateShortSentMessage.h"
+#import "TLMessage_modernMessage.h"
+#import "TLMessage_modernMessageService.h"
+#import "TLUpdates_updateShortSentMessage.h"
 
 #import "TLUpdates+TG.h"
 
@@ -77,7 +77,7 @@
 
 #import "TGDocumentMediaAttachment+Telegraph.h"
 
-#import "TLDocumentAttribute$documentAttributeAudio.h"
+#import "TLDocumentAttribute_documentAttributeAudio.h"
 
 #import "TGPeerInfoSignals.h"
 

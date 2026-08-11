@@ -15,7 +15,7 @@
 #import "TGTelegraph.h"
 #import "TGDatabase.h"
 
-#import "TLUser$modernUser.h"
+#import "TLUser_modernUser.h"
 
 @implementation TGSupportPeerActor
 

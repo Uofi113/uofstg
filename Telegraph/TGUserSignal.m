@@ -6,7 +6,7 @@
 
 #import "../submodules/LegacyComponents/LegacyComponents/ActionStage.h"
 
-#import "TLUserFull$userFull.h"
+#import "TLUserFull_userFull.h"
 #import "TGUserDataRequestBuilder.h"
 #import "TGConversation+Telegraph.h"
 
