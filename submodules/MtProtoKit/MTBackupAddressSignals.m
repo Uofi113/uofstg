@@ -29,19 +29,19 @@
 #   import <MTProtoKitMac/MTSerialization.h>
 #   import <MTProtoKitMac/MTLogging.h>
 #else
-#   import <MTProtoKit/MTSignal.h>
-#   import <MTProtoKit/MTQueue.h>
-#   import <MTProtoKit/MTHttpRequestOperation.h>
-#   import <MTProtoKit/MTEncryption.h>
-#   import <MTProtoKit/MTRequestMessageService.h>
-#   import <MTProtoKit/MTRequest.h>
-#   import <MTProtoKit/MTContext.h>
-#   import <MTProtoKit/MTApiEnvironment.h>
-#   import <MTProtoKit/MTDatacenterAddress.h>
-#   import <MTProtoKit/MTDatacenterAddressSet.h>
-#   import <MTProtoKit/MTProto.h>
-#   import <MTProtoKit/MTSerialization.h>
-#   import <MTProtoKit/MTLogging.h>
+#   import "MTSignal.h"
+#   import "MTQueue.h"
+#   import "MTHttpRequestOperation.h"
+#   import "MTEncryption.h"
+#   import "MTRequestMessageService.h"
+#   import "MTRequest.h"
+#   import "MTContext.h"
+#   import "MTApiEnvironment.h"
+#   import "MTDatacenterAddress.h"
+#   import "MTDatacenterAddressSet.h"
+#   import "MTProto.h"
+#   import "MTSerialization.h"
+#   import "MTLogging.h"
 #endif
 
 static int base64_value(unichar c) {

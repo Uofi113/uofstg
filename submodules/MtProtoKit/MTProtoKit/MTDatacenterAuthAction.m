@@ -15,7 +15,7 @@
 #elif defined(MtProtoKitMacFramework)
 #   import <MTProtoKitMac/MTSignal.h>
 #else
-#   import <MTProtoKit/MTSignal.h>
+#   import "MTSignal.h"
 #endif
 
 #import "MTDatacenterAuthMessageService.h"

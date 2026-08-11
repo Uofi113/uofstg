@@ -29,7 +29,7 @@
 #elif defined(MtProtoKitMacFramework)
 #   import <MTProtoKitMac/AFURLConnectionOperation.h>
 #else
-#   import <MTProtoKit/AFURLConnectionOperation.h>
+#   import "AFURLConnectionOperation.h"
 #endif
 
 /**

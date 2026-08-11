@@ -14,7 +14,7 @@ FOUNDATION_EXPORT double MtProtoKitVersionNumber;
 //! Project version string for MtProtoKit.
 FOUNDATION_EXPORT const unsigned char MtProtoKitVersionString[];
 
-// In this header, you should import all the public headers of your framework using statements like #import <MtProtoKit/PublicHeader.h>
+// In this header, you should import all the public headers of your framework using statements like #import "PublicHeader.h"
 
 
 #import "MTTime.h"

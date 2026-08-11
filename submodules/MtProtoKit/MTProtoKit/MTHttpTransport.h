@@ -5,7 +5,7 @@
 #elif defined(MtProtoKitMacFramework)
 #   import <MTProtoKitMac/MTTransport.h>
 #else
-#   import <MTProtoKit/MTTransport.h>
+#   import "MTTransport.h"
 #endif
 
 @interface MTHttpTransport : MTTransport

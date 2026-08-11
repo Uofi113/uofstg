@@ -5,7 +5,7 @@
 #elif defined(MtProtoKitMacFramework)
 #   import <MTProtoKitMac/MTDatacenterAuthInfo.h>
 #else
-#   import <MTProtoKit/MTDatacenterAuthInfo.h>
+#   import "MTDatacenterAuthInfo.h"
 #endif
 
 @class MTDatacenterAddress;

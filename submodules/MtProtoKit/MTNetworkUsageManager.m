@@ -14,10 +14,10 @@
 #   import <MTProtoKitMac/MTTimer.h>
 #   import <MTProtoKitMac/MTQueue.h>
 #else
-#   import <MTProtoKit/MTNetworkUsageCalculationInfo.h>
-#   import <MTProtoKit/MTSignal.h>
-#   import <MTProtoKit/MTTimer.h>
-#   import <MTProtoKit/MTQueue.h>
+#   import "MTNetworkUsageCalculationInfo.h"
+#   import "MTSignal.h"
+#   import "MTTimer.h"
+#   import "MTQueue.h"
 #endif
 
 @interface MTNetworkUsageManager () {
