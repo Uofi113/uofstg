@@ -53,7 +53,7 @@
 - (void)donePressed
 {
     TGVCard *vcard = [self vcardForCheckedItems];
-    NSString *phone = [vcard.phones.values.firstObject value];
+    NSString *phone = [(TGVCardValueArrayItem *)vcard.phones.values.firstObject value];
     TGPhoneNumberModel *phoneNumber = [[TGPhoneNumberModel alloc] initWithPhoneNumber:phone label:nil];
     TGContactModel *contact = [[TGContactModel alloc] initWithFirstName:vcard.firstName.value lastName:vcard.lastName.value phoneNumbers:@[phoneNumber] vcard:vcard];
     
