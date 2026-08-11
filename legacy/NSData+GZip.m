@@ -4,7 +4,7 @@
 
 #import "NSData+GZip.h"
 
-#import "lz4.h"
+#import "lz4/lz4.h"
 
 #define kMemoryChunkSize 1024
 

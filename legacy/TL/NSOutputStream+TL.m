@@ -1,6 +1,6 @@
 #import "NSOutputStream+TL.h"
 
-#import <endian.h>
+#import <machine/endian.h>
 
 static inline int roundUp(int numToRound, int multiple)
 {
