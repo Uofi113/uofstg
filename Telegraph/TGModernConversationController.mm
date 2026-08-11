@@ -9949,7 +9949,7 @@ typedef enum {
     
     UIDocumentPickerViewController *controller = [[UIDocumentPickerViewController alloc] initWithDocumentTypes:documentTypes inMode:UIDocumentPickerModeOpen];
     controller.view.backgroundColor = [UIColor whiteColor];
-    controller.delegate = self;
+    controller.delegate = (id<UIDocumentPickerDelegate>)self;
     
     if (TGIsPad())
         controller.modalPresentationStyle = UIModalPresentationFormSheet;
@@ -13938,7 +13938,7 @@ static UIView *_findBackArrow(UIView *view)
                 if (accessHash != nil)
                     options[@"accessHash"] = accessHash;
                 
-                [ActionStageInstance() requestActor:[NSString stringWithFormat:@"/tg/changePeerSettings/(%" PRId64 ")/(muteAction%d)", peerId, actionId++] options:options watcher:TGTelegraphInstance];
+                [ActionStageInstance() requestActor:[NSString stringWithFormat:@"/tg/changePeerSettings/(%lld)/(muteAction%d)", peerId, actionId++] options:options watcher:TGTelegraphInstance];
             };
             
             if (TGPeerIdIsChannel(peerId))
@@ -13971,7 +13971,7 @@ static UIView *_findBackArrow(UIView *view)
                 if (accessHash != nil)
                     options[@"accessHash"] = accessHash;
                 
-                [ActionStageInstance() requestActor:[NSString stringWithFormat:@"/tg/changePeerSettings/(%" PRId64 ")/(muteAction%d)", peerId, actionId++] options:options watcher:TGTelegraphInstance];
+                [ActionStageInstance() requestActor:[NSString stringWithFormat:@"/tg/changePeerSettings/(%lld)/(muteAction%d)", peerId, actionId++] options:options watcher:TGTelegraphInstance];
             };
             
             if (TGPeerIdIsChannel(peerId))

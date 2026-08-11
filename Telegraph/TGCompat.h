@@ -1,5 +1,7 @@
 #ifdef __OBJC__
 #import <Foundation/Foundation.h>
+#import <MobileCoreServices/MobileCoreServices.h>
+#include <inttypes.h>
 
 @interface NSObject (TGOptionalSystemSelectorDeclarations)
 - (id)defaultReadingList;
