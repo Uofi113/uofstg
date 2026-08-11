@@ -363,9 +363,9 @@ static CGFloat blurDynamicOffset = 5.0f;
     outBuffer.height = targetContextSize.height;
     outBuffer.rowBytes = targetBytesPerRow;
     
-    TG_TIMESTAMP_DEFINE(convolve)
+    
     vImageBoxConvolve_ARGB8888(&inBuffer, &outBuffer, NULL, 0, 0, boxSize, 1.0f, NULL, kvImageEdgeExtend);
-    TG_TIMESTAMP_MEASURE(convolve)
+    
     
     memcpy(targetMemory, pixelBuffer, targetBytesPerRow * targetContextSize.height);
     free(pixelBuffer);
