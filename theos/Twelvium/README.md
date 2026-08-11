@@ -1,14 +1,14 @@
-# Twelvium Theos application package
+# UofsTg Theos application package
 
 This is a Theos application port scaffold for the cleaned source tree. It
-packages `/Applications/Twelvium.app` into a rootful iOS 6 `.deb`; it does not
+packages `/Applications/UofsTg.app` into a rootful iOS 6 `.deb`; it does not
 build or install a tweak, daemon, launch agent, or call bridge.
 
 ## First build in the legacy VM
 
 1. Install Theos and an iOS 6-compatible SDK/toolchain, then set `THEOS` if it
    is not `/Users/anazerka/theos`. Theos does not support spaces in paths: put
-   this tree in a directory such as `~/Twelvium_Public`, not `Twelvium_Public 2`.
+   this tree in a directory such as `~/UofsTg_Public`, not `UofsTg_Public 2`.
 2. At repository root, copy `config.h.example` to `config.h` and fill in your
    own API credentials.
 3. From this directory run `make manifest`. It exports the exact Xcode

@@ -910,7 +910,7 @@ static id TGSystemWCSessionDefaultSession(void)
 
 + (instancetype)instance
 {
-    // The Apple Watch companion is not shipped by Twelvium.  Keep the bridge
+    // The Apple Watch companion is not shipped by UofsTg.  Keep the bridge
     // API as a harmless compatibility stub so old call sites do not allocate
     // queues, handlers, services or a WCSession during iPhone startup.
     return nil;

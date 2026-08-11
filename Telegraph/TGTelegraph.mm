@@ -2774,7 +2774,7 @@ static int64_t TGIOS6ModernUserIdFromStoredUser(TGUser *user, int32_t uid)
         registerDevice.flags = 0;
         registerDevice.token_type = 1;
         registerDevice.token = deviceToken;
-#if defined(DEBUG) || defined(TWELVIUM_APNS_SANDBOX)
+#if defined(DEBUG) || defined(UofsTg_APNS_SANDBOX)
         registerDevice.app_sandbox = true;
 #else
         registerDevice.app_sandbox = false;

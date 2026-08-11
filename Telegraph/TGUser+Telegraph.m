@@ -21,7 +21,7 @@ static NSString *modernPeerPhotoUrl(int32_t dcId, int32_t peerType, int64_t peer
     return [[NSString alloc] initWithFormat:@"peerphoto:%d:%d:%lld:%lld:%lld:%d", dcId, peerType, peerId, accessHash, photoId, big ? 1 : 0];
 }
 
-static NSString *TwelviumTelegramSupportAvatarUri(void)
+static NSString *UofsTgTelegramSupportAvatarUri(void)
 {
     return @"placeholder://?type=telegram-support&w=412&h=412";
 }
@@ -32,7 +32,7 @@ void extractUserPhoto(TLUserProfilePhoto *photo, TGUser *target)
     // avatar so it is still recognizable when old MTProto photo loading fails.
     if (target.uid == 42777)
     {
-        NSString *avatarUri = TwelviumTelegramSupportAvatarUri();
+        NSString *avatarUri = UofsTgTelegramSupportAvatarUri();
         target.photoUrlSmall = avatarUri;
         target.photoUrlMedium = avatarUri;
         target.photoUrlBig = avatarUri;

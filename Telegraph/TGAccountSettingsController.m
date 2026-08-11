@@ -816,11 +816,11 @@ static NSString *TGAccountGroqApiKeyDefaultsKey(void)
 
 - (void)donatePressed
 {
-    static NSString *const TwelviumDonationURL = @"https://example.com/twelvium-donate";
+    static NSString *const UofsTgDonationURL = @"https://example.com/UofsTg-donate";
     [TGCustomAlertView presentAlertWithTitle:TGLocalized(@"Settings.Donate") message:TGLocalized(@"Settings.DonateInfo") cancelButtonTitle:TGLocalized(@"Common.Cancel") okButtonTitle:TGLocalized(@"Settings.DonateButton") completionBlock:^(bool okButtonPressed)
     {
         if (okButtonPressed)
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:TwelviumDonationURL]];
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UofsTgDonationURL]];
     }];
 }
 

@@ -315,10 +315,10 @@ static UIImage *TGClassicIOS6OriginalImageNamed(NSString *name)
     return image;
 }
 
-@interface UIImage (TwelviumClassicIOS6Resources)
+@interface UIImage (UofsTgClassicIOS6Resources)
 
 @end
-@implementation UIImage (TwelviumClassicIOS6Resources)
+@implementation UIImage (UofsTgClassicIOS6Resources)
 
 + (void)load
 {
@@ -326,15 +326,15 @@ static UIImage *TGClassicIOS6OriginalImageNamed(NSString *name)
     dispatch_once(&onceToken, ^
     {
         Method original = class_getClassMethod(self, @selector(imageNamed:));
-        Method replacement = class_getClassMethod(self, @selector(twelvium_classicIOS6ImageNamed:));
+        Method replacement = class_getClassMethod(self, @selector(UofsTg_classicIOS6ImageNamed:));
         method_exchangeImplementations(original, replacement);
     });
 }
 
-+ (UIImage *)twelvium_classicIOS6ImageNamed:(NSString *)name
++ (UIImage *)UofsTg_classicIOS6ImageNamed:(NSString *)name
 {
     UIImage *classicImage = TGClassicIOS6OriginalImageNamed(name);
-    return classicImage != nil ? classicImage : [self twelvium_classicIOS6ImageNamed:name];
+    return classicImage != nil ? classicImage : [self UofsTg_classicIOS6ImageNamed:name];
 }
 
 @end
@@ -578,7 +578,7 @@ static void TGIOS6SendLatestSystemCrashReport()
     NSString *report = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
     if (report.length == 0)
         return;
-    if ([report rangeOfString:@"com.example.Twelvium"].location == NSNotFound)
+    if ([report rangeOfString:@"com.example.UofsTg"].location == NSNotFound)
         return;
 
     NSString *currentBuild = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
@@ -778,7 +778,7 @@ static NSUserDefaults *TGAppDelegateUserDefaultsCompat()
         UIViewController *rootController = nil;
     
         NSString *bundleIdentifier = [[NSBundle mainBundle] bundleIdentifier];
-        if ([bundleIdentifier isEqualToString:@"com.example.Twelvium"]) {
+        if ([bundleIdentifier isEqualToString:@"com.example.UofsTg"]) {
             rootController = [[TGLoginPhoneController alloc] init];
         } else {
             rootController = [[RMIntroViewController alloc] init];
@@ -4852,7 +4852,7 @@ static unsigned int overrideIndexAbove(__unused id self, __unused SEL _cmd)
 
 - (BOOL)application:(UIApplication *)__unused application willContinueUserActivityWithType:(NSString *)userActivityType
 {
-    if ([userActivityType isEqualToString:@"com.example.Twelvium.conversation"]) {
+    if ([userActivityType isEqualToString:@"com.example.UofsTg.conversation"]) {
         if (_progressWindow != nil) {
             [_progressWindow dismiss:true];
         }
@@ -4871,7 +4871,7 @@ static unsigned int overrideIndexAbove(__unused id self, __unused SEL _cmd)
     
     if ([userActivity.activityType isEqualToString:@"NSUserActivityTypeBrowsingWeb"]) {
         [application openURL:userActivity.webpageURL];
-    } else if ([userActivity.activityType isEqualToString:@"com.example.Twelvium.conversation"]) {
+    } else if ([userActivity.activityType isEqualToString:@"com.example.UofsTg.conversation"]) {
         if ([userActivity.userInfo[@"user_id"] intValue] == TGTelegraphInstance.clientUserId)
         {
             int64_t peerId = 0;

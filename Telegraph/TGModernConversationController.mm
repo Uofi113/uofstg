@@ -9941,7 +9941,7 @@ typedef enum {
      @"public.video",
      @"public.movie",
      @"public.font",
-     @"com.example.Twelvium.webp",
+     @"com.example.UofsTg.webp",
      @"com.apple.iwork.pages.pages",
      @"com.apple.iwork.numbers.numbers",
      @"com.apple.iwork.keynote.key"

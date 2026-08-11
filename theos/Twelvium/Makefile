@@ -40,7 +40,7 @@ verify-layout:
 		sed -i 's/::__sincospi/::__sincos/g' "$$THEOS/sdks/iPhoneOS16.5.sdk/usr/include/simd/math.h" || true; \
 	fi
 	@if [ -f "$$THEOS/sdks/iPhoneOS16.5.sdk/System/Library/Frameworks/PassKit.framework/Headers/PKContact.h" ]; then \
-		sed -i 's/@interface PKContact : NSObject/@class CNPostalAddress;\n@interface PKContact : NSObject/g' "$$THEOS/sdks/iPhoneOS16.5.sdk/System/Library/Frameworks/PassKit.framework/Headers/PKContact.h" || true; \
+		sed -i '1s/^/@class CNPostalAddress;\n/' "$$THEOS/sdks/iPhoneOS16.5.sdk/System/Library/Frameworks/PassKit.framework/Headers/PKContact.h" || true; \
 	fi
 
 before-all:: verify-layout

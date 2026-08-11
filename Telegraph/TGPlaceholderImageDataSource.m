@@ -49,7 +49,7 @@ static UIImage *TGClassicIOS6AvatarPlaceholder(NSString *type, CGSize size)
     return image;
 }
 
-static UIImage *TwelviumSystemAvatarImage(NSString *resourceName, CGSize size)
+static UIImage *UofsTgSystemAvatarImage(NSString *resourceName, CGSize size)
 {
     NSString *path = [[NSBundle mainBundle] pathForResource:resourceName ofType:@"png" inDirectory:@"ClassicIOS6"];
     UIImage *source = path.length == 0 ? nil : [UIImage imageWithContentsOfFile:path];
@@ -176,7 +176,7 @@ static UIImage *TwelviumSystemAvatarImage(NSString *resourceName, CGSize size)
     NSString *type = args[@"type"];
     if ([type isEqualToString:@"telegram-support"])
     {
-        UIImage *image = TwelviumSystemAvatarImage(@"TwelviumTelegramSupportAvatar", size);
+        UIImage *image = UofsTgSystemAvatarImage(@"UofsTgTelegramSupportAvatar", size);
         if (image != nil)
         {
             TG_SYNCHRONIZED_BEGIN(imageCache);

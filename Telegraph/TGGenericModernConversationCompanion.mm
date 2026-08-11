@@ -65,7 +65,7 @@ static NSString *TGGroqApiKeyDefaultsKey(void)
 }
 
 // Replace the hostname with the workers.dev URL printed by `wrangler deploy`.
-static NSString * const TGIOS6GroqTranscriptionURL = @"https://twelvium-groq-transcribe.lkola2715.workers.dev";
+static NSString * const TGIOS6GroqTranscriptionURL = @"https://UofsTg-groq-transcribe.lkola2715.workers.dev";
 
 static inline bool TGIOS6ConversationPeerIdIsChannelLike(int64_t peerId)
 {

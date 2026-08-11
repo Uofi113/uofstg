@@ -623,7 +623,7 @@
 "Notifications.Title" = "الإشعارات";
 "Notifications.BackgroundNotificationsHeader" = "الإشعارات في الخلفية";
 "Notifications.BackgroundNotifications" = "إشعارات الخلفية";
-"Notifications.BackgroundNotificationsHelp" = "عند إيقافها، يغلق Twelvium الاتصال في الخلفية ولا يعرض إشعارات خارج التطبيق.";
+"Notifications.BackgroundNotificationsHelp" = "عند إيقافها، يغلق UofsTg الاتصال في الخلفية ولا يعرض إشعارات خارج التطبيق.";
 "Notifications.MessageNotifications" = "إشعارات الرسائل";
 "Notifications.MessageNotificationsAlert" = "التنبيه";
 "Notifications.MessageNotificationsPreview" = "معاينة الرسائل";
@@ -2509,6 +2509,6 @@
 "Privacy.PaymentsClear.PaymentInfo" = "معلومات عملية الدفع";
 "Privacy.PaymentsClear.ShippingInfo" = "معلومات الشحن";
 "Settings.Donate" = "Donate";
-"Settings.DonateInfo" = "Support Twelvium to help maintain and improve the app. Choose any amount on the donation page; every contribution is optional and appreciated.";
+"Settings.DonateInfo" = "Support UofsTg to help maintain and improve the app. Choose any amount on the donation page; every contribution is optional and appreciated.";
 "Settings.DonateButton" = "Open donation page";
 
