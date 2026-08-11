@@ -471,7 +471,7 @@ ActionStage *ActionStageInstance()
     {
         TGLegacyLog(@"%s should be called from graph queue", __PRETTY_FUNCTION__);
         
-        return nil;
+        return false;
     }
     
     __block bool result = false;
@@ -512,7 +512,7 @@ ActionStage *ActionStageInstance()
     {
         TGLegacyLog(@"%s should be called from graph queue", __PRETTY_FUNCTION__);
         
-        return nil;
+        return false;
     }
 
     __block bool result = false;
