@@ -66,6 +66,14 @@
 
 #import <CoreLocation/CoreLocation.h>
 #import <CoreText/CoreText.h>
+#ifdef __cplusplus
+extern "C" {
+#endif
+void __sincospif(float __x, float *__sinp, float *__cosp);
+void __sincospi(double __x, double *__sinp, double *__cosp);
+#ifdef __cplusplus
+}
+#endif
 #import <AVFoundation/AVFoundation.h>
 #ifndef TG_LEGACY_NSARRAY_OBJECT_ACCESS_DECLS
 #define TG_LEGACY_NSARRAY_OBJECT_ACCESS_DECLS
