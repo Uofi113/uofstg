@@ -44,7 +44,7 @@ verify-layout:
 	fi
 	@if [ -d "$$THEOS/sdks/iPhoneOS16.5.sdk/System/Library/Frameworks/ContactsUI.framework/Headers" ]; then \
 		for f in "$$THEOS/sdks/iPhoneOS16.5.sdk/System/Library/Frameworks/ContactsUI.framework/Headers/"*.h; do \
-			sed -i '1s/^/#import <Contacts\/Contacts.h>\n/' "$$f" || true; \
+			sed -i '1s/^/@class CNContact, CNContactProperty, CNContactStore, CNGroup, CNContainer;\n@protocol CNKeyDescriptor;\n/' "$$f" || true; \
 		done; \
 	fi
 
