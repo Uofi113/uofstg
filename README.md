@@ -1,75 +1,98 @@
 <div align="center">
 
-# 📞 UofsTg
-**The ultimate skeuomorphic Telegram client for iOS 6**
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Telegram_2014_Logo.svg/512px-Telegram_2014_Logo.svg.png" width="120" alt="Telegram iOS 6 Logo">
 
-[![Platform](https://img.shields.io/badge/Platform-iOS%206.0+-blue?style=for-the-badge&logo=apple)](#)
-[![Design](https://img.shields.io/badge/Design-Skeuomorphic-orange?style=for-the-badge)](#)
-[![Build](https://img.shields.io/badge/Build-GitHub%20Actions-brightgreen?style=for-the-badge&logo=githubactions)](#)
+# 📞 UofsTg
+**The uncompromising, hyper-skeuomorphic Telegram client for iOS 6.**
+
+[![Platform](https://img.shields.io/badge/Platform-iOS%206.0+-2A2A2A?style=for-the-badge&logo=apple&logoColor=white)](#)
+[![Design](https://img.shields.io/badge/Design-Skeuomorphic-FF9900?style=for-the-badge)](#)
+[![Build](https://img.shields.io/badge/Build-GitHub%20Actions-238636?style=for-the-badge&logo=githubactions&logoColor=white)](#)
 [![License](https://img.shields.io/badge/License-GPL_v2.0-lightgrey?style=for-the-badge)](#)
 
+<br>
+<i>"We took one look at the sterile, lifeless flat design of modern apps and violently ripped it out."</i>
 </div>
 
----
+<br>
 
-**UofsTg** is an unofficial Telegram client built specifically for legacy devices running iOS 6. It is a fork of the [Twelve](https://github.com/theanazerka/twelve-project) project, which in turn is based on the official Telegram for iOS source code. 
+## 💎 The Manifesto
 
-We completely stripped away the modern, sterile "flat" design and forced an **ultimate, glossy, textured skeuomorphic aesthetic** throughout the entire application. It looks and feels exactly how an app should have looked in 2012.
+**UofsTg** isn't just another unofficial client. It's a time machine for your legacy device. Built on the bones of [Twelve](https://github.com/theanazerka/twelve-project), we forced an **unapologetic, heavy-gloss, texture-rich skeuomorphic aesthetic** straight into the codebase. 
 
----
+Deep shadows, glass reflections, and realistic physical buttons — exactly how apps were always supposed to look before UI design went to shit in 2013. 
 
-## ⚠️ Compatibility Warning
-
-> **Note:** UofsTg is a work in progress.
-> Because this client relies on a legacy codebase and runs on a 2012 operating system, some modern Telegram features (like reactions, specific media formats, or new chat types) may be unavailable, unstable, or render incorrectly.
+Pure 2012 vibes. Perfected by Uofist.
 
 ---
 
-## 🛠 Compiling UofsTg
+## ⚠️ Reality Check
+
+<details open>
+<summary><b>Listen up before you install (Click to collapse)</b></summary>
+<br>
+
+> **UofsTg is a miracle of software necromancy running on a 2012 operating system.**
+
+Because it relies on a legacy codebase, some modern Telegram bloatware (like premium animated reactions, obscure media formats, or new chat gimmicks) might be unstable, render weirdly, or just straight up not exist.
+
+**We are here for the ultimate skeuomorphic aesthetic and core messaging, not for flying emojis. You've been warned.**
+</details>
+
+---
+
+## 🛠 Compiling the Beast
 
 To compile the project from source, you need a macOS/Linux environment equipped with the [Theos](https://github.com/theos/theos) toolchain and an **iOS 6.0 SDK**.
 
-### 💻 Local Build (macOS / Linux)
+### 💻 Local Build
 
-**1. Clone the repository with all submodules:**
+> **Step 1:** Clone the repository with all submodules.
 ```bash
 git clone --recursive https://github.com/Uofi113/uofstg.git
 cd uofstg
 ```
 
-**2. Build the package:**
+> **Step 2:** Build the package.
 ```bash
 cd theos/Twelvium
 make package
 ```
-*The compiled `.deb` file will be generated in the `theos/Twelvium/packages` directory.*
+*Boom. Your `.deb` artifact is waiting in `theos/Twelvium/packages`.*
 
 ### ☁️ Automated Build (GitHub Actions)
 
-Don't want to compile it locally? This repository is configured to automatically build the latest `.deb` package via **GitHub Actions** upon every push to the `master` or `main` branch.
+Don't want to get your hands dirty in the terminal? The CI/CD pipeline does the heavy lifting for you.
 
-*   Navigate to the **[Actions](../../actions)** tab in this repository.
-*   Select the latest successful workflow run.
-*   Download your ready-to-install `.deb` artifact.
+1. Go to the <kbd>[Actions](../../actions)</kbd> tab.
+2. Click the latest successful workflow run.
+3. Grab your pre-compiled `.deb` artifact.
 
 ---
 
 ## 📦 Installation
 
-Installing on a jailbroken iOS 6 device is straightforward. You can install the `.deb` package using any file manager or terminal:
+Installing on a jailbroken iOS 6 device is straightforward. Choose your weapon:
 
-*   **iFile / Filza:** Transfer the `.deb` file to your device, tap on it, and select **Install**.
-*   **SSH:** Transfer the file and run `dpkg -i name_of_package.deb` via terminal.
+| Method | Instructions |
+| :--- | :--- |
+| 📱 **iFile / Filza** | Transfer the `.deb` file to your device, tap it, hit **Install**. Respring and enjoy. |
+| 💻 **SSH** | Run `dpkg -i name_of_package.deb` via terminal on your device. |
 
 ---
 
 ## 📜 License & Credits
 
-**UofsTg** is distributed under the [GNU General Public License v2.0 or later](LICENSE), consistently with the original Telegram for iOS source code.
+Distributed under the **[GNU General Public License v2.0 or later](LICENSE)**.
 
-*   **Copyright © 2026 Uofist** — *UofsTg specific UI modifications and skeuomorphic refactoring.*
-*   **Based on [Twelve](https://github.com/theanazerka/twelve-project)** by theanazerka.
+| Role | Contributor |
+| :--- | :--- |
+| 👑 **UI/UX & Skeuomorphism** | **Copyright © 2026 Uofist** |
+| 🏗 **Base Project (Twelve)** | Based on code by **theanazerka** |
 
+<br>
 <div align="center">
-<i>Make iOS 6 Great Again 📱</i>
+  <b>Make iOS 6 Great Again 📱</b>
+  <br><br>
+  <img src="https://img.shields.io/github/stars/Uofi113/uofstg?style=social" alt="Stars">
 </div>
