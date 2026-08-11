@@ -511,8 +511,6 @@ libuofs5_FILES = ../../submodules/LegacyComponents/LegacyComponents/TGDraggableC
 ../../thirdparty/Stripe/UIViewController+Stripe_NavigationItemProxy.m \
 ../../thirdparty/Stripe/UIViewController+Stripe_ParentViewController.m \
 ../../thirdparty/Stripe/UIViewController+Stripe_Promises.m \
-../../thirdparty/TgVoipWebrtcIOS6/src/macos/Sources/LibYuvBinding.mm \
-../../thirdparty/TgVoipWebrtcIOS6/src/macos/Sources/MediaStreaming.mm \
 ../../thirdparty/TgVoipWebrtcIOS6/src/macos/Sources/OngoingCallThreadLocalContext.mm \
 ../../thirdparty/TgVoipWebrtcIOS6/src/tgcalls/desktop_capturer/DesktopCaptureSource.cpp \
 ../../thirdparty/TgVoipWebrtcIOS6/src/tgcalls/desktop_capturer/DesktopCaptureSourceHelper.cpp \
