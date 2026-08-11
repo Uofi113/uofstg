@@ -9,7 +9,7 @@
 
 #include "animations.h"
 #include "objects.h"
-#include "linmath.h"
+#include "../3rdparty/linmath/linmath.h"
 #include "math_helper.h"
 #include "matrix.h"
 #include "platform_gl.h"

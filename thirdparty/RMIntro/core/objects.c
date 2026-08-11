@@ -12,7 +12,7 @@
 #include "platform_gl.h"
 #include "program.h"
 #include "shader.h"
-#include "linmath.h"
+#include "../3rdparty/linmath/linmath.h"
 #include "matrix.h"
 #include "math_helper.h"
 

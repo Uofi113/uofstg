@@ -1,4 +1,4 @@
-#include "linmath.h"
+#include "../3rdparty/linmath/linmath.h"
 #include <math.h>
 #include <string.h>
 

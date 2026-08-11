@@ -9,7 +9,7 @@
 
 #include "platform_gl.h"
 #include "program.h"
-#include "linmath.h"
+#include "../3rdparty/linmath/linmath.h"
 
 extern float scale_factor;
 extern int width, height;
