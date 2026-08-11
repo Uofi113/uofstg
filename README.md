@@ -1,7 +1,5 @@
 <div align="center">
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Telegram_2014_Logo.svg/512px-Telegram_2014_Logo.svg.png" width="120" alt="Telegram iOS 6 Logo">
-
 # 📞 UofsTg
 **The uncompromising, hyper-skeuomorphic Telegram client for iOS 6.**
 
