@@ -516,6 +516,7 @@ libuofs5_FILES = ../../submodules/LegacyComponents/LegacyComponents/TGDraggableC
 ../../Share/TGShareContactController.m \
 ../../Share/TGShareContactFieldCell.m \
 ../../Share/TGShareContactUserInfoCell.m \
+../../Share/TGShareImageView.m \
 ../../Telegraph/TGDefaultPresentationPallete.m \
 ../../Telegraph/TGPresentationPallete.m \
 ../../submodules/libtgvoip/audio/AudioInput.cpp \
@@ -525,6 +526,7 @@ libuofs5_FILES = ../../submodules/LegacyComponents/LegacyComponents/TGDraggableC
 ../../submodules/libtgvoip/os/darwin/AudioOutputAudioUnit.cpp \
 ../../submodules/libtgvoip/os/darwin/AudioUnitIO.cpp \
 ../../submodules/libtgvoip/os/darwin/DarwinSpecific.mm \
+../../submodules/libtgvoip/os/darwin/TGLogWrapper.m \
 ../../submodules/libtgvoip/os/posix/NetworkSocketPosix.cpp \
 ../../submodules/libtgvoip/BlockingQueue.cpp \
 ../../submodules/libtgvoip/Buffers.cpp \
