@@ -537,8 +537,7 @@ libuofs5_FILES = ../../submodules/LegacyComponents/LegacyComponents/TGDraggableC
 ../../submodules/libtgvoip/PacketReassembler.cpp \
 ../../submodules/libtgvoip/VoIPController.cpp \
 ../../submodules/libtgvoip/VoIPGroupController.cpp \
-../../submodules/libtgvoip/VoIPServerConfig.cpp
-\
+../../submodules/libtgvoip/VoIPServerConfig.cpp \
 ../../submodules/libtgvoip/webrtc_dsp/webrtc/base/checks.cc \
 ../../submodules/libtgvoip/webrtc_dsp/webrtc/base/stringutils.cc \
 ../../submodules/libtgvoip/webrtc_dsp/webrtc/common_audio/signal_processing/auto_correlation.c \
