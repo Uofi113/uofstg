@@ -14,8 +14,7 @@ extern "C" {
 #define TGEncodeText LCTGEncodeText
 #define deviceMemorySize LCdeviceMemorySize
 #define cpuCoreCount LCcpuCoreCount
-#define TGDispatchOnMainThread LCTGDispatchOnMainThread
-#define TGDispatchAfter LCTGDispatchAfter
+
     
 TGLocalization *legacyEffectiveLocalization();
 NSString *TGLocalized(NSString *s);
@@ -27,8 +26,7 @@ int iosMinorVersion();
     
 NSString *TGEncodeText(NSString *string, int key);
     
-void TGDispatchOnMainThread(dispatch_block_t block);
-void TGDispatchAfter(double delay, dispatch_queue_t queue, dispatch_block_t block);
+
     
 int deviceMemorySize();
 int cpuCoreCount();
