@@ -445,6 +445,8 @@ libuofs4_FILES = ../../legacy/TL/TL/TLRPCmessages_sendBroadcast.mm \
 ../../submodules/LegacyComponents/LegacyComponents/CBTagNew.m \
 ../../submodules/LegacyComponents/LegacyComponents/CBVideoPlayer.m \
 ../../submodules/LegacyComponents/LegacyComponents/fast-edge.cpp \
+../../submodules/LegacyComponents/LegacyComponents/TGAssetImageManager.m \
+../../submodules/LegacyComponents/LegacyComponents/TGAssetImageView.m \
 ../../submodules/LegacyComponents/LegacyComponents/FLAnimatedImage.m \
 ../../submodules/LegacyComponents/LegacyComponents/Freedom.mm \
 ../../submodules/LegacyComponents/LegacyComponents/FreedomUIKit.m \

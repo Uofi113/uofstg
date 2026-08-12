@@ -5,6 +5,17 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+#define TGLocalized LCTGLocalized
+#define TGObjectCompare LCTGObjectCompare
+#define TGStringCompare LCTGStringCompare
+#define iosMajorVersion LCiosMajorVersion
+#define iosMinorVersion LCiosMinorVersion
+#define TGEncodeText LCTGEncodeText
+#define deviceMemorySize LCdeviceMemorySize
+#define cpuCoreCount LCcpuCoreCount
+#define TGDispatchOnMainThread LCTGDispatchOnMainThread
+#define TGDispatchAfter LCTGDispatchAfter
     
 TGLocalization *legacyEffectiveLocalization();
 NSString *TGLocalized(NSString *s);

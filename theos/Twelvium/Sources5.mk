@@ -462,7 +462,6 @@ libuofs5_FILES = ../../submodules/LegacyComponents/LegacyComponents/TGDraggableC
 ../../LegacyDatabase/TGContactModel.m \
 ../../LegacyDatabase/TGDatacenterConnectionContext.m \
 ../../LegacyDatabase/TGFileLocation.m \
-../../LegacyDatabase/TGGeometry.m \
 ../../LegacyDatabase/TGGroupChatModel.m \
 ../../LegacyDatabase/TGLegacyDatabase.m \
 ../../LegacyDatabase/TGLegacyDatabasePhoneUtils.m \
@@ -470,8 +469,6 @@ libuofs5_FILES = ../../submodules/LegacyComponents/LegacyComponents/TGDraggableC
 ../../LegacyDatabase/TGMemoryCache.m \
 ../../LegacyDatabase/TGPoolWithTimeout.m \
 ../../LegacyDatabase/TGPrivateChatModel.m \
-../../LegacyDatabase/TGRoundImage.m \
-../../LegacyDatabase/TGScaleImage.m \
 ../../LegacyDatabase/TGSearchSignals.m \
 ../../LegacyDatabase/TGShareContactSignals.m \
 ../../LegacyDatabase/TGShareContext.m \
