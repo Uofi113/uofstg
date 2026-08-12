@@ -18,3 +18,7 @@ int main(int argc, char *argv[])
     }
     
 }
+
+#import <CoreText/CoreText.h>
+CTFontRef TGIos6CreateCTFontFromUIFont(UIFont *font) { return CTFontCreateWithName((__bridge CFStringRef)font.fontName, font.pointSize, NULL); }
+
