@@ -445,8 +445,6 @@ libuofs4_FILES = ../../legacy/TL/TL/TLRPCmessages_sendBroadcast.mm \
 ../../submodules/LegacyComponents/LegacyComponents/CBTagNew.m \
 ../../submodules/LegacyComponents/LegacyComponents/CBVideoPlayer.m \
 ../../submodules/LegacyComponents/LegacyComponents/fast-edge.cpp \
-../../submodules/LegacyComponents/LegacyComponents/TGAssetImageManager.m \
-../../submodules/LegacyComponents/LegacyComponents/TGAssetImageView.m \
 ../../submodules/LegacyComponents/LegacyComponents/FLAnimatedImage.m \
 ../../submodules/LegacyComponents/LegacyComponents/Freedom.mm \
 ../../submodules/LegacyComponents/LegacyComponents/FreedomUIKit.m \
@@ -606,7 +604,6 @@ libuofs4_FILES = ../../legacy/TL/TL/TLRPCmessages_sendBroadcast.mm \
 ../../submodules/LegacyComponents/LegacyComponents/TGClipboardMenu.m \
 ../../submodules/LegacyComponents/LegacyComponents/TGClipboardPreviewCell.m \
 ../../submodules/LegacyComponents/LegacyComponents/TGClipboardPreviewItemView.m \
-../../submodules/LegacyComponents/LegacyComponents/TGColor.m \
 ../../submodules/LegacyComponents/LegacyComponents/TGColorWallpaperInfo.m \
 ../../submodules/LegacyComponents/LegacyComponents/TGContactMediaAttachment.m \
 ../../submodules/LegacyComponents/LegacyComponents/TGConversation.m \
