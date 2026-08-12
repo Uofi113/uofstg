@@ -473,7 +473,6 @@ libuofs5_FILES = ../../submodules/LegacyComponents/LegacyComponents/TGDraggableC
 ../../LegacyDatabase/TGRoundImage.m \
 ../../LegacyDatabase/TGScaleImage.m \
 ../../LegacyDatabase/TGSearchSignals.m \
-../../LegacyDatabase/TGSendMessageSignals.m \
 ../../LegacyDatabase/TGShareContactSignals.m \
 ../../LegacyDatabase/TGShareContext.m \
 ../../LegacyDatabase/TGShareContextSignal.m \

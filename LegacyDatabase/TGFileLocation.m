@@ -16,7 +16,7 @@
     return self;
 }
 
-bool extractFileUrlComponents(NSString *fileUrl, int *datacenterId, int64_t *volumeId, int *localId, int64_t *secret)
+static bool extractFileUrlComponents(NSString *fileUrl, int *datacenterId, int64_t *volumeId, int *localId, int64_t *secret)
 {
     if (fileUrl == nil || fileUrl.length == 0)
         return false;

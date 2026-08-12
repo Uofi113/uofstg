@@ -40,8 +40,8 @@ static inline int32_t TGGroupIdFromPeerId(int64_t peerId) {
 #import "TGChatModel.h"
 #import "TGPrivateChatModel.h"
 
-NSString *const TGRecentSearchDefaultsKey = @"Telegram_recentSearch_peers";
-const NSInteger TGRecentSearchLimit = 20;
+static NSString *const TGRecentSearchDefaultsKey = @"Telegram_recentSearch_peers";
+static const NSInteger TGRecentSearchLimit = 20;
 
 @implementation TGShareRecentPeersSignals
 

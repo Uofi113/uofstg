@@ -8,37 +8,7 @@
 #include <openssl/bn.h>
 #include <openssl/evp.h>
 
-CFTypeRef CFAutorelease(CFTypeRef value)
-{
-    return value;
-}
 
-NSURL *TGFileURLWithPathRelativeToURL(NSString *path, NSURL *baseURL)
-{
-    if (baseURL == nil)
-        return nil;
-    
-    return [baseURL URLByAppendingPathComponent:path];
-}
-
-void BN_init(BIGNUM *value)
-{
-    if (value != NULL)
-        memset(value, 0, sizeof(BIGNUM));
-}
-
-void EVP_MD_CTX_init(EVP_MD_CTX *ctx)
-{
-    if (ctx != NULL)
-        memset(ctx, 0, sizeof(EVP_MD_CTX));
-}
-
-int EVP_MD_CTX_cleanup(EVP_MD_CTX *ctx)
-{
-    if (ctx != NULL)
-        memset(ctx, 0, sizeof(EVP_MD_CTX));
-    return 1;
-}
 
 #pragma mark * IPv4 and ICMPv4 On-The-Wire Format
 

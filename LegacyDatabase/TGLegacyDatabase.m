@@ -147,7 +147,7 @@ static void MurmurHash3_x86_32 ( const void * key, int len,
    *(uint32_t*)out = h1;
 }
 
-int32_t murMurHash32(NSString *string)
+static int32_t murMurHash32(NSString *string)
 {
     const char *utf8 = string.UTF8String;
     
