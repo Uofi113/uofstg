@@ -525,6 +525,11 @@ NSArray *TGGetLogFilePaths(int count)
     return filePaths;
 }
 
+NSURL *TGFileURLWithPathRelativeToURL(NSString *path, NSURL *baseURL) {
+    if (baseURL == nil) return nil;
+    return [baseURL URLByAppendingPathComponent:path];
+}
+
 NSArray *TGGetPackedLogs()
 {
     NSMutableArray *resultFiles = [[NSMutableArray alloc] init];
