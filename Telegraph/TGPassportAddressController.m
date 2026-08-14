@@ -1,7 +1,6 @@
 #import "TGPassportAddressController.h"
 
 #import "../submodules/LegacyComponents/LegacyComponents/LegacyComponents.h"
-#import "../submodules/LegacyComponents/LegacyComponents/LegacyComponentsInternal.h"
 
 #import "TGTelegraph.h"
 #import "TGPresentation.h"
