@@ -1,4 +1,4 @@
-name: Build iOS 6 .deb Package
+name: Build UofsTg IPA + DEB
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: macos-13
 
     steps:
       - name: Checkout repository
@@ -17,66 +17,108 @@ jobs:
         with:
           submodules: recursive
 
-      - name: Install dependencies
+      - name: Install tools
         run: |
-          sudo apt-get update
-          sudo apt-get install -y dpkg build-essential curl llvm
+          brew install ldid dpkg xcpretty || true
+          gem install xcodeproj || true
 
-      - name: Install ldid
-        run: |
-          curl -LO https://github.com/ProcursusTeam/ldid/releases/latest/download/ldid_linux_x86_64
-          chmod +x ldid_linux_x86_64
-          sudo mv ldid_linux_x86_64 /usr/local/bin/ldid
-          ldid 2>/dev/null || true
+      - name: Setup config.h
+        run: cp config.h.example config.h
 
-      - name: Setup Theos
-        run: |
-          bash -c "$(curl -fsSL https://raw.githubusercontent.com/theos/theos/master/bin/install-theos)"
-          echo "THEOS=$HOME/theos" >> $GITHUB_ENV
+      - name: Recreate Xcode schemes
+        run: ruby recreate_schemes.rb
 
-      - name: Build TgVoipWebrtcIOS6Core
+      - name: Show available schemes
         run: |
-          mkdir -p thirdparty/TgVoipWebrtcIOS6/lib
-          ./thirdparty/TgVoipWebrtcIOS6/build_core_ios6_universal.sh > build_log.txt 2>&1 || (cat build_log.txt && exit 1)
+          xcodebuild -project Telegraph.xcodeproj -list 2>/dev/null || true
+          xcodebuild -workspace Telegram.xcworkspace -list 2>/dev/null || true
 
-      - name: Build UofsTg
+      - name: Build archive
         run: |
-          cp config.h.example config.h
-          cd theos/Twelvium
-          make
+          xcodebuild archive \
+            -project Telegraph.xcodeproj \
+            -target Telegraph \
+            -configuration Release \
+            -destination "generic/platform=iOS" \
+            -archivePath "$RUNNER_TEMP/UofsTg.xcarchive" \
+            ONLY_ACTIVE_ARCH=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGN_IDENTITY="" \
+            DEVELOPMENT_TEAM="" \
+            IPHONEOS_DEPLOYMENT_TARGET=6.0 \
+            2>&1 | tee "$RUNNER_TEMP/build.log" | tail -50
 
-      - name: Sign binary with ldid
+      - name: Check archive
         run: |
-          # Find the compiled binary
-          BIN=$(find theos/Twelvium/.theos/obj -name "UofsTg" -type f | head -1)
-          echo "Binary: $BIN"
-          # Fake-sign with ldid (required for jailbroken iOS 6)
-          ldid -S "$BIN"
-          echo "ldid signing done"
+          if [ ! -d "$RUNNER_TEMP/UofsTg.xcarchive" ]; then
+            echo "=== BUILD FAILED - last 100 lines ==="
+            tail -100 "$RUNNER_TEMP/build.log"
+            exit 1
+          fi
+          echo "Archive contents:"
+          find "$RUNNER_TEMP/UofsTg.xcarchive" -name "*.app" | head -5
+
+      - name: Sign with ldid and package IPA
+        run: |
+          APP_PATH=$(find "$RUNNER_TEMP/UofsTg.xcarchive" \
+            -name "*.app" -not -path "*/Watch/*" | head -1)
+          echo "App: $APP_PATH"
+          APP_NAME=$(basename "$APP_PATH" .app)
+
+          # Fake-sign binary for jailbroken iOS 6
+          BIN="$APP_PATH/$APP_NAME"
+          [ -f "$BIN" ] && ldid -S "$BIN" && echo "ldid signed: $BIN"
+
+          # Build IPA
+          mkdir -p "$RUNNER_TEMP/Payload"
+          cp -r "$APP_PATH" "$RUNNER_TEMP/Payload/"
+          cd "$RUNNER_TEMP"
+          zip -qr UofsTg.ipa Payload
+          echo "IPA: $(du -sh UofsTg.ipa)"
 
       - name: Package .deb
         run: |
-          cd theos/Twelvium
-          make package
-          echo "Packages:"
-          ls -la packages/
+          APP_PATH=$(find "$RUNNER_TEMP/UofsTg.xcarchive" \
+            -name "*.app" -not -path "*/Watch/*" | head -1)
+          APP_NAME=$(basename "$APP_PATH")
+          DEB_DIR="$RUNNER_TEMP/deb_root"
 
-      - name: Package .ipa
-        run: |
-          cd theos/Twelvium
-          APP_DIR=$(find .theos/obj -name "UofsTg.app" -type d | head -1)
-          echo "App dir: $APP_DIR"
-          mkdir -p Payload
-          cp -r "$APP_DIR" Payload/UofsTg.app
-          # Sign the binary inside IPA too
-          ldid -S Payload/UofsTg.app/UofsTg
-          zip -r UofsTg.ipa Payload
-          echo "IPA size: $(du -sh UofsTg.ipa)"
+          mkdir -p "$DEB_DIR/Applications/$APP_NAME"
+          cp -r "$APP_PATH/." "$DEB_DIR/Applications/$APP_NAME/"
+          mkdir -p "$DEB_DIR/DEBIAN"
 
-      - name: Upload Artifacts
+          cat > "$DEB_DIR/DEBIAN/control" <<EOF
+          Package: com.example.uofstg
+          Name: UofsTg
+          Version: 0.91
+          Architecture: iphoneos-arm
+          Description: UofsTg - iOS 6 Telegram client
+          Maintainer: UofsTg
+          Section: Applications
+          Depends: firmware (>= 6.0)
+          EOF
+
+          cat > "$DEB_DIR/DEBIAN/postinst" <<'EOF'
+          #!/bin/sh
+          [ -x /usr/bin/uicache ] && uicache
+          EOF
+          chmod 0755 "$DEB_DIR/DEBIAN/postinst"
+
+          dpkg-deb --root-owner-group -b "$DEB_DIR" "$RUNNER_TEMP/UofsTg.deb"
+          echo "DEB: $(du -sh "$RUNNER_TEMP/UofsTg.deb")"
+
+      - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: UofsTg-packages
+          name: UofsTg-release
           path: |
-            theos/Twelvium/packages/*.deb
-            theos/Twelvium/UofsTg.ipa
+            ${{ runner.temp }}/UofsTg.ipa
+            ${{ runner.temp }}/UofsTg.deb
+
+      - name: Upload build log (on failure)
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-log
+          path: ${{ runner.temp }}/build.log
