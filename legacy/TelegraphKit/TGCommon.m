@@ -530,6 +530,22 @@ NSURL *TGFileURLWithPathRelativeToURL(NSString *path, NSURL *baseURL) {
     return [baseURL URLByAppendingPathComponent:path];
 }
 
+UIColor *TGSelectionColor() {
+    return [UIColor colorWithRed:0.2f green:0.55f blue:1.0f alpha:1.0f];
+}
+
+UIColor *TGAccentColor(void) {
+    return [UIColor colorWithRed:0.2f green:0.55f blue:1.0f alpha:1.0f];
+}
+
+UIColor *TGDestructiveAccentColor(void) {
+    return [UIColor colorWithRed:0.99f green:0.23f blue:0.21f alpha:1.0f];
+}
+
+UIColor *TGSeparatorColor() {
+    return [UIColor colorWithRed:0.78f green:0.78f blue:0.8f alpha:1.0f];
+}
+
 NSArray *TGGetPackedLogs()
 {
     NSMutableArray *resultFiles = [[NSMutableArray alloc] init];
