@@ -22,6 +22,13 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y dpkg build-essential curl llvm
 
+      - name: Install ldid
+        run: |
+          curl -LO https://github.com/ProcursusTeam/ldid/releases/latest/download/ldid_linux_x86_64
+          chmod +x ldid_linux_x86_64
+          sudo mv ldid_linux_x86_64 /usr/local/bin/ldid
+          ldid 2>/dev/null || true
+
       - name: Setup Theos
         run: |
           bash -c "$(curl -fsSL https://raw.githubusercontent.com/theos/theos/master/bin/install-theos)"
@@ -32,14 +39,39 @@ jobs:
           mkdir -p thirdparty/TgVoipWebrtcIOS6/lib
           ./thirdparty/TgVoipWebrtcIOS6/build_core_ios6_universal.sh > build_log.txt 2>&1 || (cat build_log.txt && exit 1)
 
-      - name: Build UofsTg Package
+      - name: Build UofsTg
         run: |
           cp config.h.example config.h
           cd theos/Twelvium
+          make
+
+      - name: Sign binary with ldid
+        run: |
+          # Find the compiled binary
+          BIN=$(find theos/Twelvium/.theos/obj -name "UofsTg" -type f | head -1)
+          echo "Binary: $BIN"
+          # Fake-sign with ldid (required for jailbroken iOS 6)
+          ldid -S "$BIN"
+          echo "ldid signing done"
+
+      - name: Package .deb
+        run: |
+          cd theos/Twelvium
           make package
+          echo "Packages:"
+          ls -la packages/
+
+      - name: Package .ipa
+        run: |
+          cd theos/Twelvium
+          APP_DIR=$(find .theos/obj -name "UofsTg.app" -type d | head -1)
+          echo "App dir: $APP_DIR"
           mkdir -p Payload
-          cp -r .theos/obj/debug/UofsTg.app Payload/ || cp -r .theos/obj/UofsTg.app Payload/
+          cp -r "$APP_DIR" Payload/UofsTg.app
+          # Sign the binary inside IPA too
+          ldid -S Payload/UofsTg.app/UofsTg
           zip -r UofsTg.ipa Payload
+          echo "IPA size: $(du -sh UofsTg.ipa)"
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4

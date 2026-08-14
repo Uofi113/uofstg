@@ -1,0 +1,5 @@
+#!/bin/sh
+# Refresh SpringBoard icon cache so the app appears after install
+if [ -x /usr/bin/uicache ]; then
+    uicache
+fi
