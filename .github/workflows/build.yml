@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: macos-latest
+    runs-on: macos-13
 
     steps:
       - name: Checkout repository
@@ -24,11 +24,10 @@ jobs:
         run: brew install ldid dpkg
 
       # ── Pick exact Xcode version ──────────────────────────────────────────
-      - name: Select Xcode
+      - name: Select Xcode 14.3.1
         run: |
-          # Print all available Xcodes and pick latest stable
-          ls /Applications/ | grep Xcode || true
-          sudo xcode-select -s "$(ls -d /Applications/Xcode*.app | sort -V | tail -1)/Contents/Developer"
+          # macos-13 ships with Xcode 14.3.1 which still supports armv7 (needed for iOS 6)
+          sudo xcode-select -s /Applications/Xcode_14.3.1.app/Contents/Developer
           xcodebuild -version
 
       # ── config.h (API credentials placeholder) ────────────────────────────
@@ -78,11 +77,14 @@ jobs:
             -destination "generic/platform=iOS" \
             -archivePath "$RUNNER_TEMP/UofsTg.xcarchive" \
             ONLY_ACTIVE_ARCH=NO \
+            ARCHS="armv7 armv7s" \
+            VALID_ARCHS="armv7 armv7s" \
             CODE_SIGNING_REQUIRED=NO \
             CODE_SIGNING_ALLOWED=NO \
             CODE_SIGN_IDENTITY="" \
             DEVELOPMENT_TEAM="" \
             SKIP_INSTALL=NO \
+            ALLOW_TARGET_PLATFORM_SPECIALIZATION=YES \
             2>&1 | tee "$RUNNER_TEMP/build.log" | xcpretty --color
 
       # ── ldid fake-sign + package IPA ──────────────────────────────────────
