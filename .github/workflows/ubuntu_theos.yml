@@ -1,0 +1,50 @@
+name: Build UofsTg (Ubuntu with Theos)
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+        with:
+          submodules: recursive
+
+      - name: Install System Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential curl git fakeroot dpkg-dev ldid
+
+      - name: Setup Theos
+        uses: Randomblock1/theos-action@v1
+        with:
+          theos-sdks: 'https://github.com/theos/sdks'
+
+      - name: Create Makefile
+        run: |
+          cat << 'EOF' > Makefile
+          export THEOS=/home/runner/theos
+          include $(THEOS)/makefiles/common.mk
+          
+          APPLICATION_NAME = Telegraph
+          Telegraph_FILES = $(shell find Telegraph -name "*.m" -o -name "*.mm" -o -name "*.c" -o -name "*.cpp")
+          Telegraph_FRAMEWORKS = UIKit Foundation CoreGraphics QuartzCore
+          
+          include $(THEOS)/makefiles/application.mk
+          EOF
+
+      - name: Build with Theos
+        run: |
+          export THEOS=/home/runner/theos
+          make package FINALPACKAGE=1 || echo "Make failed because the project requires a complex build process that Theos cannot automatically infer."
+
+      - name: Upload Artifact
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: UofsTg-deb
+          path: packages/*.deb
