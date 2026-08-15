@@ -2,9 +2,7 @@ name: Build UofsTg IPA + DEB
 
 on:
   push:
-    branches:
-      - main
-      - master
+    branches: [main, master]
   workflow_dispatch:
 
 jobs:
@@ -17,27 +15,63 @@ jobs:
         with:
           submodules: recursive
 
-      - name: Install tools
-        run: |
-          brew install ldid dpkg xcpretty || true
-          gem install xcodeproj || true
+      # ── Ruby gems (xcpretty only via gem, NOT brew) ──────────────────────
+      - name: Install Ruby gems
+        run: gem install xcodeproj xcpretty --no-document
 
+      # ── Homebrew tools ────────────────────────────────────────────────────
+      - name: Install ldid + dpkg
+        run: brew install ldid dpkg
+
+      # ── Pick exact Xcode version ──────────────────────────────────────────
+      - name: Select Xcode 14.3.1
+        run: |
+          sudo xcode-select -s /Applications/Xcode_14.3.1.app/Contents/Developer
+          xcodebuild -version
+
+      # ── config.h (API credentials placeholder) ────────────────────────────
       - name: Setup config.h
         run: cp config.h.example config.h
 
-      - name: Recreate Xcode schemes
-        run: ruby recreate_schemes.rb
-
-      - name: Show available schemes
+      # ── Build TgVoip static lib (required before main build) ──────────────
+      - name: Build TgVoipWebrtcIOS6Core
         run: |
-          xcodebuild -project Telegraph.xcodeproj -list 2>/dev/null || true
-          xcodebuild -workspace Telegram.xcworkspace -list 2>/dev/null || true
+          mkdir -p thirdparty/TgVoipWebrtcIOS6/lib
+          bash thirdparty/TgVoipWebrtcIOS6/build_core_ios6_universal.sh \
+            2>&1 | tee /tmp/tgvoip_build.log | tail -20 || {
+            echo "=== TgVoip build failed ==="
+            cat /tmp/tgvoip_build.log
+            exit 1
+          }
 
+      # ── Create SHARED Xcode scheme (CI only sees shared schemes) ──────────
+      - name: Create shared Xcode scheme
+        run: |
+          mkdir -p Telegraph.xcodeproj/xcshareddata/xcschemes
+          ruby - <<'RUBY'
+          require 'xcodeproj'
+          project = Xcodeproj::Project.open('Telegraph.xcodeproj')
+          main_target = project.targets.find { |t| t.product_type == 'com.apple.product-type.application' && t.name == 'Telegraph' }
+          main_target ||= project.targets.find { |t| t.product_type == 'com.apple.product-type.application' }
+          raise "No app target found! Available: #{project.targets.map(&:name).join(', ')}" unless main_target
+          puts "Using target: #{main_target.name}"
+          scheme = Xcodeproj::XCScheme.new
+          scheme.add_build_target(main_target)
+          scheme.set_launch_target(main_target)
+          scheme.save_as('Telegraph.xcodeproj', 'Telegraph', true)  # true = shared
+          puts "Shared scheme created"
+          RUBY
+
+      - name: List available schemes
+        run: xcodebuild -project Telegraph.xcodeproj -list
+
+      # ── Archive ───────────────────────────────────────────────────────────
       - name: Build archive
         run: |
+          set -o pipefail
           xcodebuild archive \
             -project Telegraph.xcodeproj \
-            -target Telegraph \
+            -scheme "Telegraph" \
             -configuration Release \
             -destination "generic/platform=iOS" \
             -archivePath "$RUNNER_TEMP/UofsTg.xcarchive" \
@@ -46,69 +80,64 @@ jobs:
             CODE_SIGNING_ALLOWED=NO \
             CODE_SIGN_IDENTITY="" \
             DEVELOPMENT_TEAM="" \
-            IPHONEOS_DEPLOYMENT_TARGET=6.0 \
-            2>&1 | tee "$RUNNER_TEMP/build.log" | tail -50
+            SKIP_INSTALL=NO \
+            2>&1 | tee "$RUNNER_TEMP/build.log" | xcpretty --color
 
-      - name: Check archive
-        run: |
-          if [ ! -d "$RUNNER_TEMP/UofsTg.xcarchive" ]; then
-            echo "=== BUILD FAILED - last 100 lines ==="
-            tail -100 "$RUNNER_TEMP/build.log"
-            exit 1
-          fi
-          echo "Archive contents:"
-          find "$RUNNER_TEMP/UofsTg.xcarchive" -name "*.app" | head -5
-
-      - name: Sign with ldid and package IPA
+      # ── ldid fake-sign + package IPA ──────────────────────────────────────
+      - name: Package IPA
         run: |
           APP_PATH=$(find "$RUNNER_TEMP/UofsTg.xcarchive" \
-            -name "*.app" -not -path "*/Watch/*" | head -1)
-          echo "App: $APP_PATH"
-          APP_NAME=$(basename "$APP_PATH" .app)
+            -name "*.app" ! -path "*/Watch/*" ! -path "*/WatchKit*" | head -1)
+          echo "App bundle: $APP_PATH"
 
-          # Fake-sign binary for jailbroken iOS 6
-          BIN="$APP_PATH/$APP_NAME"
-          [ -f "$BIN" ] && ldid -S "$BIN" && echo "ldid signed: $BIN"
+          # Fake-sign all executables (binary + frameworks)
+          find "$APP_PATH" -type f -perm +111 | while read bin; do
+            ldid -S "$bin" 2>/dev/null && echo "  signed: $(basename $bin)" || true
+          done
 
-          # Build IPA
+          # Pack IPA
           mkdir -p "$RUNNER_TEMP/Payload"
           cp -r "$APP_PATH" "$RUNNER_TEMP/Payload/"
           cd "$RUNNER_TEMP"
           zip -qr UofsTg.ipa Payload
-          echo "IPA: $(du -sh UofsTg.ipa)"
+          echo "IPA size: $(du -sh UofsTg.ipa | cut -f1)"
 
-      - name: Package .deb
+      # ── Build .deb ────────────────────────────────────────────────────────
+      - name: Package DEB
         run: |
           APP_PATH=$(find "$RUNNER_TEMP/UofsTg.xcarchive" \
-            -name "*.app" -not -path "*/Watch/*" | head -1)
+            -name "*.app" ! -path "*/Watch/*" ! -path "*/WatchKit*" | head -1)
           APP_NAME=$(basename "$APP_PATH")
-          DEB_DIR="$RUNNER_TEMP/deb_root"
+          DEB="$RUNNER_TEMP/deb_root"
 
-          mkdir -p "$DEB_DIR/Applications/$APP_NAME"
-          cp -r "$APP_PATH/." "$DEB_DIR/Applications/$APP_NAME/"
-          mkdir -p "$DEB_DIR/DEBIAN"
+          mkdir -p "$DEB/Applications/$APP_NAME"
+          cp -r "$APP_PATH/." "$DEB/Applications/$APP_NAME/"
+          mkdir -p "$DEB/DEBIAN"
 
-          cat > "$DEB_DIR/DEBIAN/control" <<EOF
-          Package: com.example.uofstg
-          Name: UofsTg
-          Version: 0.91
-          Architecture: iphoneos-arm
-          Description: UofsTg - iOS 6 Telegram client
-          Maintainer: UofsTg
-          Section: Applications
-          Depends: firmware (>= 6.0)
-          EOF
+          # control (NO leading spaces — heredoc must be flush-left)
+          cat > "$DEB/DEBIAN/control" <<'EOF'
+Package: com.example.uofstg
+Name: UofsTg
+Version: 0.91
+Architecture: iphoneos-arm
+Description: UofsTg - iOS 6 Telegram client
+Maintainer: UofsTg
+Section: Applications
+Depends: firmware (>= 6.0)
+EOF
 
-          cat > "$DEB_DIR/DEBIAN/postinst" <<'EOF'
-          #!/bin/sh
-          [ -x /usr/bin/uicache ] && uicache
-          EOF
-          chmod 0755 "$DEB_DIR/DEBIAN/postinst"
+          # postinst
+          cat > "$DEB/DEBIAN/postinst" <<'EOF'
+#!/bin/sh
+[ -x /usr/bin/uicache ] && uicache
+EOF
+          chmod 0755 "$DEB/DEBIAN/postinst"
 
-          dpkg-deb --root-owner-group -b "$DEB_DIR" "$RUNNER_TEMP/UofsTg.deb"
-          echo "DEB: $(du -sh "$RUNNER_TEMP/UofsTg.deb")"
+          dpkg-deb --root-owner-group -b "$DEB" "$RUNNER_TEMP/UofsTg.deb"
+          echo "DEB size: $(du -sh "$RUNNER_TEMP/UofsTg.deb" | cut -f1)"
 
-      - name: Upload artifacts
+      # ── Upload artifacts ──────────────────────────────────────────────────
+      - name: Upload IPA + DEB
         uses: actions/upload-artifact@v4
         with:
           name: UofsTg-release
@@ -116,8 +145,9 @@ jobs:
             ${{ runner.temp }}/UofsTg.ipa
             ${{ runner.temp }}/UofsTg.deb
 
-      - name: Upload build log (on failure)
-        if: failure()
+      # ── Always upload build log (for debugging) ───────────────────────────
+      - name: Upload build log
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: build-log
