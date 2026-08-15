@@ -20,9 +20,9 @@ jobs:
           sudo apt-get install -y build-essential curl git fakeroot dpkg-dev
 
       - name: Setup Theos
-        uses: Randomblock1/theos-action@v1
-        with:
-          theos-sdks: 'https://github.com/theos/sdks'
+        run: |
+          export THEOS=/home/runner/theos
+          bash -c "$(curl -fsSL https://raw.githubusercontent.com/theos/theos/master/bin/install-theos)"
 
       - name: Create Makefile
         run: |
