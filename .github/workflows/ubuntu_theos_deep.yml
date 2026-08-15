@@ -1,0 +1,58 @@
+name: Ubuntu Theos Deep Build
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+        with:
+          submodules: recursive
+
+      - name: Install System Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential curl git fakeroot dpkg-dev ldid python3
+
+      - name: Setup Theos
+        uses: Randomblock1/theos-action@v1
+        with:
+          theos-sdks: 'https://github.com/theos/sdks'
+
+      - name: Generate Huge Makefile
+        run: |
+          cat << 'EOF' > Makefile
+          export THEOS=/home/runner/theos
+          include $(THEOS)/makefiles/common.mk
+          
+          APPLICATION_NAME = Telegraph
+          
+          # Находим все исходники (исключаем конфликтующие подпапки, чтобы избежать duplicate symbols)
+          Telegraph_FILES = $(shell find Telegraph submodules/MtProtoKit submodules/LegacyComponents submodules/SSignalKit thirdparty -name "*.m" -o -name "*.mm" -o -name "*.c" -o -name "*.cpp" | grep -v "Tests" | grep -v "Watch" | grep -v "Widget" | grep -v "SiriIntents")
+          
+          # Указываем флаги компилятора и пути к заголовкам
+          Telegraph_CFLAGS = -fobjc-arc -I./Telegraph -I./submodules/MtProtoKit -I./submodules/LegacyComponents -I./submodules/SSignalKit -I./thirdparty -D_POSIX_C_SOURCE=200112L -D_GNU_SOURCE
+          Telegraph_CXXFLAGS = -std=c++14 -stdlib=libc++ -I./Telegraph -I./thirdparty -I./thirdparty/TgVoipWebrtcIOS6/tgcalls/tgcalls
+          
+          # Фреймворки iOS
+          Telegraph_FRAMEWORKS = UIKit Foundation CoreGraphics QuartzCore Security CFNetwork CoreTelephony SystemConfiguration AudioToolbox AVFoundation CoreMedia VideoToolbox MessageUI MobileCoreServices OpenGLES CoreText CoreLocation CoreData AddressBook AddressBookUI
+          
+          # C++ библиотеки
+          Telegraph_LDFLAGS = -lc++ -lz -lresolv -lsqlite3
+          
+          include $(THEOS)/makefiles/application.mk
+          EOF
+
+      - name: Build with Theos (Will fail due to missing ibtool/actool)
+        run: |
+          export THEOS=/home/runner/theos
+          export SDKVERSION=6.1
+          export SYSROOT=/home/runner/theos/sdks/iPhoneOS6.1.sdk
+          export TARGET=iphone:clang:6.1:6.1
+          export ARCHS="armv7"
+          
+          echo "Starting massive Theos build on Ubuntu..."
+          make package FINALPACKAGE=1
