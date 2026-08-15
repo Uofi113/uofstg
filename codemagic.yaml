@@ -1,0 +1,97 @@
+workflows:
+  uofstg-ios:
+    name: Build UofsTg IPA + DEB
+    max_build_duration: 90
+    instance_type: mac_mini_m2
+
+    environment:
+      xcode: 14.3.1
+
+    scripts:
+      - name: Install tools
+        script: |
+          gem install xcodeproj xcpretty --no-document
+          brew install ldid dpkg
+
+      - name: Setup config.h
+        script: cp config.h.example config.h
+
+      - name: Build TgVoipWebrtcIOS6Core
+        script: |
+          mkdir -p thirdparty/TgVoipWebrtcIOS6/lib
+          bash thirdparty/TgVoipWebrtcIOS6/build_core_ios6_universal.sh
+
+      - name: Create shared Xcode scheme
+        script: |
+          mkdir -p Telegraph.xcodeproj/xcshareddata/xcschemes
+          ruby - <<'RUBY'
+          require 'xcodeproj'
+          project = Xcodeproj::Project.open('Telegraph.xcodeproj')
+          main_target = project.targets.find { |t| t.product_type == 'com.apple.product-type.application' && t.name == 'Telegraph' }
+          main_target ||= project.targets.find { |t| t.product_type == 'com.apple.product-type.application' }
+          raise "No app target found!" unless main_target
+          puts "Target: #{main_target.name}"
+          scheme = Xcodeproj::XCScheme.new
+          scheme.add_build_target(main_target)
+          scheme.set_launch_target(main_target)
+          scheme.save_as('Telegraph.xcodeproj', 'Telegraph', true)
+          RUBY
+
+      - name: Build app (armv7/armv7s for iOS 6)
+        script: |
+          set -o pipefail
+          BUILD_DIR="$CM_BUILD_DIR/build_output"
+          xcodebuild build \
+            -project Telegraph.xcodeproj \
+            -scheme "Telegraph" \
+            -configuration Release \
+            -sdk iphoneos \
+            ONLY_ACTIVE_ARCH=NO \
+            ARCHS="armv7 armv7s" \
+            VALID_ARCHS="armv7 armv7s" \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGN_IDENTITY="" \
+            DEVELOPMENT_TEAM="" \
+            GCC_TREAT_WARNINGS_AS_ERRORS=NO \
+            SWIFT_TREAT_WARNINGS_AS_ERRORS=NO \
+            CONFIGURATION_BUILD_DIR="$BUILD_DIR" \
+            2>&1 | tee build.log | xcpretty --color
+
+      - name: Package IPA
+        script: |
+          BUILD_DIR="$CM_BUILD_DIR/build_output"
+          APP_PATH=$(find "$BUILD_DIR" -name "*.app" ! -path "*/Watch*" -maxdepth 2 | head -1)
+          echo "App: $APP_PATH"
+          [ -z "$APP_PATH" ] && echo "ERROR: .app not found" && exit 1
+
+          find "$APP_PATH" -type f | while read bin; do
+            file "$bin" 2>/dev/null | grep -q "Mach-O" && ldid -S "$bin" 2>/dev/null || true
+          done
+
+          mkdir -p Payload
+          cp -r "$APP_PATH" Payload/
+          zip -qr UofsTg.ipa Payload
+          echo "IPA: $(du -sh UofsTg.ipa | cut -f1)"
+
+      - name: Package DEB
+        script: |
+          BUILD_DIR="$CM_BUILD_DIR/build_output"
+          APP_PATH=$(find "$BUILD_DIR" -name "*.app" ! -path "*/Watch*" -maxdepth 2 | head -1)
+          APP_NAME=$(basename "$APP_PATH")
+          DEB="$CM_BUILD_DIR/deb_root"
+
+          mkdir -p "$DEB/Applications/$APP_NAME"
+          cp -r "$APP_PATH/." "$DEB/Applications/$APP_NAME/"
+          mkdir -p "$DEB/DEBIAN"
+
+          printf 'Package: com.example.uofstg\nName: UofsTg\nVersion: 0.91\nArchitecture: iphoneos-arm\nDescription: UofsTg - iOS 6 Telegram client\nMaintainer: UofsTg\nSection: Applications\nDepends: firmware (>= 6.0)\n' > "$DEB/DEBIAN/control"
+          printf '#!/bin/sh\n[ -x /usr/bin/uicache ] && uicache\n' > "$DEB/DEBIAN/postinst"
+          chmod 0755 "$DEB/DEBIAN/postinst"
+
+          dpkg-deb --root-owner-group -b "$DEB" "$CM_BUILD_DIR/UofsTg.deb"
+
+    artifacts:
+      - UofsTg.ipa
+      - $CM_BUILD_DIR/UofsTg.deb
+      - build.log
