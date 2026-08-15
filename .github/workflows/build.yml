@@ -114,23 +114,11 @@ jobs:
           cp -r "$APP_PATH/." "$DEB/Applications/$APP_NAME/"
           mkdir -p "$DEB/DEBIAN"
 
-          # control (NO leading spaces — heredoc must be flush-left)
-          cat > "$DEB/DEBIAN/control" <<'EOF'
-Package: com.example.uofstg
-Name: UofsTg
-Version: 0.91
-Architecture: iphoneos-arm
-Description: UofsTg - iOS 6 Telegram client
-Maintainer: UofsTg
-Section: Applications
-Depends: firmware (>= 6.0)
-EOF
+          # control
+          printf 'Package: com.example.uofstg\nName: UofsTg\nVersion: 0.91\nArchitecture: iphoneos-arm\nDescription: UofsTg - iOS 6 Telegram client\nMaintainer: UofsTg\nSection: Applications\nDepends: firmware (>= 6.0)\n' > "$DEB/DEBIAN/control"
 
           # postinst
-          cat > "$DEB/DEBIAN/postinst" <<'EOF'
-#!/bin/sh
-[ -x /usr/bin/uicache ] && uicache
-EOF
+          printf '#!/bin/sh\n[ -x /usr/bin/uicache ] && uicache\n' > "$DEB/DEBIAN/postinst"
           chmod 0755 "$DEB/DEBIAN/postinst"
 
           dpkg-deb --root-owner-group -b "$DEB" "$RUNNER_TEMP/UofsTg.deb"
