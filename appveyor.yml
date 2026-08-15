@@ -1,0 +1,56 @@
+image: macos-monterey
+
+environment:
+  XCODE_VERSION: 14.2
+
+init:
+  - sh -c "sudo xcode-select -s /Applications/Xcode-14.2.app/Contents/Developer"
+  - xcodebuild -version
+
+build_script:
+  - gem install xcodeproj xcpretty --no-document
+  - brew install ldid dpkg
+
+  - cp config.h.example config.h
+
+  - echo "Building TgVoipWebrtcIOS6Core..."
+  - mkdir -p thirdparty/TgVoipWebrtcIOS6/lib
+  - bash thirdparty/TgVoipWebrtcIOS6/build_core_ios6_universal.sh
+
+  - echo "Creating shared scheme..."
+  - mkdir -p Telegraph.xcodeproj/xcshareddata/xcschemes
+  - ruby -e "require 'xcodeproj'; project = Xcodeproj::Project.open('Telegraph.xcodeproj'); main_target = project.targets.find { |t| t.product_type == 'com.apple.product-type.application' && t.name == 'Telegraph' } || project.targets.find { |t| t.product_type == 'com.apple.product-type.application' }; scheme = Xcodeproj::XCScheme.new; scheme.add_build_target(main_target); scheme.set_launch_target(main_target); scheme.save_as('Telegraph.xcodeproj', 'Telegraph', true)"
+
+  - echo "Building Telegraph app..."
+  - export BUILD_DIR="$APPVEYOR_BUILD_FOLDER/build_output"
+  - set -o pipefail
+  - xcodebuild build -project Telegraph.xcodeproj -scheme "Telegraph" -configuration Release -sdk iphoneos ONLY_ACTIVE_ARCH=NO ARCHS="armv7 armv7s" VALID_ARCHS="armv7 armv7s" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO CODE_SIGN_IDENTITY="" DEVELOPMENT_TEAM="" GCC_TREAT_WARNINGS_AS_ERRORS=NO SWIFT_TREAT_WARNINGS_AS_ERRORS=NO CONFIGURATION_BUILD_DIR="$BUILD_DIR" | xcpretty --color
+
+after_build:
+  - export BUILD_DIR="$APPVEYOR_BUILD_FOLDER/build_output"
+  - export APP_PATH=$(find "$BUILD_DIR" -name "*.app" ! -path "*/Watch*" -maxdepth 2 | head -1)
+  
+  - echo "Fake signing..."
+  - find "$APP_PATH" -type f \( -name "*.dylib" -o -perm +111 \) | while read bin; do file "$bin" | grep -q "Mach-O" && ldid -S "$bin" 2>/dev/null || true; done
+  
+  - echo "Packaging IPA..."
+  - mkdir -p Payload
+  - cp -r "$APP_PATH" Payload/
+  - zip -qr UofsTg.ipa Payload
+  
+  - echo "Packaging DEB..."
+  - export APP_NAME=$(basename "$APP_PATH")
+  - export DEB="$APPVEYOR_BUILD_FOLDER/deb_root"
+  - mkdir -p "$DEB/Applications/$APP_NAME"
+  - cp -r "$APP_PATH/." "$DEB/Applications/$APP_NAME/"
+  - mkdir -p "$DEB/DEBIAN"
+  - printf 'Package: com.example.uofstg\nName: UofsTg\nVersion: 0.91\nArchitecture: iphoneos-arm\nDescription: UofsTg - iOS 6 Telegram client\nMaintainer: UofsTg\nSection: Applications\nDepends: firmware (>= 6.0)\n' > "$DEB/DEBIAN/control"
+  - printf '#!/bin/sh\n[ -x /usr/bin/uicache ] && uicache\n' > "$DEB/DEBIAN/postinst"
+  - chmod 0755 "$DEB/DEBIAN/postinst"
+  - dpkg-deb --root-owner-group -b "$DEB" "$APPVEYOR_BUILD_FOLDER/UofsTg.deb"
+
+artifacts:
+  - path: UofsTg.ipa
+    name: UofsTg_IPA
+  - path: UofsTg.deb
+    name: UofsTg_DEB
