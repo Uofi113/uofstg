@@ -2,7 +2,7 @@ workflows:
   uofstg-ios:
     name: Build UofsTg IPA + DEB
     max_build_duration: 90
-    instance_type: mac_mini_m2
+    instance_type: mac_pro
 
     environment:
       xcode: 14.3.1
