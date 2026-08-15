@@ -1,6 +1,6 @@
 <div align="center">
 
-# 📞 UofsTg
+# 📞 UofsTg (WIP)
 **The uncompromising, hyper-skeuomorphic Telegram client for iOS 6.**
 
 [![Platform](https://img.shields.io/badge/Platform-iOS%206.0+-2A2A2A?style=for-the-badge&logo=apple&logoColor=white)](#)
