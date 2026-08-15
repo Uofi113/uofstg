@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: macos-13
+    runs-on: macos-latest
 
     steps:
       - name: Checkout repository
@@ -24,9 +24,11 @@ jobs:
         run: brew install ldid dpkg
 
       # ── Pick exact Xcode version ──────────────────────────────────────────
-      - name: Select Xcode 14.3.1
+      - name: Select Xcode
         run: |
-          sudo xcode-select -s /Applications/Xcode_14.3.1.app/Contents/Developer
+          # Print all available Xcodes and pick latest stable
+          ls /Applications/ | grep Xcode || true
+          sudo xcode-select -s "$(ls -d /Applications/Xcode*.app | sort -V | tail -1)/Contents/Developer"
           xcodebuild -version
 
       # ── config.h (API credentials placeholder) ────────────────────────────
